@@ -1,0 +1,246 @@
+import React from "react";
+import { CardData } from "@/components/aceternity/expandable-card";
+import {
+  NextJsIcon,
+  ReactIcon,
+  JavaScriptIcon,
+  TypeScriptIcon,
+  ReduxIcon,
+  RecoilIcon,
+  JotaiIcon,
+  HtmlIcon,
+  CssIcon,
+  TailwindIcon,
+  BootstrapIcon,
+  SeoIcon,
+  StateIcon,
+  NodeIcon,
+  ExpressIcon,
+  FirebaseIcon,
+  TrpcIcon,
+  ApiIcon,
+  SanityIcon,
+  MongoDbIcon,
+  VsCodeIcon,
+  CursorIcon,
+  PostmanIcon,
+  VercelIcon,
+  NetlifyIcon,
+  JestIcon,
+  GitIcon,
+  GithubIcon,
+} from "@/components/icons/skill-icons";
+
+export const personalInfo = {
+  name: "Prabakaran",
+  title: "Full Stack Developer",
+  email: "prabakaran0208@gmail.com",
+  location: "India",
+  bio: "Results-driven Full Stack Developer with a strong focus on building scalable, user-centric web and mobile applications. Proficient in modern technologies including React.js, Next.js, Node.js, and cloud-based services like Firebase. Demonstrated ability to develop efficient, high-performance solutions in fast-paced, remote and collaborative team environments. Committed to continuous learning and delivering impact through clean, maintainable code.",
+  resumeUrl: "/assets/Prabakaran_Resume.pdf",
+  available: true,
+};
+
+export const socialLinks = {
+  github: "https://github.com/Prabakara-N",
+  linkedin: "https://www.linkedin.com/in/prabakaran0208/",
+  instagram: "https://www.instagram.com/swag__55__/",
+};
+
+export const roles = [
+  "Full Stack Developer",
+  "React Specialist",
+  "Next.js Developer",
+  "Frontend Engineer",
+];
+
+export interface Skill {
+  name: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  category: "frontend" | "backend" | "database" | "tools" | "versionControl";
+}
+
+export const skills: Skill[] = [
+  // Frontend
+  { name: "Next.js", icon: NextJsIcon, category: "frontend" },
+  { name: "React.js", icon: ReactIcon, category: "frontend" },
+  { name: "JavaScript", icon: JavaScriptIcon, category: "frontend" },
+  { name: "TypeScript", icon: TypeScriptIcon, category: "frontend" },
+  { name: "Redux", icon: ReduxIcon, category: "frontend" },
+  { name: "Recoil", icon: RecoilIcon, category: "frontend" },
+  { name: "Jotai", icon: JotaiIcon, category: "frontend" },
+  { name: "HTML", icon: HtmlIcon, category: "frontend" },
+  { name: "CSS", icon: CssIcon, category: "frontend" },
+  { name: "Tailwind CSS", icon: TailwindIcon, category: "frontend" },
+  { name: "Bootstrap", icon: BootstrapIcon, category: "frontend" },
+  { name: "SEO Optimization", icon: SeoIcon, category: "frontend" },
+  { name: "State Management", icon: StateIcon, category: "frontend" },
+
+  // Backend
+  { name: "Node.js", icon: NodeIcon, category: "backend" },
+  { name: "Express.js", icon: ExpressIcon, category: "backend" },
+  { name: "Firebase Admin", icon: FirebaseIcon, category: "backend" },
+  { name: "tRPC", icon: TrpcIcon, category: "backend" },
+  { name: "REST API", icon: ApiIcon, category: "backend" },
+  { name: "Sanity", icon: SanityIcon, category: "backend" },
+
+  // Database
+  { name: "MongoDB", icon: MongoDbIcon, category: "database" },
+  { name: "Firebase", icon: FirebaseIcon, category: "database" },
+
+  // Tools
+  { name: "VS Code", icon: VsCodeIcon, category: "tools" },
+  { name: "Cursor", icon: CursorIcon, category: "tools" },
+  { name: "Postman", icon: PostmanIcon, category: "tools" },
+  { name: "Vercel", icon: VercelIcon, category: "tools" },
+  { name: "Netlify", icon: NetlifyIcon, category: "tools" },
+  { name: "Jest", icon: JestIcon, category: "tools" },
+
+  // Version Control
+  { name: "Git", icon: GitIcon, category: "versionControl" },
+  { name: "GitHub", icon: GithubIcon, category: "versionControl" },
+];
+
+// Helper component for tech tags
+const TechTag = ({ children }: { children: React.ReactNode }) => (
+  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
+    {children}
+  </span>
+);
+
+export const projects: CardData[] = [
+  {
+    id: "1",
+    title: "E-Commerce Platform",
+    description: "Full-stack e-commerce solution with Next.js",
+    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/Prabakara-N",
+    content: (
+      <div className="space-y-4">
+        <p>
+          A complete e-commerce platform built with Next.js, featuring product management,
+          shopping cart, payment integration with Stripe, and order tracking.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <TechTag>Next.js</TechTag>
+          <TechTag>TypeScript</TechTag>
+          <TechTag>MongoDB</TechTag>
+          <TechTag>Stripe</TechTag>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "2",
+    title: "Task Management App",
+    description: "Real-time collaborative task manager",
+    src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/Prabakara-N",
+    content: (
+      <div className="space-y-4">
+        <p>
+          A real-time collaborative task management application with drag-and-drop interface,
+          team collaboration features, and notification system.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <TechTag>React</TechTag>
+          <TechTag>Firebase</TechTag>
+          <TechTag>Redux</TechTag>
+          <TechTag>Tailwind CSS</TechTag>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "3",
+    title: "AI Chat Application",
+    description: "Intelligent chatbot with OpenAI integration",
+    src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/Prabakara-N",
+    content: (
+      <div className="space-y-4">
+        <p>
+          An AI-powered chat application using OpenAI GPT API. Features include conversation
+          history, context awareness, and multiple AI personas.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <TechTag>Next.js</TechTag>
+          <TechTag>OpenAI API</TechTag>
+          <TechTag>Vercel AI</TechTag>
+          <TechTag>Tailwind CSS</TechTag>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "4",
+    title: "Portfolio Website",
+    description: "Personal portfolio with stunning animations",
+    src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/Prabakara-N",
+    content: (
+      <div className="space-y-4">
+        <p>
+          A modern portfolio website featuring 8 stunning themes, smooth animations,
+          and responsive design. Built with Next.js and Aceternity UI.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <TechTag>Next.js</TechTag>
+          <TechTag>Framer Motion</TechTag>
+          <TechTag>Tailwind CSS</TechTag>
+          <TechTag>Aceternity UI</TechTag>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "5",
+    title: "Finance Dashboard",
+    description: "Analytics dashboard for financial data",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/Prabakara-N",
+    content: (
+      <div className="space-y-4">
+        <p>
+          A comprehensive finance dashboard with interactive charts, real-time data
+          visualization, and expense tracking features.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <TechTag>React</TechTag>
+          <TechTag>Chart.js</TechTag>
+          <TechTag>Node.js</TechTag>
+          <TechTag>MongoDB</TechTag>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "6",
+    title: "Social Media App",
+    description: "Modern social platform with real-time features",
+    src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+    ctaText: "View Project",
+    ctaLink: "https://github.com/Prabakara-N",
+    content: (
+      <div className="space-y-4">
+        <p>
+          A feature-rich social media application with posts, likes, comments,
+          real-time notifications, and direct messaging.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <TechTag>Next.js</TechTag>
+          <TechTag>Firebase</TechTag>
+          <TechTag>tRPC</TechTag>
+          <TechTag>Tailwind CSS</TechTag>
+        </div>
+      </div>
+    ),
+  },
+];
+
+export const githubUsername = "Prabakara-N";
