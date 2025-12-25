@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Check, Loader2, X } from "lucide-react";
 
 type ButtonState = "idle" | "loading" | "success" | "error";
 
-interface StatefulButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface StatefulButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
   onClick?: () => Promise<void> | void;
   loadingText?: string;
