@@ -364,17 +364,6 @@ export function ProjectsSection() {
       <AnimatePresence>
         {active && (
           <div className="fixed inset-0 z-60 grid place-items-center p-4">
-            <motion.button
-              key={`button-${active.id}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-card lg:hidden"
-              onClick={() => setActive(null)}
-            >
-              <X className="h-5 w-5" />
-            </motion.button>
             <motion.div
               layoutId={`card-${active.id}-${id}`}
               ref={ref}
@@ -389,10 +378,10 @@ export function ProjectsSection() {
                   alt={active.title}
                   className="h-64 w-full object-cover object-top sm:h-80"
                 />
-                {/* Close button for desktop */}
+                {/* Close button */}
                 <button
                   onClick={() => setActive(null)}
-                  className="absolute right-4 top-4 hidden h-10 w-10 items-center justify-center rounded-full bg-card/80 backdrop-blur-sm transition-colors hover:bg-card lg:flex"
+                  className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 text-foreground backdrop-blur-sm transition-colors hover:bg-card"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -457,7 +446,7 @@ export function ProjectsSection() {
       </AnimatePresence>
 
       {/* Bento Grid */}
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:auto-rows-[20rem] md:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 auto-rows-[16rem] gap-4 md:auto-rows-[20rem] md:grid-cols-3">
         {projects.map((project) => (
           <ProjectCard
             key={project.id}

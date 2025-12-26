@@ -163,7 +163,7 @@ export function Navbar() {
                 }}
                 whileTap={{ scale: 0.9 }}
                 className={cn(
-                  "relative flex flex-col items-center gap-1 rounded-xl px-3 py-2",
+                  "relative flex flex-col items-center justify-center gap-1 rounded-xl w-17 h-14",
                   "transition-all duration-200",
                   isActive
                     ? "text-primary"

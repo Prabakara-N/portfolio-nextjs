@@ -9,7 +9,7 @@ type ButtonState = "idle" | "loading" | "success" | "error";
 
 interface StatefulButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
-  onClick?: () => Promise<void> | void;
+  onClick?: () => Promise<boolean | void> | boolean | void;
   loadingText?: string;
   successText?: string;
   errorText?: string;
@@ -37,7 +37,12 @@ export function StatefulButton({
 
     try {
       if (onClick) {
-        await onClick();
+        const result = await onClick();
+        // If onClick returns false, validation failed - go back to idle
+        if (result === false) {
+          setButtonState("idle");
+          return;
+        }
       }
       setButtonState("success");
 
