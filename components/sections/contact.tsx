@@ -13,14 +13,7 @@ import {
 import { StatefulButton } from "@/components/ui/stateful-button";
 import { personalInfo, socialLinks } from "@/constants/portfolio-data";
 import { cn } from "@/lib/utils";
-import {
-  Mail,
-  MapPin,
-  Send,
-  Github,
-  Linkedin,
-  Instagram,
-} from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Instagram } from "lucide-react";
 
 const contactInfo = [
   {
@@ -43,14 +36,53 @@ const socials = [
   { icon: Instagram, href: socialLinks.instagram, label: "Instagram" },
 ];
 
+type FormErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
+
 export function ContactSection() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleSubmit = async () => {
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    // Name validation
+    if (!formState.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formState.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    // Email validation
+    if (!formState.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Message validation
+    if (!formState.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formState.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (): Promise<boolean> => {
+    if (!validateForm()) {
+      return false; // Validation failed - button stays idle
+    }
+
     const response = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -62,15 +94,25 @@ export function ContactSection() {
     }
 
     setFormState({ name: "", email: "", message: "" });
+    setErrors({});
+    return true;
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    const { name, value } = e.target;
     setFormState((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value,
+      [name]: value,
     }));
+    // Clear error when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: undefined,
+      }));
+    }
   };
 
   return (
@@ -193,15 +235,20 @@ export function ContactSection() {
                 name="name"
                 value={formState.name}
                 onChange={handleChange}
-                required
                 className={cn(
                   "w-full rounded-lg px-4 py-3",
-                  "border border-border bg-background",
+                  "border bg-background",
                   "text-foreground placeholder:text-muted-foreground/50",
-                  "transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  "transition-colors focus:outline-none focus:ring-1",
+                  errors.name
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    : "border-border focus:border-primary focus:ring-primary"
                 )}
                 placeholder="John Doe"
               />
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+              )}
             </div>
 
             {/* Email Input */}
@@ -218,15 +265,20 @@ export function ContactSection() {
                 name="email"
                 value={formState.email}
                 onChange={handleChange}
-                required
                 className={cn(
                   "w-full rounded-lg px-4 py-3",
-                  "border border-border bg-background",
+                  "border bg-background",
                   "text-foreground placeholder:text-muted-foreground/50",
-                  "transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  "transition-colors focus:outline-none focus:ring-1",
+                  errors.email
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    : "border-border focus:border-primary focus:ring-primary"
                 )}
                 placeholder="john@example.com"
               />
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+              )}
             </div>
 
             {/* Message Input */}
@@ -242,16 +294,21 @@ export function ContactSection() {
                 name="message"
                 value={formState.message}
                 onChange={handleChange}
-                required
                 rows={5}
                 className={cn(
                   "w-full resize-none rounded-lg px-4 py-3",
-                  "border border-border bg-background",
+                  "border bg-background",
                   "text-foreground placeholder:text-muted-foreground/50",
-                  "transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  "transition-colors focus:outline-none focus:ring-1",
+                  errors.message
+                    ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                    : "border-border focus:border-primary focus:ring-primary"
                 )}
                 placeholder="Tell me about your project..."
               />
+              {errors.message && (
+                <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+              )}
             </div>
 
             {/* Submit Button with Stateful Animation */}

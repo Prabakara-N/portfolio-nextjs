@@ -17,9 +17,8 @@ export async function POST(request: Request) {
 
     // Send email to you
     const { error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>",
-      to: "prabakaran0208@gmail.com",
-      replyTo: email,
+      from: "Portfolio Dev <no-reply@prabakarandev.in>",
+      to: "prabakaran.m0208@gmail.com",
       subject: `New Contact from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

@@ -27,7 +27,7 @@ export function ThemePreview() {
   }, [isOpen]);
 
   return (
-    <div className="fixed bottom-24 right-4 z-50 md:bottom-6" ref={panelRef}>
+    <div className="fixed bottom-20 right-4 z-50 md:bottom-6" ref={panelRef}>
       {/* Toggle Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}

@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://prabakaran.dev";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://prabakarandev.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -151,9 +151,22 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any" />
-        <link rel="icon" href="/assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/assets/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" />
+        <link
+          rel="icon"
+          href="/assets/favicons/favicon-32x32.png"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          href="/assets/favicons/favicon-16x16.png"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/assets/favicons/apple-touch-icon.png"
+        />
         <link rel="manifest" href="/assets/favicons/site.webmanifest" />
         <script
           type="application/ld+json"
