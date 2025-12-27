@@ -3,6 +3,7 @@
 import { Github, Linkedin, Instagram, Mail, Heart, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import { socialLinks as links, personalInfo } from "@/constants/portfolio-data";
+import Image from "next/image";
 
 const socialLinks = [
   {
@@ -37,6 +38,12 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Brand Section */}
           <div className="space-y-3">
+            <Image
+              src="/assets/favicons/android-chrome-192x192.png"
+              alt="logo"
+              width={35}
+              height={35}
+            />
             <h3 className="text-xl font-bold text-gradient-primary">
               {personalInfo.name}
             </h3>

@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Home, Code2, FolderKanban, Mail } from "lucide-react";
 import { personalInfo } from "@/constants/portfolio-data";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#home", label: "Home", icon: Home },
@@ -119,11 +120,11 @@ export function Navbar() {
         className={cn(
           "fixed left-0 right-0 top-0 z-50 transition-all duration-300 md:hidden",
           isScrolled
-            ? "glass border-b border-border py-3"
+            ? "bg-card border-b border-border py-3"
             : "bg-transparent py-4"
         )}
       >
-        <div className="container mx-auto flex max-w-7xl items-center px-4">
+        <div className="container mx-auto flex max-w-7xl justify-between items-center px-4">
           <motion.a
             href="#home"
             onClick={(e) => {
@@ -136,6 +137,12 @@ export function Navbar() {
           >
             {personalInfo.name}
           </motion.a>
+          <Image
+            src="/assets/favicons/android-chrome-192x192.png"
+            alt="logo"
+            width={20}
+            height={20}
+          />
         </div>
       </motion.div>
 
