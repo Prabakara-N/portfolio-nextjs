@@ -1,17 +1,18 @@
 "use client";
 
 import { motion } from "motion/react";
-import { SectionWrapper, SectionHeader } from "@/components/layout/section-wrapper";
-import { TextRevealCard, TextRevealCardTitle, TextRevealCardDescription } from "@/components/aceternity/text-reveal-card";
+import {
+  SectionWrapper,
+  SectionHeader,
+} from "@/components/layout/section-wrapper";
+import {
+  TextRevealCard,
+  TextRevealCardTitle,
+  TextRevealCardDescription,
+} from "@/components/aceternity/text-reveal-card";
 import { skills, Skill } from "@/constants/portfolio-data";
 import { cn } from "@/lib/utils";
-import {
-  Code2,
-  Server,
-  Wrench,
-  Database,
-  GitBranch,
-} from "lucide-react";
+import { Code2, Server, Wrench, Database, GitBranch } from "lucide-react";
 
 const categoryInfo = {
   frontend: {
@@ -78,8 +79,8 @@ function SkillCategory({ category }: { category: keyof typeof categoryInfo }) {
       className="rounded-xl border border-border bg-card/50 p-6"
     >
       <div className="mb-4 flex items-center gap-3">
-        <div className="rounded-lg bg-primary/10 p-2">
-          <info.icon className="h-5 w-5 text-primary" />
+        <div className="rounded-lg bg-primary/10 p-2.5">
+          <info.icon className="h-5.5 w-5.5 text-primary" />
         </div>
         <div>
           <h3 className="font-semibold text-foreground">{info.title}</h3>
@@ -104,15 +105,13 @@ export function SkillsSection() {
       />
 
       {/* Text Reveal Card */}
-      <div className="mb-12">
+      <div className="mb-12 hidden lg:block">
         <TextRevealCard
           text="Technologies I use"
           revealText="Mastering the craft"
           className="mx-auto max-w-3xl"
         >
-          <TextRevealCardTitle>
-            My Tech Stack
-          </TextRevealCardTitle>
+          <TextRevealCardTitle>My Tech Stack</TextRevealCardTitle>
           <TextRevealCardDescription>
             Hover to reveal my passion for technology
           </TextRevealCardDescription>
@@ -136,7 +135,8 @@ export function SkillsSection() {
         className="mt-12 text-center"
       >
         <p className="text-muted-foreground">
-          Always learning and exploring new technologies to stay at the cutting edge
+          Always learning and exploring new technologies to stay at the cutting
+          edge
         </p>
       </motion.div>
     </SectionWrapper>

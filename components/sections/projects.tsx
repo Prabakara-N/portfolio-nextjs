@@ -38,7 +38,6 @@ const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "MongoDB", "Stripe"],
     liveUrl: "#",
     githubUrl: "https://github.com/Prabakara-N",
-    featured: true,
     content: (
       <div className="space-y-4">
         <p>
@@ -74,6 +73,7 @@ const projects: Project[] = [
     tech: ["React", "Firebase", "Redux", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "https://github.com/Prabakara-N",
+    featured: true,
     content: (
       <div className="space-y-4">
         <p>

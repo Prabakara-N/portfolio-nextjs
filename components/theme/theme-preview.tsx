@@ -70,7 +70,7 @@ export function ThemePreview() {
                   <div
                     className={`relative h-12 w-12 rounded-full border-2 shadow-md ${
                       currentTheme.id === t.id
-                        ? "border-white ring-2 ring-primary ring-offset-2 ring-offset-card"
+                        ? "border-white"
                         : "border-border/50"
                     }`}
                     style={{
