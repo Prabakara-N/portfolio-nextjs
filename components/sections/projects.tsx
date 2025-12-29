@@ -382,11 +382,14 @@ export function ProjectsSection() {
               ref={ref}
               className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-card md:h-fit md:max-h-[90%] md:rounded-3xl md:border md:border-border"
             >
-              <motion.div layoutId={`image-${active.id}-${id}`} className="shrink-0">
+              <motion.div
+                layoutId={`image-${active.id}-${id}`}
+                className="shrink-0"
+              >
                 <img
                   src={active.image}
                   alt={active.title}
-                  className="h-48 w-full object-cover object-top md:h-56 md:rounded-t-3xl"
+                  className="h-56 w-full object-cover object-top md:rounded-t-3xl"
                 />
               </motion.div>
 
