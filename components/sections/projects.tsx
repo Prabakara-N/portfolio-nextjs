@@ -363,36 +363,39 @@ export function ProjectsSection() {
 
       <AnimatePresence>
         {active && (
-          <div className="fixed inset-0 z-60 grid place-items-center p-4">
+          <div className="fixed inset-0 z-60 grid place-items-center">
+            {/* Close button - mobile only, outside card */}
+            <motion.button
+              key={`button-close-${active.id}-${id}`}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.05 } }}
+              className="absolute right-4 top-4 z-70 flex h-8 w-8 items-center justify-center rounded-full bg-card text-foreground md:hidden"
+              onClick={() => setActive(null)}
+            >
+              <X className="h-4 w-4" />
+            </motion.button>
+
             <motion.div
               layoutId={`card-${active.id}-${id}`}
               ref={ref}
-              className="flex h-full max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-border bg-card"
+              className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-card md:h-fit md:max-h-[90%] md:rounded-3xl md:border md:border-border"
             >
-              <motion.div
-                layoutId={`image-${active.id}-${id}`}
-                className="relative"
-              >
+              <motion.div layoutId={`image-${active.id}-${id}`}>
                 <img
                   src={active.image}
                   alt={active.title}
-                  className="h-64 w-full object-cover object-top sm:h-80"
+                  className="h-56 w-full object-cover object-top md:rounded-t-3xl"
                 />
-                {/* Close button */}
-                <button
-                  onClick={() => setActive(null)}
-                  className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 text-foreground backdrop-blur-sm transition-colors hover:bg-card"
-                >
-                  <X className="h-5 w-5" />
-                </button>
               </motion.div>
 
-              <div className="flex flex-1 flex-col overflow-hidden">
+              <div>
                 <div className="flex items-start justify-between gap-4 p-4">
                   <div>
                     <motion.h3
                       layoutId={`title-${active.id}-${id}`}
-                      className="text-xl font-bold text-foreground"
+                      className="font-bold text-foreground"
                     >
                       {active.title}
                     </motion.h3>
@@ -404,16 +407,16 @@ export function ProjectsSection() {
                     </motion.p>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex shrink-0 gap-2">
                     {active.githubUrl && (
-                      <motion.a
+                      <a
                         href={active.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex h-10 w-10 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
                       >
                         <Github className="h-5 w-5" />
-                      </motion.a>
+                      </a>
                     )}
                     {active.liveUrl && (
                       <motion.a
@@ -428,13 +431,14 @@ export function ProjectsSection() {
                     )}
                   </div>
                 </div>
-                <div className="relative flex-1 overflow-auto px-4 pb-4">
+
+                <div className="relative px-4 pt-4">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-sm text-muted-foreground"
+                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-xs text-muted-foreground md:h-fit md:text-sm [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {active.content}
                   </motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Home, Code2, FolderKanban, Mail } from "lucide-react";
@@ -11,26 +11,30 @@ const navLinks = [
   { href: "#home", label: "Home", icon: Home },
   { href: "#skills", label: "Skills", icon: Code2 },
   { href: "#projects", label: "Projects", icon: FolderKanban },
-  // { href: "#github", label: "Github", icon: GithubIcon },
   { href: "#contact", label: "Contact", icon: Mail },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("#home");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const clickedIndexRef = useRef<number | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
+      // Don't update if user clicked a nav item recently
+      if (clickedIndexRef.current !== null) return;
+
       // Detect active section based on scroll position
       const sections = navLinks.map((link) => link.href.substring(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 150) {
-            setActiveSection(`#${section}`);
+            setActiveIndex(i);
             break;
           }
         }
@@ -41,12 +45,33 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = (href: string, index: number) => {
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Lock to clicked index immediately
+    clickedIndexRef.current = index;
+    setActiveIndex(index);
+
+    // Scroll to section
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const navbarHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
-    setActiveSection(href);
+
+    // Re-enable scroll detection after scroll completes
+    timeoutRef.current = setTimeout(() => {
+      clickedIndexRef.current = null;
+    }, 1000);
   };
 
   return (
@@ -69,7 +94,7 @@ export function Navbar() {
             href="#home"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection("#home");
+              scrollToSection("#home", 0);
             }}
             className="text-xl font-bold text-gradient-primary"
             whileHover={{ scale: 1.05 }}
@@ -79,35 +104,43 @@ export function Navbar() {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="flex items-center gap-1">
-            {navLinks.map((link) => (
-              <motion.a
+          <div className="relative flex items-center">
+            {navLinks.map((link, index) => (
+              <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(link.href);
+                  scrollToSection(link.href, index);
                 }}
                 className={cn(
                   "relative px-4 py-2 text-sm font-medium",
-                  "transition-colors hover:text-foreground",
-                  activeSection === link.href
+                  "transition-colors duration-200 hover:text-foreground",
+                  activeIndex === index
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 {link.label}
-                {activeSection === link.href && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </motion.a>
+              </a>
             ))}
+            {/* Animated indicator using transform */}
+            <motion.div
+              className="absolute bottom-0 left-0 h-0.5 bg-primary"
+              initial={false}
+              animate={{
+                x: `${activeIndex * 100}%`,
+                width: `${100 / navLinks.length}%`,
+              }}
+              style={{
+                width: `calc(100% / ${navLinks.length})`,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 30,
+              }}
+            />
           </div>
         </div>
       </motion.nav>
@@ -129,7 +162,7 @@ export function Navbar() {
             href="#home"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection("#home");
+              scrollToSection("#home", 0);
             }}
             className="text-lg font-bold text-gradient-primary"
             whileHover={{ scale: 1.05 }}
@@ -157,39 +190,44 @@ export function Navbar() {
           "safe-area-bottom"
         )}
       >
-        <div className="flex items-center justify-around px-2 py-2">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.href;
+        <div className="relative flex items-center justify-around px-2 py-2">
+          {/* Animated background indicator for mobile */}
+          <motion.div
+            className="absolute top-2 bottom-2 rounded-xl bg-primary/10"
+            initial={false}
+            animate={{
+              left: `calc(${activeIndex * 25}% + 8px)`,
+              width: `calc(25% - 16px)`,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 30,
+            }}
+          />
+
+          {navLinks.map((link, index) => {
+            const isActive = activeIndex === index;
             return (
-              <motion.a
+              <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(link.href);
+                  scrollToSection(link.href, index);
                 }}
-                whileTap={{ scale: 0.9 }}
                 className={cn(
-                  "relative flex flex-col items-center justify-center gap-1 rounded-xl w-17 h-14",
-                  "transition-all duration-200",
+                  "relative z-10 flex flex-col items-center justify-center gap-1 rounded-xl w-17 h-14",
+                  "transition-colors duration-200",
                   isActive
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {/* Active Background */}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeMobileTab"
-                    className="absolute inset-0 rounded-xl bg-primary/10"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-
                 {/* Icon */}
                 <link.icon
                   className={cn(
-                    "relative z-10 h-5 w-5 transition-transform",
+                    "h-5 w-5 transition-transform duration-200",
                     isActive && "scale-110"
                   )}
                 />
@@ -197,7 +235,7 @@ export function Navbar() {
                 {/* Label */}
                 <span
                   className={cn(
-                    "relative z-10 text-[10px] font-medium",
+                    "text-[10px] font-medium transition-all duration-200",
                     isActive && "font-semibold"
                   )}
                 >
@@ -205,14 +243,16 @@ export function Navbar() {
                 </span>
 
                 {/* Active Indicator Dot */}
-                {isActive && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-1 h-1 w-1 rounded-full bg-primary"
-                  />
-                )}
-              </motion.a>
+                <motion.div
+                  className="absolute -top-1 h-1 w-1 rounded-full bg-primary"
+                  initial={false}
+                  animate={{
+                    scale: isActive ? 1 : 0,
+                    opacity: isActive ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.2 }}
+                />
+              </a>
             );
           })}
         </div>
