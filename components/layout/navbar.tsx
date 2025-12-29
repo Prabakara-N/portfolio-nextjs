@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Home, Code2, FolderKanban, Mail } from "lucide-react";
@@ -14,11 +14,56 @@ const navLinks = [
   { href: "#contact", label: "Contact", icon: Mail },
 ];
 
+const INDICATOR_WIDTH = 24; // Fixed width for desktop indicator
+const MOBILE_INDICATOR_SIZE = 60; // Fixed size for mobile indicator (square)
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const clickedIndexRef = useRef<number | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Desktop refs
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const navItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [indicatorLeft, setIndicatorLeft] = useState(0);
+
+  // Mobile refs
+  const mobileNavContainerRef = useRef<HTMLDivElement>(null);
+  const mobileNavItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [mobileIndicatorLeft, setMobileIndicatorLeft] = useState(0);
+
+  // Calculate desktop indicator position
+  const updateIndicatorPosition = useCallback(() => {
+    const container = navContainerRef.current;
+    const activeItem = navItemsRef.current[activeIndex];
+
+    if (container && activeItem) {
+      const containerRect = container.getBoundingClientRect();
+      const itemRect = activeItem.getBoundingClientRect();
+      const itemCenter =
+        itemRect.left - containerRect.left + itemRect.width / 2;
+      setIndicatorLeft(itemCenter - INDICATOR_WIDTH / 2);
+    }
+
+    // Calculate mobile indicator position
+    const mobileContainer = mobileNavContainerRef.current;
+    const mobileActiveItem = mobileNavItemsRef.current[activeIndex];
+
+    if (mobileContainer && mobileActiveItem) {
+      const containerRect = mobileContainer.getBoundingClientRect();
+      const itemRect = mobileActiveItem.getBoundingClientRect();
+      const itemCenter =
+        itemRect.left - containerRect.left + itemRect.width / 2;
+      setMobileIndicatorLeft(itemCenter - MOBILE_INDICATOR_SIZE / 2);
+    }
+  }, [activeIndex]);
+
+  useEffect(() => {
+    updateIndicatorPosition();
+    window.addEventListener("resize", updateIndicatorPosition);
+    return () => window.removeEventListener("resize", updateIndicatorPosition);
+  }, [updateIndicatorPosition]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,10 +149,13 @@ export function Navbar() {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="relative flex items-center">
+          <div ref={navContainerRef} className="relative flex items-center">
             {navLinks.map((link, index) => (
               <a
                 key={link.href}
+                ref={(el) => {
+                  navItemsRef.current[index] = el;
+                }}
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
@@ -124,16 +172,15 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            {/* Animated indicator using transform */}
+            {/* Centered animated indicator */}
             <motion.div
-              className="absolute bottom-0 left-0 h-0.5 bg-primary"
+              className="absolute bottom-0 h-0.5 rounded-full bg-primary"
               initial={false}
               animate={{
-                x: `${activeIndex * 100}%`,
-                width: `${100 / navLinks.length}%`,
+                left: indicatorLeft,
               }}
               style={{
-                width: `calc(100% / ${navLinks.length})`,
+                width: INDICATOR_WIDTH,
               }}
               transition={{
                 type: "spring",
@@ -190,14 +237,20 @@ export function Navbar() {
           "safe-area-bottom"
         )}
       >
-        <div className="relative flex items-center justify-around px-2 py-2">
-          {/* Animated background indicator for mobile */}
+        <div
+          ref={mobileNavContainerRef}
+          className="relative flex items-center justify-around px-2 py-2"
+        >
+          {/* Centered square indicator for mobile */}
           <motion.div
-            className="absolute top-2 bottom-2 rounded-xl bg-primary/10"
+            className="absolute top-1/2 -translate-y-1/2 rounded-xl bg-primary/10"
             initial={false}
             animate={{
-              left: `calc(${activeIndex * 25}% + 8px)`,
-              width: `calc(25% - 16px)`,
+              left: mobileIndicatorLeft,
+            }}
+            style={{
+              width: MOBILE_INDICATOR_SIZE,
+              height: MOBILE_INDICATOR_SIZE,
             }}
             transition={{
               type: "spring",
@@ -211,13 +264,16 @@ export function Navbar() {
             return (
               <a
                 key={link.href}
+                ref={(el) => {
+                  mobileNavItemsRef.current[index] = el;
+                }}
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(link.href, index);
                 }}
                 className={cn(
-                  "relative z-10 flex flex-col items-center justify-center gap-1 rounded-xl w-17 h-14",
+                  "relative z-10 flex flex-col items-center justify-center gap-1 w-14 h-14",
                   "transition-colors duration-200",
                   isActive
                     ? "text-primary"
@@ -241,17 +297,6 @@ export function Navbar() {
                 >
                   {link.label}
                 </span>
-
-                {/* Active Indicator Dot */}
-                <motion.div
-                  className="absolute -top-1 h-1 w-1 rounded-full bg-primary"
-                  initial={false}
-                  animate={{
-                    scale: isActive ? 1 : 0,
-                    opacity: isActive ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.2 }}
-                />
               </a>
             );
           })}

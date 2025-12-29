@@ -240,17 +240,13 @@ function ProjectCard({
   id: string;
   onClick: () => void;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
       layoutId={`card-${project.id}-${id}`}
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "relative row-span-1 cursor-pointer overflow-hidden rounded-xl border border-border bg-card shadow-lg",
-        "hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10",
+        "group relative row-span-1 cursor-pointer overflow-hidden rounded-xl border border-border bg-card shadow-lg",
+        "transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10",
         project.featured && "md:col-span-2"
       )}
     >
@@ -259,61 +255,45 @@ function ProjectCard({
         layoutId={`image-${project.id}-${id}`}
         className="absolute inset-0 overflow-hidden"
       >
-        <motion.img
+        <img
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-cover"
-          animate={{ scale: isHovered ? 1.05 : 1 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-linear-to-t from-card via-card/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
       </motion.div>
 
       {/* Tech Tags - visible by default, hidden on hover */}
-      <motion.div
-        className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5"
-        animate={{
-          y: isHovered ? 20 : 0,
-          opacity: isHovered ? 0 : 1,
-        }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
+      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5 transition-all duration-300 group-hover:translate-y-4 group-hover:opacity-0">
         {project.tech.slice(0, 4).map((tech) => (
           <span
             key={tech}
-            className="rounded-full bg-primary/20 px-2.5 py-1 text-xs font-medium text-primary backdrop-blur-sm"
+            className="rounded-full bg-primary/20 px-2.5 py-1 text-xs font-medium text-primary"
           >
             {tech}
           </span>
         ))}
         {project.tech.length > 4 && (
-          <span className="rounded-full bg-muted/80 px-2.5 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
+          <span className="rounded-full bg-muted/80 px-2.5 py-1 text-xs font-medium text-muted-foreground">
             +{project.tech.length - 4}
           </span>
         )}
-      </motion.div>
+      </div>
 
       {/* Title & Description - hidden by default, visible on hover */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 p-4"
-        animate={{ y: isHovered ? 0 : "100%" }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        <div className="rounded-lg bg-card/95 p-3 backdrop-blur-sm border border-border/50">
+      <div className="absolute bottom-0 left-0 right-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
+        <div className="rounded-lg bg-card/95 p-3 border border-border/50">
           <motion.h3
             layoutId={`title-${project.id}-${id}`}
             className="font-bold text-foreground"
           >
             {project.title}
           </motion.h3>
-          <motion.p
-            layoutId={`description-${project.id}-${id}`}
-            className="mt-1 text-sm text-muted-foreground line-clamp-2"
-          >
+          <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
             {project.description}
-          </motion.p>
+          </p>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -349,14 +329,14 @@ export function ProjectsSection() {
         subtitle="A showcase of my recent work and side projects"
       />
 
-      {/* Expanded Card Overlay */}
+      {/* Expanded Card Overlay - removed backdrop-blur for performance */}
       <AnimatePresence>
         {active && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 h-full w-full bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 h-full w-full bg-black/50"
           />
         )}
       </AnimatePresence>
@@ -367,7 +347,6 @@ export function ProjectsSection() {
             {/* Close button - mobile only, outside card */}
             <motion.button
               key={`button-close-${active.id}-${id}`}
-              layout
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.05 } }}
@@ -382,10 +361,7 @@ export function ProjectsSection() {
               ref={ref}
               className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-card md:h-fit md:max-h-[90%] md:rounded-3xl md:border md:border-border"
             >
-              <motion.div
-                layoutId={`image-${active.id}-${id}`}
-                className="shrink-0"
-              >
+              <motion.div layoutId={`image-${active.id}-${id}`}>
                 <img
                   src={active.image}
                   alt={active.title}
@@ -402,12 +378,9 @@ export function ProjectsSection() {
                     >
                       {active.title}
                     </motion.h3>
-                    <motion.p
-                      layoutId={`description-${active.id}-${id}`}
-                      className="text-muted-foreground"
-                    >
+                    <p className="text-muted-foreground">
                       {active.description}
-                    </motion.p>
+                    </p>
                   </div>
 
                   <div className="flex shrink-0 gap-2">
@@ -422,22 +395,20 @@ export function ProjectsSection() {
                       </a>
                     )}
                     {active.liveUrl && (
-                      <motion.a
-                        layoutId={`button-${active.id}-${id}`}
+                      <a
                         href={active.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90"
                       >
                         <ExternalLink className="h-5 w-5" />
-                      </motion.a>
+                      </a>
                     )}
                   </div>
                 </div>
 
                 <div className="relative flex-1 overflow-auto px-4 pb-6">
                   <motion.div
-                    layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
