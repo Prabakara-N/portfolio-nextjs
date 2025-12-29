@@ -3,7 +3,8 @@ export type ThemeType =
   | "midnight-aurora"
   | "emerald-gold"
   | "ocean-depths"
-  | "cosmic-purple";
+  | "cosmic-purple"
+  | "arctic-frost";
 
 export interface ThemeInfo {
   id: ThemeType;
@@ -39,12 +40,12 @@ export const themes: ThemeInfo[] = [
   },
   {
     id: "emerald-gold",
-    name: "Emerald Gold",
-    description: "Emerald green & gold",
+    name: "Amload Black",
+    description: "True black & bright teal",
     colors: {
-      primary: "#10b981",
-      secondary: "#fbbf24",
-      background: "#0a1210",
+      primary: "#00f5d4",
+      secondary: "#5390d9",
+      background: "#000000",
     },
   },
   {
@@ -65,6 +66,16 @@ export const themes: ThemeInfo[] = [
       primary: "#a855f7",
       secondary: "#ec4899",
       background: "#0f0a15",
+    },
+  },
+  {
+    id: "arctic-frost",
+    name: "Arctic Frost",
+    description: "Glacier blue & soft lavender",
+    colors: {
+      primary: "#88c0d0",
+      secondary: "#b48ead",
+      background: "#2e3440",
     },
   },
 ];

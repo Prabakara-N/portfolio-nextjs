@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { ContactEmailTemplate } from "@/components/email-template";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -20,24 +21,7 @@ export async function POST(request: Request) {
       from: "Portfolio Dev <no-reply@prabakarandev.in>",
       to: "prabakaran.m0208@gmail.com",
       subject: `New Contact from ${name}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #10b981; border-bottom: 2px solid #10b981; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
-          <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 0 0 10px 0;"><strong>Name:</strong> ${name}</p>
-            <p style="margin: 0 0 10px 0;"><strong>Email:</strong> ${email}</p>
-          </div>
-          <div style="background: #fff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
-            <p style="margin: 0 0 10px 0;"><strong>Message:</strong></p>
-            <p style="margin: 0; white-space: pre-wrap;">${message}</p>
-          </div>
-          <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">
-            Sent from your portfolio contact form
-          </p>
-        </div>
-      `,
+      react: ContactEmailTemplate({ name, email, message }),
     });
 
     if (error) {
