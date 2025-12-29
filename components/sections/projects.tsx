@@ -382,16 +382,16 @@ export function ProjectsSection() {
               ref={ref}
               className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-card md:h-fit md:max-h-[90%] md:rounded-3xl md:border md:border-border"
             >
-              <motion.div layoutId={`image-${active.id}-${id}`}>
+              <motion.div layoutId={`image-${active.id}-${id}`} className="shrink-0">
                 <img
                   src={active.image}
                   alt={active.title}
-                  className="h-56 w-full object-cover object-top md:rounded-t-3xl"
+                  className="h-48 w-full object-cover object-top md:h-56 md:rounded-t-3xl"
                 />
               </motion.div>
 
-              <div>
-                <div className="flex items-start justify-between gap-4 p-4">
+              <div className="flex flex-1 flex-col overflow-hidden">
+                <div className="flex shrink-0 items-start justify-between gap-4 p-4">
                   <div>
                     <motion.h3
                       layoutId={`title-${active.id}-${id}`}
@@ -432,13 +432,13 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-                <div className="relative px-4 pt-4">
+                <div className="relative flex-1 overflow-auto px-4 pb-6">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-xs text-muted-foreground md:h-fit md:text-sm [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    className="text-sm text-muted-foreground [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
                     {active.content}
                   </motion.div>
