@@ -5,12 +5,16 @@ import { motion, AnimatePresence } from "motion/react";
 import { useTheme } from "next-themes";
 import { themes } from "./theme-config";
 import { Palette, X, Check } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export function ThemePreview() {
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const currentTheme = themes.find((t) => t.id === theme) || themes[0];
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     if (!isOpen) return;
@@ -27,7 +31,13 @@ export function ThemePreview() {
   }, [isOpen]);
 
   return (
-    <div className="fixed bottom-20 right-4 z-50 md:bottom-6" ref={panelRef}>
+    <div
+      className={cn(
+        "fixed right-4 z-50 md:bottom-6",
+        isHome ? "bottom-20" : "bottom-6"
+      )}
+      ref={panelRef}
+    >
       {/* Toggle Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}

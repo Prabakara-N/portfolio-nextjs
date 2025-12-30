@@ -1,14 +1,19 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useId, useState } from "react";
+import dynamic from "next/dynamic";
+import { motion } from "motion/react";
 import {
   SectionWrapper,
   SectionHeader,
 } from "@/components/layout/section-wrapper";
-import { useOutsideClick } from "@/hooks/use-outside-click";
 import { cn } from "@/lib/utils";
-import { ExternalLink, Github, X } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
+
+const ExpandedProjectModal = dynamic(
+  () => import("@/components/sections/expanded-project-modal"),
+  { ssr: false }
+);
 
 interface Project {
   id: string;
@@ -240,13 +245,16 @@ function ProjectCard({
   id: string;
   onClick: () => void;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       layoutId={`card-${project.id}-${id}`}
       onClick={onClick}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
       className={cn(
-        "group relative row-span-1 cursor-pointer overflow-hidden rounded-xl border border-border bg-card shadow-lg",
-        "transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10",
+        "group relative row-span-1 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-card shadow-lg transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/20",
         project.featured && "md:col-span-2"
       )}
     >
@@ -255,16 +263,25 @@ function ProjectCard({
         layoutId={`image-${project.id}-${id}`}
         className="absolute inset-0 overflow-hidden"
       >
-        <img
+        <motion.img
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover"
+          animate={{ scale: isHovered ? 1.05 : 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-card via-card/60 to-transparent" />
       </motion.div>
 
       {/* Tech Tags - visible by default, hidden on hover */}
-      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5 transition-all duration-300 group-hover:translate-y-4 group-hover:opacity-0">
+      <motion.div
+        className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5"
+        animate={{
+          y: isHovered ? 8 : 0,
+          opacity: isHovered ? 0 : 1,
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
         {project.tech.slice(0, 4).map((tech) => (
           <span
             key={tech}
@@ -278,11 +295,18 @@ function ProjectCard({
             +{project.tech.length - 4}
           </span>
         )}
-      </div>
+      </motion.div>
 
       {/* Title & Description - hidden by default, visible on hover */}
-      <div className="absolute bottom-0 left-0 right-0 translate-y-full p-4 transition-transform duration-300 group-hover:translate-y-0">
-        <div className="rounded-lg bg-card/95 p-3 border border-border/50">
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 p-4"
+        animate={{
+          y: isHovered ? 0 : 20,
+          opacity: isHovered ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <div className="rounded-lg bg-card/95 p-3 border border-border/50 backdrop-blur-sm">
           <motion.h3
             layoutId={`title-${project.id}-${id}`}
             className="font-bold text-foreground"
@@ -293,34 +317,14 @@ function ProjectCard({
             {project.description}
           </p>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
 
 export function ProjectsSection() {
   const [active, setActive] = useState<Project | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
   const id = useId();
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setActive(null);
-      }
-    }
-
-    if (active) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [active]);
-
-  useOutsideClick(ref, () => setActive(null));
 
   return (
     <SectionWrapper id="projects">
@@ -329,99 +333,12 @@ export function ProjectsSection() {
         subtitle="A showcase of my recent work and side projects"
       />
 
-      {/* Expanded Card Overlay - removed backdrop-blur for performance */}
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 h-full w-full bg-black/50"
-          />
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {active && (
-          <div className="fixed inset-0 z-60 grid place-items-center">
-            {/* Close button - mobile only, outside card */}
-            <motion.button
-              key={`button-close-${active.id}-${id}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="absolute right-4 top-4 z-70 flex h-8 w-8 items-center justify-center rounded-full bg-card text-foreground md:hidden"
-              onClick={() => setActive(null)}
-            >
-              <X className="h-4 w-4" />
-            </motion.button>
-
-            <motion.div
-              layoutId={`card-${active.id}-${id}`}
-              ref={ref}
-              className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-card md:h-fit md:max-h-[90%] md:rounded-3xl md:border md:border-border"
-            >
-              <motion.div layoutId={`image-${active.id}-${id}`}>
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  className="h-56 w-full object-cover object-top md:rounded-t-3xl"
-                />
-              </motion.div>
-
-              <div className="flex flex-1 flex-col overflow-hidden">
-                <div className="flex shrink-0 items-start justify-between gap-4 p-4">
-                  <div>
-                    <motion.h3
-                      layoutId={`title-${active.id}-${id}`}
-                      className="font-bold text-foreground"
-                    >
-                      {active.title}
-                    </motion.h3>
-                    <p className="text-muted-foreground">
-                      {active.description}
-                    </p>
-                  </div>
-
-                  <div className="flex shrink-0 gap-2">
-                    {active.githubUrl && (
-                      <a
-                        href={active.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-muted text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-                      >
-                        <Github className="h-5 w-5" />
-                      </a>
-                    )}
-                    {active.liveUrl && (
-                      <a
-                        href={active.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90"
-                      >
-                        <ExternalLink className="h-5 w-5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <div className="relative flex-1 overflow-auto px-4 pb-6">
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="text-sm text-muted-foreground [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                  >
-                    {active.content}
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      {/* Dynamically imported modal */}
+      <ExpandedProjectModal
+        active={active}
+        setActive={setActive}
+        layoutId={id}
+      />
 
       {/* Bento Grid */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 auto-rows-[16rem] gap-4 md:auto-rows-[20rem] md:grid-cols-3">

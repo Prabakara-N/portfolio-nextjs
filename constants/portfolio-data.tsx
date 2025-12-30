@@ -1,5 +1,4 @@
 import React from "react";
-import { CardData } from "@/components/aceternity/expandable-card";
 import {
   NextJsIcon,
   ReactIcon,
@@ -108,7 +107,17 @@ const TechTag = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 
-export const projects: CardData[] = [
+export interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  src: string;
+  ctaText: string;
+  ctaLink: string;
+  content: React.ReactNode;
+}
+
+export const projects: ProjectData[] = [
   {
     id: "1",
     title: "E-Commerce Platform",
