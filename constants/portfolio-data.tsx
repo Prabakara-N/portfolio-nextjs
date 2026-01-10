@@ -253,3 +253,50 @@ export const projects: ProjectData[] = [
 ];
 
 export const githubUsername = "Prabakara-N";
+
+export interface ExperienceProduct {
+  name: string;
+  url: string;
+}
+
+export interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  companyUrl: string;
+  location: string;
+  duration: string;
+  type: string;
+  description: string;
+  products?: ExperienceProduct[];
+  highlights: string[];
+}
+
+export const experiences: Experience[] = [
+  {
+    id: "1",
+    title: "Junior Software Engineer",
+    company: "Darthwares",
+    companyUrl: "https://www.darthwares.com",
+    location: "Coimbatore, India · Remote",
+    duration: "Jul 2023 - Present",
+    type: "Full-time",
+    description:
+      "Driving frontend excellence at Darthwares, specializing in building high-performance web applications with modern tech stack. Passionate about creating seamless user experiences through clean architecture, type-safe APIs, and optimized real-time features.",
+    products: [
+      { name: "LeetCV", url: "https://www.leetcv.com/" },
+      { name: "LeetCampus", url: "https://www.leetcampus.com/" },
+    ],
+    highlights: [
+      "Engineered responsive UIs with Next.js & Tailwind CSS, achieving 40% faster page loads",
+      "Implemented end-to-end type safety using tRPC, eliminating runtime API errors",
+      "Architected real-time features with Firebase including auth, Firestore & cloud functions",
+      "Optimized complex state management using Recoil and Jotai for scalable React apps",
+      "Developed AI-powered modules for resume generation & interactive tutoring, boosting engagement by 35%",
+      "Reduced production downtime by 20% through proactive debugging & performance monitoring",
+      "Built a reusable component library that accelerated feature development by 25%",
+      "Established testing standards with Jest, significantly reducing regression bugs",
+      "Led code reviews and mentored peers in Agile workflows and best practices",
+    ],
+  },
+];

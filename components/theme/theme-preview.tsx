@@ -11,10 +11,16 @@ import { cn } from "@/lib/utils";
 export function ThemePreview() {
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const currentTheme = themes.find((t) => t.id === theme) || themes[0];
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  // Prevent hydration mismatch by only rendering theme-dependent content after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -29,6 +35,22 @@ export function ThemePreview() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
+
+  // Don't render until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <div
+        className={cn(
+          "fixed right-4 z-50 md:bottom-6",
+          isHome ? "bottom-20" : "bottom-6"
+        )}
+      >
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-border bg-card shadow-lg">
+          <Palette className="h-5 w-5 text-muted-foreground" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

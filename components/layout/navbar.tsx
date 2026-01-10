@@ -3,13 +3,14 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { Home, Code2, FolderKanban, Mail } from "lucide-react";
+import { Home, Briefcase, Code2, FolderKanban, Mail } from "lucide-react";
 import { personalInfo } from "@/constants/portfolio-data";
 import Image from "next/image";
 
 const navLinks = [
   { href: "#home", label: "Home", icon: Home },
   { href: "#skills", label: "Skills", icon: Code2 },
+  { href: "#experience", label: "Experience", icon: Briefcase },
   { href: "#projects", label: "Projects", icon: FolderKanban },
   { href: "#contact", label: "Contact", icon: Mail },
 ];
@@ -72,19 +73,34 @@ export function Navbar() {
       // Don't update if user clicked a nav item recently
       if (clickedIndexRef.current !== null) return;
 
-      // Detect active section based on scroll position
+      // If at the very top, always show Home
+      if (window.scrollY < 100) {
+        setActiveIndex(0);
+        return;
+      }
+
+      // Find the current section by checking which section's top has scrolled past
+      // Iterate top to bottom, the last section that passes the threshold wins
       const sections = navLinks.map((link) => link.href.substring(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
+      const offset = 150; // Offset from top of viewport
+
+      let activeIdx = 0;
+      for (let i = 0; i < sections.length; i++) {
         const element = document.getElementById(sections[i]);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveIndex(i);
-            break;
+          // If section top has scrolled past the offset point, mark it as active
+          if (rect.top <= offset) {
+            activeIdx = i;
           }
         }
       }
+
+      setActiveIndex(activeIdx);
     };
+
+    // Run on mount
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
