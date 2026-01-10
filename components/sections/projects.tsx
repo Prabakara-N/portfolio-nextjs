@@ -81,7 +81,7 @@ const projects: Project[] = [
     content: (
       <div className="space-y-4">
         <p>
-          Scalable academic platform serving 1,000+ students with role-based
+          Scalable academic platform serving 2500+ students with role-based
           access. Built AI modules boosting engagement by 35% and automated
           workflows reducing manual tasks by 80%.
         </p>
