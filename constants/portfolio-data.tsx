@@ -33,7 +33,7 @@ import {
 export const personalInfo = {
   name: "Prabakaran",
   title: "Full Stack Developer",
-  email: "prabakaran0208@gmail.com",
+  email: "prabakaran.m0208@gmail.com",
   location: "India",
   bio: "Results-driven Full Stack Developer with a strong focus on building scalable, user-centric web and mobile applications. Proficient in modern technologies including React.js, Next.js, Node.js, and cloud-based services like Firebase. Demonstrated ability to develop efficient, high-performance solutions in fast-paced, remote and collaborative team environments. Committed to continuous learning and delivering impact through clean, maintainable code.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
@@ -120,43 +120,51 @@ export interface ProjectData {
 export const projects: ProjectData[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with Next.js",
-    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-    ctaText: "View Project",
-    ctaLink: "https://github.com/Prabakara-N",
+    title: "LeetCV",
+    description: "AI-powered Resume Builder - Built at Darthwares",
+    src: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+    ctaText: "Visit Site",
+    ctaLink: "https://www.leetcv.com/",
     content: (
       <div className="space-y-4">
         <p>
-          A complete e-commerce platform built with Next.js, featuring product management,
-          shopping cart, payment integration with Stripe, and order tracking.
+          AI-powered resume builder with Leet Link for sharing resumes and
+          portfolios. Revamped UI for 30% better mobile responsiveness, reduced
+          re-renders by 40%, and implemented telemetry dashboards for
+          data-driven decisions.
         </p>
         <div className="flex flex-wrap gap-2">
           <TechTag>Next.js</TechTag>
           <TechTag>TypeScript</TechTag>
-          <TechTag>MongoDB</TechTag>
-          <TechTag>Stripe</TechTag>
+          <TechTag>tRPC</TechTag>
+          <TechTag>Firebase</TechTag>
+          <TechTag>Recoil</TechTag>
+          <TechTag>Jest</TechTag>
         </div>
       </div>
     ),
   },
   {
     id: "2",
-    title: "Task Management App",
-    description: "Real-time collaborative task manager",
-    src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-    ctaText: "View Project",
-    ctaLink: "https://github.com/Prabakara-N",
+    title: "LeetCampus",
+    description: "AI-powered College Academic & Placement Platform - Built at Darthwares",
+    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+    ctaText: "Visit Site",
+    ctaLink: "https://www.leetcampus.com/",
     content: (
       <div className="space-y-4">
         <p>
-          A real-time collaborative task management application with drag-and-drop interface,
-          team collaboration features, and notification system.
+          Scalable academic platform serving 1,000+ students with role-based
+          access. Built AI modules like Leet Tutor and Mock Placement Drive,
+          boosting engagement by 35%. Automated workflows reduced manual tasks
+          by 80%.
         </p>
         <div className="flex flex-wrap gap-2">
-          <TechTag>React</TechTag>
+          <TechTag>Next.js</TechTag>
+          <TechTag>TypeScript</TechTag>
+          <TechTag>tRPC</TechTag>
           <TechTag>Firebase</TechTag>
-          <TechTag>Redux</TechTag>
+          <TechTag>Jotai</TechTag>
           <TechTag>Tailwind CSS</TechTag>
         </div>
       </div>
@@ -172,8 +180,8 @@ export const projects: ProjectData[] = [
     content: (
       <div className="space-y-4">
         <p>
-          An AI-powered chat application using OpenAI GPT API. Features include conversation
-          history, context awareness, and multiple AI personas.
+          An AI-powered chat application using OpenAI GPT API. Features include
+          conversation history, context awareness, and multiple AI personas.
         </p>
         <div className="flex flex-wrap gap-2">
           <TechTag>Next.js</TechTag>
@@ -194,8 +202,9 @@ export const projects: ProjectData[] = [
     content: (
       <div className="space-y-4">
         <p>
-          A modern portfolio website featuring 8 stunning themes, smooth animations,
-          and responsive design. Built with Next.js and Aceternity UI.
+          A modern portfolio website featuring 8 stunning themes, smooth
+          animations, and responsive design. Built with Next.js and Aceternity
+          UI.
         </p>
         <div className="flex flex-wrap gap-2">
           <TechTag>Next.js</TechTag>
@@ -216,8 +225,8 @@ export const projects: ProjectData[] = [
     content: (
       <div className="space-y-4">
         <p>
-          A comprehensive finance dashboard with interactive charts, real-time data
-          visualization, and expense tracking features.
+          A comprehensive finance dashboard with interactive charts, real-time
+          data visualization, and expense tracking features.
         </p>
         <div className="flex flex-wrap gap-2">
           <TechTag>React</TechTag>

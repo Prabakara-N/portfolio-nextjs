@@ -36,68 +36,71 @@ const TechTag = ({ children }: { children: React.ReactNode }) => (
 const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with Next.js",
+    title: "LeetCV",
+    description: "AI-powered Resume Builder - Built at Darthwares",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-    tech: ["Next.js", "TypeScript", "MongoDB", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prabakara-N",
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+    tech: ["Next.js", "TypeScript", "tRPC", "Firebase", "Recoil"],
+    liveUrl: "https://www.leetcv.com/",
     content: (
       <div className="space-y-4">
         <p>
-          A complete e-commerce platform built with Next.js, featuring product
-          management, shopping cart, payment integration with Stripe, and order
-          tracking.
+          AI-powered resume builder with Leet Link for sharing resumes and
+          portfolios. Built features that improved mobile responsiveness by 30%
+          and reduced re-renders by 40%.
         </p>
-        <h4 className="font-semibold text-foreground">Key Features:</h4>
+        <h4 className="font-semibold text-foreground">Key Contributions:</h4>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-          <li>Product catalog with search and filters</li>
-          <li>User authentication and profiles</li>
-          <li>Shopping cart with persistent storage</li>
-          <li>Stripe payment integration</li>
-          <li>Order history and tracking</li>
-          <li>Admin dashboard for inventory management</li>
+          <li>Revamped core UI components for 30% better mobile usability</li>
+          <li>Built Leet Link for resume & portfolio sharing</li>
+          <li>Implemented telemetry and analytics dashboards</li>
+          <li>Refactored legacy code, reducing re-renders by 40%</li>
+          <li>Added Jest tests for stable UI behavior</li>
         </ul>
         <div className="flex flex-wrap gap-2 pt-2">
           <TechTag>Next.js</TechTag>
           <TechTag>TypeScript</TechTag>
-          <TechTag>MongoDB</TechTag>
-          <TechTag>Stripe</TechTag>
-          <TechTag>Tailwind CSS</TechTag>
+          <TechTag>tRPC</TechTag>
+          <TechTag>Firebase</TechTag>
+          <TechTag>Recoil</TechTag>
+          <TechTag>Jest</TechTag>
         </div>
       </div>
     ),
   },
   {
     id: "2",
-    title: "Task Management App",
-    description: "Real-time collaborative task manager",
+    title: "LeetCampus",
+    description:
+      "AI-powered College Academic & Placement Platform - Built at Darthwares",
     image:
-      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-    tech: ["React", "Firebase", "Redux", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prabakara-N",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
+    tech: ["Next.js", "TypeScript", "tRPC", "Firebase", "Jotai"],
+    liveUrl: "https://www.leetcampus.com/",
     featured: true,
     content: (
       <div className="space-y-4">
         <p>
-          A real-time collaborative task management application with
-          drag-and-drop interface, team collaboration features, and notification
-          system.
+          Scalable academic platform serving 1,000+ students with role-based
+          access. Built AI modules boosting engagement by 35% and automated
+          workflows reducing manual tasks by 80%.
         </p>
-        <h4 className="font-semibold text-foreground">Key Features:</h4>
+        <h4 className="font-semibold text-foreground">Key Contributions:</h4>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-          <li>Drag-and-drop task organization</li>
-          <li>Real-time collaboration with team members</li>
-          <li>Push notifications for updates</li>
-          <li>Task comments and attachments</li>
-          <li>Progress tracking and analytics</li>
+          <li>
+            Engineered role-based access for admins, professors & students
+          </li>
+          <li>Built Leet Tutor (AI slide generator) & Mock Placement Drive</li>
+          <li>Automated placement workflows with email & SMS triggers</li>
+          <li>Developed dynamic portfolio & resume builder</li>
+          <li>Optimized frontend architecture for 40% faster page loads</li>
         </ul>
         <div className="flex flex-wrap gap-2 pt-2">
-          <TechTag>React</TechTag>
+          <TechTag>Next.js</TechTag>
+          <TechTag>TypeScript</TechTag>
+          <TechTag>tRPC</TechTag>
           <TechTag>Firebase</TechTag>
-          <TechTag>Redux</TechTag>
+          <TechTag>Jotai</TechTag>
           <TechTag>Tailwind CSS</TechTag>
         </div>
       </div>
@@ -105,33 +108,42 @@ const projects: Project[] = [
   },
   {
     id: "3",
-    title: "AI Chat Application",
-    description: "Intelligent chatbot with OpenAI integration",
+    title: "Ennuviz",
+    description:
+      "Enterprise Digital Transformation Website - Client Project at Darthwares",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-    tech: ["Next.js", "OpenAI API", "Vercel AI", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prabakara-N",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    tech: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS"],
+    liveUrl: "https://www.ennuviz.com/",
     featured: true,
     content: (
       <div className="space-y-4">
         <p>
-          An AI-powered chat application using OpenAI GPT API. Features include
-          conversation history, context awareness, and multiple AI personas.
+          Enterprise website for a digital transformation consulting firm
+          specializing in business process automation and AI solutions. Built
+          with CMS-driven architecture for seamless content management.
         </p>
-        <h4 className="font-semibold text-foreground">Key Features:</h4>
+        <h4 className="font-semibold text-foreground">Key Contributions:</h4>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-          <li>Multiple AI personas with different personalities</li>
-          <li>Conversation history with search</li>
-          <li>Context-aware responses</li>
-          <li>Code syntax highlighting</li>
-          <li>Export conversations as PDF/Markdown</li>
+          <li>
+            Developed responsive, brand-aligned pages with 20% better
+            accessibility
+          </li>
+          <li>
+            Built custom event registration system boosting onboarding by 35%
+          </li>
+          <li>
+            Integrated spreadsheet automation, reducing manual reporting by 90%
+          </li>
+          <li>Optimized SEO practices for enhanced organic visibility</li>
+          <li>Streamlined CMS-driven content workflows with Sanity</li>
         </ul>
         <div className="flex flex-wrap gap-2 pt-2">
           <TechTag>Next.js</TechTag>
-          <TechTag>OpenAI API</TechTag>
-          <TechTag>Vercel AI SDK</TechTag>
+          <TechTag>TypeScript</TechTag>
+          <TechTag>Sanity CMS</TechTag>
           <TechTag>Tailwind CSS</TechTag>
+          <TechTag>SEO</TechTag>
         </div>
       </div>
     ),
@@ -141,10 +153,10 @@ const projects: Project[] = [
     title: "Portfolio Website",
     description: "Modern portfolio with stunning animations",
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
+      "https://images.unsplash.com/photo-1581472723648-909f4851d4ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGRldmVsb3BtZW50fGVufDB8MHwwfHx8MA%3D%3D",
     tech: ["Next.js", "Framer Motion", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prabakara-N",
+    liveUrl: "https://www.prabakarandev.in",
+    githubUrl: "https://github.com/Prabakara-N/portfolio-nextjs",
     content: (
       <div className="space-y-4">
         <p>
@@ -171,65 +183,69 @@ const projects: Project[] = [
   },
   {
     id: "5",
-    title: "Finance Dashboard",
-    description: "Analytics dashboard for financial data",
+    title: "Shoekart",
+    description:
+      "E-commerce store with Firebase Auth - Personal Learning Project",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    tech: ["React", "Chart.js", "Node.js", "MongoDB"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prabakara-N",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+    tech: ["React", "Tailwind CSS", "Firebase"],
+    liveUrl: "https://prabakaran-shoestore-ecommerce.netlify.app/",
+    githubUrl: "https://github.com/Prabakara-N/react-shoe-ecommerce",
     content: (
       <div className="space-y-4">
         <p>
-          A comprehensive finance dashboard with interactive charts, real-time
-          data visualization, and expense tracking features.
+          A fully functional shoe e-commerce website built while learning React.
+          Features complete user authentication, shopping cart, checkout flow,
+          and order history - showcasing core React fundamentals.
         </p>
         <h4 className="font-semibold text-foreground">Key Features:</h4>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-          <li>Interactive charts and graphs</li>
-          <li>Real-time data updates</li>
-          <li>Expense categorization</li>
-          <li>Budget planning tools</li>
-          <li>Export reports as PDF/CSV</li>
+          <li>Firebase Authentication with protected routes</li>
+          <li>Shopping cart with add/remove functionality</li>
+          <li>Checkout flow and order history</li>
+          <li>User profile management</li>
+          <li>Responsive design with cross-browser compatibility</li>
         </ul>
         <div className="flex flex-wrap gap-2 pt-2">
           <TechTag>React</TechTag>
-          <TechTag>Chart.js</TechTag>
-          <TechTag>Node.js</TechTag>
-          <TechTag>MongoDB</TechTag>
+          <TechTag>Tailwind CSS</TechTag>
+          <TechTag>Firebase</TechTag>
+          <TechTag>React Router</TechTag>
         </div>
       </div>
     ),
   },
   {
     id: "6",
-    title: "Social Media App",
-    description: "Modern social platform with real-time features",
+    title: "React Blog",
+    description:
+      "Full-featured blog platform with Firebase - Personal Learning Project",
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-    tech: ["Next.js", "Firebase", "tRPC", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/Prabakara-N",
+      "https://images.unsplash.com/photo-1504691342899-4d92b50853e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJlc3VtZXxlbnwwfDB8MHx8fDA%3D",
+    tech: ["React", "Firebase", "Bootstrap", "SASS"],
+    liveUrl: "https://prabakaran-react-blog.netlify.app/",
+    githubUrl: "https://github.com/Prabakara-N/react-blog-app",
     featured: true,
     content: (
       <div className="space-y-4">
         <p>
-          A feature-rich social media application with posts, likes, comments,
-          real-time notifications, and direct messaging.
+          A complete blog platform built while learning React. Features full
+          CRUD operations for blogs, user authentication, commenting system, and
+          all data persisted in Firebase.
         </p>
         <h4 className="font-semibold text-foreground">Key Features:</h4>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-          <li>User profiles and followers</li>
-          <li>Posts with images and videos</li>
-          <li>Real-time notifications</li>
-          <li>Direct messaging</li>
-          <li>Hashtags and discover feed</li>
+          <li>Firebase Auth, Database & Storage integration</li>
+          <li>Create, edit, and delete blog posts</li>
+          <li>User profiles and commenting system</li>
+          <li>React Carousel for enhanced UX</li>
+          <li>Toast notifications with Toastify</li>
         </ul>
         <div className="flex flex-wrap gap-2 pt-2">
-          <TechTag>Next.js</TechTag>
+          <TechTag>React</TechTag>
           <TechTag>Firebase</TechTag>
-          <TechTag>tRPC</TechTag>
-          <TechTag>Tailwind CSS</TechTag>
+          <TechTag>Bootstrap</TechTag>
+          <TechTag>SASS</TechTag>
         </div>
       </div>
     ),

@@ -3,7 +3,7 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/image";
 import { encode } from "qss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -52,7 +52,18 @@ export const LinkPreview = ({
     src = imageSrc;
   }
 
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile/touch devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || "ontouchstart" in window);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
@@ -65,24 +76,38 @@ export const LinkPreview = ({
     x.set(offsetFromCenter);
   };
 
+  // Handle click for mobile - show preview first
+  const handleClick = (e: React.MouseEvent) => {
+    if (isMobile && !isOpen) {
+      e.preventDefault();
+      setOpen(true);
+    }
+  };
+
   return (
     <HoverCardPrimitive.Root
       openDelay={50}
       closeDelay={100}
+      open={isOpen}
       onOpenChange={(open) => setOpen(open)}
     >
       <HoverCardPrimitive.Trigger
         onMouseMove={handleMouseMove}
+        onClick={handleClick}
         className={cn("text-primary", className)}
         asChild
       >
-        <Link href={url} target="_blank" rel="noopener noreferrer">
+        <Link
+          href={isMobile ? "#" : url}
+          target={isMobile ? undefined : "_blank"}
+          rel="noopener noreferrer"
+        >
           {children}
         </Link>
       </HoverCardPrimitive.Trigger>
 
       <HoverCardPrimitive.Content
-        className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
+        className="[transform-origin:var(--radix-hover-card-content-transform-origin)] z-50"
         side="top"
         align="center"
         sideOffset={10}
@@ -105,6 +130,7 @@ export const LinkPreview = ({
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
                 className="block rounded-xl border-2 border-transparent bg-card p-1 shadow-2xl hover:border-primary/50"
               >
                 <Image
