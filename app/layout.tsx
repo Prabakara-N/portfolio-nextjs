@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Prabakaran",
   },
   description:
-    "Full Stack Developer portfolio featuring React, Next.js & Node.js projects. Explore my work and hire a skilled web developer for your next project.",
+    "Prabakaran's Full Stack Developer portfolio. Expert in Next.js, React, Node.js & Firebase. View projects and hire a skilled developer for your team.",
   keywords: [
     "developer portfolio",
     "software developer portfolio",
@@ -63,16 +63,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Prabakaran - Full Stack Developer",
-    title: "Prabakaran | Full Stack Developer",
+    siteName: "Prabakaran - Full Stack Developer Portfolio",
+    title: "Prabakaran | Full Stack Developer Portfolio",
     description:
-      "Full Stack Developer portfolio featuring React, Next.js & Node.js projects. Explore my work and hire a skilled web developer.",
+      "Prabakaran's Full Stack Developer portfolio. Expert in Next.js, React, Node.js & Firebase. View projects and hire a skilled developer.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prabakaran | Full Stack Developer",
+    title: "Prabakaran | Full Stack Developer Portfolio",
     description:
-      "Full Stack Developer portfolio featuring React, Next.js & Node.js projects. Hire a skilled web developer.",
+      "Prabakaran's portfolio. Expert in Next.js, React, Node.js & Firebase. Hire a skilled Full Stack Developer.",
   },
   robots: {
     index: true,
@@ -144,9 +144,9 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
   url: siteUrl,
-  name: "Prabakaran - Full Stack Developer",
+  name: "Prabakaran - Full Stack Developer Portfolio",
   description:
-    "Full Stack Developer portfolio featuring React, Next.js & Node.js projects.",
+    "Prabakaran's Full Stack Developer portfolio. Expert in Next.js, React, Node.js & Firebase.",
   author: { "@id": `${siteUrl}/#person` },
 };
 
@@ -155,9 +155,9 @@ const profilePageSchema = {
   "@type": "ProfilePage",
   "@id": `${siteUrl}/#profilepage`,
   url: siteUrl,
-  name: "Prabakaran | Full Stack Developer",
+  name: "Prabakaran | Full Stack Developer Portfolio",
   description:
-    "Professional portfolio of Prabakaran, a Full Stack Developer showcasing React, Next.js, and Node.js projects.",
+    "Prabakaran's portfolio showcasing Next.js, React, Node.js and Firebase projects. Hire a skilled Full Stack Developer.",
   mainEntity: { "@id": `${siteUrl}/#person` },
   isPartOf: { "@id": `${siteUrl}/#website` },
 };
