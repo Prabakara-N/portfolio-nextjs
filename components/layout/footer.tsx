@@ -62,15 +62,17 @@ export function Footer() {
               Quick Links
             </h4>
             <nav className="flex flex-col gap-2">
-              {["Home", "Skills", "Projects", "Contact"].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                >
-                  {link}
-                </a>
-              ))}
+              {["Home", "Skills", "Experience", "Projects", "Contact"].map(
+                (link) => (
+                  <a
+                    key={link}
+                    href={`#${link.toLowerCase()}`}
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link}
+                  </a>
+                )
+              )}
             </nav>
           </div>
 

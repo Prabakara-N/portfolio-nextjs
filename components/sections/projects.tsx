@@ -40,7 +40,14 @@ const projects: Project[] = [
     description: "AI-powered Resume Builder - Built at Darthwares",
     image:
       "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
-    tech: ["Next.js", "TypeScript", "tRPC", "Firebase", "Recoil"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "tRPC",
+      "Recoil",
+    ],
     liveUrl: "https://www.leetcv.com/",
     content: (
       <div className="space-y-4">
@@ -60,8 +67,9 @@ const projects: Project[] = [
         <div className="flex flex-wrap gap-2 pt-2">
           <TechTag>Next.js</TechTag>
           <TechTag>TypeScript</TechTag>
-          <TechTag>tRPC</TechTag>
           <TechTag>Firebase</TechTag>
+          <TechTag>Tailwind CSS</TechTag>
+          <TechTag>tRPC</TechTag>
           <TechTag>Recoil</TechTag>
           <TechTag>Jest</TechTag>
         </div>
@@ -75,7 +83,14 @@ const projects: Project[] = [
       "AI-powered College Academic & Placement Platform - Built at Darthwares",
     image:
       "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
-    tech: ["Next.js", "TypeScript", "tRPC", "Firebase", "Jotai"],
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "tRPC",
+      "Jotai",
+    ],
     liveUrl: "https://www.leetcampus.com/",
     featured: true,
     content: (
@@ -98,10 +113,10 @@ const projects: Project[] = [
         <div className="flex flex-wrap gap-2 pt-2">
           <TechTag>Next.js</TechTag>
           <TechTag>TypeScript</TechTag>
-          <TechTag>tRPC</TechTag>
-          <TechTag>Firebase</TechTag>
-          <TechTag>Jotai</TechTag>
           <TechTag>Tailwind CSS</TechTag>
+          <TechTag>Firebase</TechTag>
+          <TechTag>tRPC</TechTag>
+          <TechTag>Jotai</TechTag>
         </div>
       </div>
     ),
@@ -154,19 +169,19 @@ const projects: Project[] = [
     description: "Modern portfolio with stunning animations",
     image:
       "https://images.unsplash.com/photo-1581472723648-909f4851d4ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGRldmVsb3BtZW50fGVufDB8MHwwfHx8MA%3D%3D",
-    tech: ["Next.js", "Framer Motion", "Tailwind CSS"],
+    tech: ["Next.js", "Framer Motion", "Tailwind CSS", "Aceternity UI"],
     liveUrl: "https://www.prabakarandev.in",
     githubUrl: "https://github.com/Prabakara-N/portfolio-nextjs",
     content: (
       <div className="space-y-4">
         <p>
-          A modern portfolio website featuring 5 stunning themes, smooth
+          A modern portfolio website featuring 6 stunning themes, smooth
           animations, and responsive design. Built with Next.js and Aceternity
           UI.
         </p>
         <h4 className="font-semibold text-foreground">Key Features:</h4>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
-          <li>5 beautiful dark theme options</li>
+          <li>6 beautiful dark theme options</li>
           <li>Smooth page transitions and animations</li>
           <li>Bento grid project showcase</li>
           <li>Fully responsive design</li>
@@ -174,6 +189,7 @@ const projects: Project[] = [
         </ul>
         <div className="flex flex-wrap gap-2 pt-2">
           <TechTag>Next.js</TechTag>
+          <TechTag>TypeScript</TechTag>
           <TechTag>Framer Motion</TechTag>
           <TechTag>Tailwind CSS</TechTag>
           <TechTag>Aceternity UI</TechTag>
@@ -188,7 +204,7 @@ const projects: Project[] = [
       "E-commerce store with Firebase Auth - Personal Learning Project",
     image:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
-    tech: ["React", "Tailwind CSS", "Firebase"],
+    tech: ["React", "Tailwind CSS", "Firebase", "React Router"],
     liveUrl: "https://prabakaran-shoestore-ecommerce.netlify.app/",
     githubUrl: "https://github.com/Prabakara-N/react-shoe-ecommerce",
     content: (
@@ -298,7 +314,7 @@ function ProjectCard({
         }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        {project.tech.slice(0, 4).map((tech) => (
+        {project.tech.slice(0, 3).map((tech) => (
           <span
             key={tech}
             className="rounded-full bg-primary/20 px-2.5 py-1 text-xs font-medium text-primary"
@@ -306,9 +322,9 @@ function ProjectCard({
             {tech}
           </span>
         ))}
-        {project.tech.length > 4 && (
+        {project.tech.length > 3 && (
           <span className="rounded-full bg-muted/80 px-2.5 py-1 text-xs font-medium text-muted-foreground">
-            +{project.tech.length - 4}
+            +{project.tech.length - 3}
           </span>
         )}
       </motion.div>

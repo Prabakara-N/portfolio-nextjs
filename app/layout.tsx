@@ -65,21 +65,12 @@ export const metadata: Metadata = {
     title: "Prabakaran | Full Stack Developer",
     description:
       "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase. Building scalable, user-centric web applications.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Prabakaran - Full Stack Developer Portfolio",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Prabakaran | Full Stack Developer",
     description:
       "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -115,7 +106,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Prabakaran",
   url: siteUrl,
-  image: `${siteUrl}/og-image.png`,
+  image: `${siteUrl}/opengraph-image`,
   sameAs: [
     "https://github.com/Prabakara-N",
     "https://www.linkedin.com/in/prabakaran0208/",
