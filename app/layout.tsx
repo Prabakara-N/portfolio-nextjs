@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://prabakarandev.in";
@@ -21,30 +22,31 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://prabakarandev.in";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Prabakaran | Full Stack Developer",
+    default: "Prabakaran | Full Stack Developer Portfolio",
     template: "%s | Prabakaran",
   },
   description:
-    "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase. Building scalable, user-centric web applications with modern technologies. View my portfolio and projects.",
+    "Full Stack Developer portfolio featuring React, Next.js & Node.js projects. Explore my work and hire a skilled web developer for your next project.",
   keywords: [
+    "developer portfolio",
+    "software developer portfolio",
+    "software engineer portfolio",
+    "web developer portfolio",
+    "frontend developer portfolio",
+    "react developer portfolio",
+    "full stack developer portfolio",
+    "best developer portfolio",
     "Prabakaran",
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
     "Frontend Developer",
-    "Backend Developer",
     "Web Developer",
     "JavaScript Developer",
     "TypeScript Developer",
-    "Portfolio",
-    "India",
-    "Remote Developer",
-    "Firebase",
-    "MongoDB",
-    "Tailwind CSS",
-    "REST API",
-    "tRPC",
+    "hire web developer",
+    "freelance developer India",
   ],
   authors: [{ name: "Prabakaran", url: siteUrl }],
   creator: "Prabakaran",
@@ -62,15 +64,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Prabakaran - Full Stack Developer",
-    title: "Prabakaran | Full Stack Developer ",
+    title: "Prabakaran | Full Stack Developer",
     description:
-      "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase. Building scalable, user-centric web applications.",
+      "Full Stack Developer portfolio featuring React, Next.js & Node.js projects. Explore my work and hire a skilled web developer.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prabakaran | Full Stack Developer ",
+    title: "Prabakaran | Full Stack Developer",
     description:
-      "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase.",
+      "Full Stack Developer portfolio featuring React, Next.js & Node.js projects. Hire a skilled web developer.",
   },
   robots: {
     index: true,
@@ -101,9 +103,10 @@ export const viewport: Viewport = {
 };
 
 // JSON-LD Structured Data
-const jsonLd = {
+const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteUrl}/#person`,
   name: "Prabakaran",
   url: siteUrl,
   image: `${siteUrl}/opengraph-image`,
@@ -118,7 +121,7 @@ const jsonLd = {
     name: "Freelance",
   },
   description:
-    "Results-driven Full Stack Developer with expertise in React.js, Next.js, Node.js, and Firebase.",
+    "Full Stack Developer specializing in React, Next.js, Node.js, and Firebase. Building modern web applications.",
   knowsAbout: [
     "React.js",
     "Next.js",
@@ -130,8 +133,36 @@ const jsonLd = {
     "Tailwind CSS",
     "REST API",
     "tRPC",
+    "Web Development",
+    "Frontend Development",
+    "Full Stack Development",
   ],
 };
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Prabakaran - Full Stack Developer",
+  description:
+    "Full Stack Developer portfolio featuring React, Next.js & Node.js projects.",
+  author: { "@id": `${siteUrl}/#person` },
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${siteUrl}/#profilepage`,
+  url: siteUrl,
+  name: "Prabakaran | Full Stack Developer",
+  description:
+    "Professional portfolio of Prabakaran, a Full Stack Developer showcasing React, Next.js, and Node.js projects.",
+  mainEntity: { "@id": `${siteUrl}/#person` },
+  isPartOf: { "@id": `${siteUrl}/#website` },
+};
+
+const jsonLd = [personSchema, websiteSchema, profilePageSchema];
 
 export default function RootLayout({
   children,
