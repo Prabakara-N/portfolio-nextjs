@@ -58,6 +58,7 @@ export function HeroSection() {
             className="mb-4 text-5xl font-bold text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
           >
             <span className="text-gradient-primary">{personalInfo.name}</span>
+            <span className="sr-only"> - Full Stack Developer Portfolio</span>
           </motion.h1>
 
           {/* Dynamic Role */}
@@ -66,6 +67,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             className="mb-6 text-xl text-muted-foreground sm:text-2xl md:text-3xl"
+            aria-hidden="true"
           >
             I&apos;m a <FlipWords words={roles} className="text-primary" />
           </motion.div>

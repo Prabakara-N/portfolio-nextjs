@@ -112,7 +112,7 @@ function ExperienceCard({
             >
               <div className="flex items-center gap-2 mb-3">
                 <Box className="h-4 w-4 text-primary" />
-                <h4 className="font-semibold text-foreground">Products Built</h4>
+                <p className="font-semibold text-foreground">Products Built</p>
               </div>
               <div className="flex flex-wrap gap-3">
                 {experience.products.map((product, idx) => (
@@ -138,7 +138,7 @@ function ExperienceCard({
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Sparkles className="h-4 w-4 text-primary" />
-              <h4 className="font-semibold text-foreground">Key Contributions</h4>
+              <p className="font-semibold text-foreground">Key Contributions</p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
               {experience.highlights.map((highlight, idx) => (

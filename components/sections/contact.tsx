@@ -146,9 +146,9 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h3 className="text-xl font-semibold text-foreground">
-            Contact Information
-          </h3>
+            <p className="text-xl font-semibold text-foreground">
+              Contact Information
+            </p>
 
           {/* Contact Details */}
           <div className="space-y-4">
@@ -217,9 +217,9 @@ export function ContactSection() {
             onSubmit={(e) => e.preventDefault()}
             className="space-y-4 rounded-xl border border-border bg-card p-6"
           >
-            <h3 className="text-xl font-semibold text-foreground">
+            <p className="text-xl font-semibold text-foreground">
               Send a Message
-            </h3>
+            </p>
 
             {/* Name Input */}
             <div>

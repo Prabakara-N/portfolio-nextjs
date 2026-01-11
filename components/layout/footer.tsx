@@ -44,9 +44,9 @@ export function Footer() {
               width={35}
               height={35}
             />
-            <h3 className="text-xl font-bold text-gradient-primary">
+            <p className="text-xl font-bold text-gradient-primary">
               {personalInfo.name}
-            </h3>
+            </p>
             <p className="text-sm text-muted-foreground">
               {personalInfo.title}
             </p>
@@ -58,9 +58,9 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Quick Links
-            </h4>
+            </p>
             <nav className="flex flex-col gap-2">
               {["Home", "Skills", "Experience", "Projects", "Contact"].map(
                 (link) => (
@@ -78,9 +78,9 @@ export function Footer() {
 
           {/* Connect Section */}
           <div className="space-y-3 sm:col-span-2 lg:col-span-1">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+            <p className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Connect
-            </h4>
+            </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((link) => (
                 <motion.a

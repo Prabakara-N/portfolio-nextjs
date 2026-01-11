@@ -56,7 +56,7 @@ const projects: Project[] = [
           portfolios. Built features that improved mobile responsiveness by 30%
           and reduced re-renders by 40%.
         </p>
-        <h4 className="font-semibold text-foreground">Key Contributions:</h4>
+        <p className="font-semibold text-foreground">Key Contributions:</p>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
           <li>Revamped core UI components for 30% better mobile usability</li>
           <li>Built Leet Link for resume & portfolio sharing</li>
@@ -100,7 +100,7 @@ const projects: Project[] = [
           access. Built AI modules boosting engagement by 35% and automated
           workflows reducing manual tasks by 80%.
         </p>
-        <h4 className="font-semibold text-foreground">Key Contributions:</h4>
+        <p className="font-semibold text-foreground">Key Contributions:</p>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
           <li>
             Engineered role-based access for admins, professors & students
@@ -138,7 +138,7 @@ const projects: Project[] = [
           specializing in business process automation and AI solutions. Built
           with CMS-driven architecture for seamless content management.
         </p>
-        <h4 className="font-semibold text-foreground">Key Contributions:</h4>
+        <p className="font-semibold text-foreground">Key Contributions:</p>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
           <li>
             Developed responsive, brand-aligned pages with 20% better
@@ -179,7 +179,7 @@ const projects: Project[] = [
           animations, and responsive design. Built with Next.js and Aceternity
           UI.
         </p>
-        <h4 className="font-semibold text-foreground">Key Features:</h4>
+        <p className="font-semibold text-foreground">Key Features:</p>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
           <li>6 beautiful dark theme options</li>
           <li>Smooth page transitions and animations</li>
@@ -214,7 +214,7 @@ const projects: Project[] = [
           Features complete user authentication, shopping cart, checkout flow,
           and order history - showcasing core React fundamentals.
         </p>
-        <h4 className="font-semibold text-foreground">Key Features:</h4>
+        <p className="font-semibold text-foreground">Key Features:</p>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
           <li>Firebase Authentication with protected routes</li>
           <li>Shopping cart with add/remove functionality</li>
@@ -249,7 +249,7 @@ const projects: Project[] = [
           CRUD operations for blogs, user authentication, commenting system, and
           all data persisted in Firebase.
         </p>
-        <h4 className="font-semibold text-foreground">Key Features:</h4>
+        <p className="font-semibold text-foreground">Key Features:</p>
         <ul className="list-inside list-disc space-y-1 text-muted-foreground">
           <li>Firebase Auth, Database & Storage integration</li>
           <li>Create, edit, and delete blog posts</li>
