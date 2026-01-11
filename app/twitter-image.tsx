@@ -115,17 +115,45 @@ export default async function Image() {
             )}
           </div>
 
-          {/* Website URL */}
-          <p
+          {/* Call to Action */}
+          <div
             style={{
-              fontSize: "20px",
-              color: "#64748b",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
               marginTop: "48px",
-              fontWeight: 400,
+              padding: "12px 24px",
+              background: "linear-gradient(90deg, rgba(139, 92, 246, 0.3) 0%, rgba(6, 182, 212, 0.3) 100%)",
+              border: "1px solid rgba(139, 92, 246, 0.5)",
+              borderRadius: "9999px",
             }}
           >
-            prabakarandev.in
-          </p>
+            <span
+              style={{
+                fontSize: "18px",
+                color: "#e2e8f0",
+                fontWeight: 600,
+              }}
+            >
+              View Portfolio
+            </span>
+            <span
+              style={{
+                fontSize: "16px",
+                color: "#94a3b8",
+              }}
+            >
+              →
+            </span>
+            <span
+              style={{
+                fontSize: "16px",
+                color: "#94a3b8",
+              }}
+            >
+              prabakarandev.in
+            </span>
+          </div>
         </div>
       </div>
     ),

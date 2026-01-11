@@ -62,13 +62,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Prabakaran - Full Stack Developer",
-    title: "Prabakaran | Full Stack Developer",
+    title: "Prabakaran | Full Stack Developer ",
     description:
       "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase. Building scalable, user-centric web applications.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prabakaran | Full Stack Developer",
+    title: "Prabakaran | Full Stack Developer ",
     description:
       "Results-driven Full Stack Developer specializing in React.js, Next.js, Node.js, and Firebase.",
   },
