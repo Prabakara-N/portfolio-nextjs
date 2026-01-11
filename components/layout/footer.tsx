@@ -7,22 +7,22 @@ import Image from "next/image";
 
 const socialLinks = [
   {
-    name: "GitHub",
+    name: "Prabakaran on GitHub",
     href: links.github,
     icon: Github,
   },
   {
-    name: "LinkedIn",
+    name: "Prabakaran on LinkedIn",
     href: links.linkedin,
     icon: Linkedin,
   },
   {
-    name: "Instagram",
+    name: "Prabakaran on Instagram",
     href: links.instagram,
     icon: Instagram,
   },
   {
-    name: "Email",
+    name: "Email Prabakaran",
     href: `mailto:${personalInfo.email}`,
     icon: Mail,
   },

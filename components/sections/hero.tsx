@@ -8,9 +8,9 @@ import { Github, Linkedin, Instagram, Download, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const socialIcons = [
-  { icon: Github, href: socialLinks.github, label: "GitHub" },
-  { icon: Linkedin, href: socialLinks.linkedin, label: "LinkedIn" },
-  { icon: Instagram, href: socialLinks.instagram, label: "Instagram" },
+  { icon: Github, href: socialLinks.github, label: "Visit my GitHub profile" },
+  { icon: Linkedin, href: socialLinks.linkedin, label: "Connect on LinkedIn" },
+  { icon: Instagram, href: socialLinks.instagram, label: "Follow on Instagram" },
 ];
 
 export function HeroSection() {

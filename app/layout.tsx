@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
   preload: false,
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://prabakarandev.in";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.prabakarandev.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   openGraph: {
     type: "website",

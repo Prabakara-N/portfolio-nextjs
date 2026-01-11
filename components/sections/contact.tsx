@@ -31,9 +31,9 @@ const contactInfo = [
 ];
 
 const socials = [
-  { icon: Github, href: socialLinks.github, label: "GitHub" },
-  { icon: Linkedin, href: socialLinks.linkedin, label: "LinkedIn" },
-  { icon: Instagram, href: socialLinks.instagram, label: "Instagram" },
+  { icon: Github, href: socialLinks.github, label: "GitHub profile" },
+  { icon: Linkedin, href: socialLinks.linkedin, label: "LinkedIn profile" },
+  { icon: Instagram, href: socialLinks.instagram, label: "Instagram profile" },
 ];
 
 type FormErrors = {
