@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemePreview } from "@/components/theme/theme-preview";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const gabarito = Gabarito({
   variable: "--font-gabarito",
@@ -44,6 +45,12 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "Node.js Developer",
     "Frontend Developer",
+    "Frontend Engineer",
+    "Backend Developer",
+    "Backend Engineer",
+    "SDE",
+    "Software Engineer",
+    "Software Developer",
     "Web Developer",
     "JavaScript Developer",
     "TypeScript Developer",
@@ -86,11 +93,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    // Add your verification codes here
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
   },
 };
 
@@ -211,10 +213,12 @@ export default function RootLayout({
             "emerald-gold",
             "ocean-depths",
             "cosmic-purple",
+            "arctic-frost",
           ]}
         >
           {children}
           <Analytics />
+          <SpeedInsights />
           <ThemePreview />
         </ThemeProvider>
       </body>

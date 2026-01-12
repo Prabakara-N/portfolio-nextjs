@@ -12,7 +12,7 @@ export function ThemePreview() {
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
-  const currentTheme = themes.find((t) => t.id === theme) || themes[0];
+  const currentTheme = themes.find((t) => t.id === theme);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -29,6 +29,8 @@ export function ThemePreview() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
+
+  if (!currentTheme) return null;
 
   return (
     <div
