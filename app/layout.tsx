@@ -3,6 +3,7 @@ import { Gabarito, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemePreview } from "@/components/theme/theme-preview";
+import { Analytics } from "@vercel/analytics/next";
 
 const gabarito = Gabarito({
   variable: "--font-gabarito",
@@ -17,7 +18,8 @@ const geistMono = Geist_Mono({
   preload: false,
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.prabakarandev.in";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.prabakarandev.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -212,6 +214,7 @@ export default function RootLayout({
           ]}
         >
           {children}
+          <Analytics />
           <ThemePreview />
         </ThemeProvider>
       </body>
