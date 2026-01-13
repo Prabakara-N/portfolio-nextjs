@@ -210,7 +210,7 @@ export default function RootLayout({
           themes={[
             "cyber-neon",
             "midnight-aurora",
-            "emerald-gold",
+            "navy-mirage",
             "ocean-depths",
             "cosmic-purple",
             "arctic-frost",

@@ -1,7 +1,7 @@
 export type ThemeType =
   | "cyber-neon"
   | "midnight-aurora"
-  | "emerald-gold"
+  | "navy-mirage"
   | "ocean-depths"
   | "cosmic-purple"
   | "arctic-frost";
@@ -39,13 +39,13 @@ export const themes: ThemeInfo[] = [
     },
   },
   {
-    id: "emerald-gold",
-    name: "Amload Black",
-    description: "True black & bright teal",
+    id: "navy-mirage",
+    name: "Navy Mirage",
+    description: "Deep navy & steel blue",
     colors: {
-      primary: "#00f5d4",
-      secondary: "#5390d9",
-      background: "#000000",
+      primary: "#3F5E96",
+      secondary: "#141E30",
+      background: "#141E30",
     },
   },
   {

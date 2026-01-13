@@ -47,7 +47,7 @@ export function ThemePreview() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-border shadow-lg"
         style={{
-          backgroundImage: `linear-gradient(135deg, ${currentTheme.colors.primary}, ${currentTheme.colors.secondary})`,
+          backgroundImage: `linear-gradient(135deg, ${currentTheme?.colors.primary}, ${currentTheme?.colors.secondary})`,
         }}
       >
         {isOpen ? (
@@ -65,9 +65,9 @@ export function ThemePreview() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-16 right-0 rounded-2xl border border-border bg-card/95 p-5 shadow-2xl backdrop-blur-md w-56"
+            className="absolute bottom-16 right-0 rounded-2xl border border-border bg-card/95 p-5 shadow-2xl backdrop-blur-md w-64"
           >
-            <div className="grid grid-cols-3 gap-x-6 gap-y-4">
+            <div className="grid grid-cols-3 gap-x-4 gap-y-4">
               {themes.map((t) => (
                 <motion.button
                   key={t.id}
@@ -81,7 +81,7 @@ export function ThemePreview() {
                 >
                   <div
                     className={`relative h-12 w-12 rounded-full border-2 shadow-md ${
-                      currentTheme.id === t.id
+                      currentTheme?.id === t.id
                         ? "border-white"
                         : "border-border/50"
                     }`}
@@ -89,7 +89,7 @@ export function ThemePreview() {
                       backgroundImage: `linear-gradient(135deg, ${t.colors.primary}, ${t.colors.secondary})`,
                     }}
                   >
-                    {currentTheme.id === t.id && (
+                    {currentTheme?.id === t.id && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -101,7 +101,7 @@ export function ThemePreview() {
                   </div>
                   <span
                     className={`text-xs ${
-                      currentTheme.id === t.id
+                      currentTheme?.id === t.id
                         ? "text-primary font-medium"
                         : "text-muted-foreground"
                     }`}
