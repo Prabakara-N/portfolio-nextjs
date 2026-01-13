@@ -78,7 +78,6 @@ export const skills: Skill[] = [
   // Backend
   { name: "Node.js", icon: NodeIcon, category: "backend" },
   { name: "Express.js", icon: ExpressIcon, category: "backend" },
-  { name: "Firebase Admin", icon: FirebaseIcon, category: "backend" },
   { name: "tRPC", icon: TrpcIcon, category: "backend" },
   { name: "REST API", icon: ApiIcon, category: "backend" },
   { name: "Sanity", icon: SanityIcon, category: "backend" },
@@ -147,7 +146,8 @@ export const projects: ProjectData[] = [
   {
     id: "2",
     title: "LeetCampus",
-    description: "AI-powered College Academic & Placement Platform - Built at Darthwares",
+    description:
+      "AI-powered College Academic & Placement Platform - Built at Darthwares",
     src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
     ctaText: "Visit Site",
     ctaLink: "https://www.leetcampus.com/",
