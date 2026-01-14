@@ -99,169 +99,174 @@ export const skills: Skill[] = [
   { name: "GitHub", icon: GithubIcon, category: "versionControl" },
 ];
 
-// Helper component for tech tags
-const TechTag = ({ children }: { children: React.ReactNode }) => (
-  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
-    {children}
-  </span>
-);
-
-export interface ProjectData {
+interface Project {
   id: string;
   title: string;
   description: string;
-  src: string;
-  ctaText: string;
-  ctaLink: string;
-  content: React.ReactNode;
+  image: string;
+  tech: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  featured?: boolean;
+  content: {
+    description: string;
+    keyContributions: string[];
+  };
 }
 
-export const projects: ProjectData[] = [
+export const projects: Project[] = [
   {
     id: "1",
     title: "LeetCV",
     description: "AI-powered Resume Builder - Built at Darthwares",
-    src: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
-    ctaText: "Visit Site",
-    ctaLink: "https://www.leetcv.com/",
-    content: (
-      <div className="space-y-4">
-        <p>
-          AI-powered resume builder with Leet Link for sharing resumes and
-          portfolios. Revamped UI for 30% better mobile responsiveness, reduced
-          re-renders by 40%, and implemented telemetry dashboards for
-          data-driven decisions.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <TechTag>Next.js</TechTag>
-          <TechTag>TypeScript</TechTag>
-          <TechTag>tRPC</TechTag>
-          <TechTag>Firebase</TechTag>
-          <TechTag>Recoil</TechTag>
-          <TechTag>Jest</TechTag>
-        </div>
-      </div>
-    ),
+    image:
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "tRPC",
+      "Recoil",
+      "Jest",
+    ],
+    liveUrl: "https://www.leetcv.com/",
+    content: {
+      description:
+        " AI-powered resume builder with Leet Link for sharing resumes and portfolios. Built features that improved mobile responsiveness by 30% and reduced re-renders by 40%.",
+      keyContributions: [
+        "Revamped core UI components for 30% better mobile usability",
+        "Built Leet Link for resume & portfolio sharing",
+        "Implemented telemetry and analytics dashboards",
+        "Refactored legacy code, reducing re-renders by 40%",
+        "Added Jest tests for stable UI behavior",
+      ],
+    },
   },
   {
     id: "2",
     title: "LeetCampus",
     description:
       "AI-powered College Academic & Placement Platform - Built at Darthwares",
-    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
-    ctaText: "Visit Site",
-    ctaLink: "https://www.leetcampus.com/",
-    content: (
-      <div className="space-y-4">
-        <p>
-          Scalable academic platform serving 1,000+ students with role-based
-          access. Built AI modules like Leet Tutor and Mock Placement Drive,
-          boosting engagement by 35%. Automated workflows reduced manual tasks
-          by 80%.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <TechTag>Next.js</TechTag>
-          <TechTag>TypeScript</TechTag>
-          <TechTag>tRPC</TechTag>
-          <TechTag>Firebase</TechTag>
-          <TechTag>Jotai</TechTag>
-          <TechTag>Tailwind CSS</TechTag>
-        </div>
-      </div>
-    ),
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "tRPC",
+      "Jotai",
+    ],
+    liveUrl: "https://www.leetcampus.com/",
+    featured: true,
+    content: {
+      description:
+        "Scalable academic platform serving 2500+ students with role-based access. Built AI modules boosting engagement by 35% and automated workflows reducing manual tasks by 80%.",
+      keyContributions: [
+        "Engineered role-based access for admins, professors & students",
+        "Built Leet Tutor (AI slide generator) & Mock Placement Drive",
+        "Automated placement workflows with email & SMS triggers",
+        "Developed dynamic portfolio & resume builder",
+        "Optimized frontend architecture for 40% faster page loads",
+      ],
+    },
   },
   {
     id: "3",
-    title: "AI Chat Application",
-    description: "Intelligent chatbot with OpenAI integration",
-    src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-    ctaText: "View Project",
-    ctaLink: "https://github.com/Prabakara-N",
-    content: (
-      <div className="space-y-4">
-        <p>
-          An AI-powered chat application using OpenAI GPT API. Features include
-          conversation history, context awareness, and multiple AI personas.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <TechTag>Next.js</TechTag>
-          <TechTag>OpenAI API</TechTag>
-          <TechTag>Vercel AI</TechTag>
-          <TechTag>Tailwind CSS</TechTag>
-        </div>
-      </div>
-    ),
+    title: "Ennuviz",
+    description:
+      "Enterprise Digital Transformation Website - Client Project at Darthwares",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    tech: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "SE0"],
+    liveUrl: "https://www.ennuviz.com/",
+    featured: true,
+    content: {
+      description:
+        "Enterprise website for a digital transformation consulting firm specializing in business process automation and AI solutions. Built with CMS-driven architecture for seamless content management.",
+      keyContributions: [
+        "Developed responsive, brand-aligned pages with 20% better accessibility",
+        "Built custom event registration system boosting onboarding by 35%",
+        "Integrated spreadsheet automation, reducing manual reporting by 90%",
+        "Optimized SEO practices for enhanced organic visibility",
+        "Streamlined CMS-driven content workflows with Sanity",
+      ],
+    },
   },
   {
     id: "4",
     title: "Portfolio Website",
-    description: "Personal portfolio with stunning animations",
-    src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
-    ctaText: "View Project",
-    ctaLink: "https://github.com/Prabakara-N",
-    content: (
-      <div className="space-y-4">
-        <p>
-          A modern portfolio website featuring 8 stunning themes, smooth
-          animations, and responsive design. Built with Next.js and Aceternity
-          UI.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <TechTag>Next.js</TechTag>
-          <TechTag>Framer Motion</TechTag>
-          <TechTag>Tailwind CSS</TechTag>
-          <TechTag>Aceternity UI</TechTag>
-        </div>
-      </div>
-    ),
+    description: "Modern portfolio with stunning animations",
+    image:
+      "https://images.unsplash.com/photo-1581472723648-909f4851d4ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGRldmVsb3BtZW50fGVufDB8MHwwfHx8MA%3D%3D",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Aceternity UI",
+    ],
+    liveUrl: "https://www.prabakarandev.in",
+    githubUrl: "https://github.com/Prabakara-N/portfolio-nextjs",
+    content: {
+      description:
+        "A modern portfolio website featuring 6 stunning themes, smooth animations, and responsive design. Built with Next.js and Aceternity UI.",
+      keyContributions: [
+        "6 beautiful dark theme options",
+        "Smooth page transitions and animations",
+        "Bento grid project showcase",
+        "Fully responsive design",
+        "SEO optimized",
+      ],
+    },
   },
   {
     id: "5",
-    title: "Finance Dashboard",
-    description: "Analytics dashboard for financial data",
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    ctaText: "View Project",
-    ctaLink: "https://github.com/Prabakara-N",
-    content: (
-      <div className="space-y-4">
-        <p>
-          A comprehensive finance dashboard with interactive charts, real-time
-          data visualization, and expense tracking features.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <TechTag>React</TechTag>
-          <TechTag>Chart.js</TechTag>
-          <TechTag>Node.js</TechTag>
-          <TechTag>MongoDB</TechTag>
-        </div>
-      </div>
-    ),
+    title: "Shoekart",
+    description:
+      "E-commerce store with Firebase Auth - Personal Learning Project",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
+    tech: ["React", "Tailwind CSS", "Firebase", "React Router"],
+    liveUrl: "https://prabakaran-shoestore-ecommerce.netlify.app/",
+    githubUrl: "https://github.com/Prabakara-N/react-shoe-ecommerce",
+    content: {
+      description:
+        "A fully functional shoe e-commerce website built while learning React. Features complete user authentication, shopping cart, checkout flow, and order history - showcasing core React fundamentals.",
+      keyContributions: [
+        "Firebase Authentication with protected routes",
+        "Shopping cart with add/remove functionality",
+        "Checkout flow and order history",
+        "User profile management",
+        "Responsive design with cross-browser compatibility",
+      ],
+    },
   },
   {
     id: "6",
-    title: "Social Media App",
-    description: "Modern social platform with real-time features",
-    src: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-    ctaText: "View Project",
-    ctaLink: "https://github.com/Prabakara-N",
-    content: (
-      <div className="space-y-4">
-        <p>
-          A feature-rich social media application with posts, likes, comments,
-          real-time notifications, and direct messaging.
-        </p>
-        <div className="flex flex-wrap gap-2">
-          <TechTag>Next.js</TechTag>
-          <TechTag>Firebase</TechTag>
-          <TechTag>tRPC</TechTag>
-          <TechTag>Tailwind CSS</TechTag>
-        </div>
-      </div>
-    ),
+    title: "React Blog",
+    description:
+      "Full-featured blog platform with Firebase - Personal Learning Project",
+    image:
+      "https://images.unsplash.com/photo-1504691342899-4d92b50853e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJlc3VtZXxlbnwwfDB8MHx8fDA%3D",
+    tech: ["React", "Firebase", "Bootstrap", "SASS"],
+    liveUrl: "https://prabakaran-react-blog.netlify.app/",
+    githubUrl: "https://github.com/Prabakara-N/react-blog-app",
+    featured: true,
+    content: {
+      description:
+        "A complete blog platform built while learning React. Features full CRUD operations for blogs, user authentication, commenting system, and all data persisted in Firebase.",
+      keyContributions: [
+        "Firebase Auth, Database & Storage integration",
+        "Create, edit, and delete blog posts",
+        "User profiles and commenting system",
+        "React Carousel for enhanced UX",
+        "Toast notifications with Toastify",
+      ],
+    },
   },
 ];
-
-export const githubUsername = "Prabakara-N";
 
 export interface ExperienceProduct {
   name: string;

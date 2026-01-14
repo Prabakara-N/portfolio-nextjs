@@ -88,7 +88,7 @@ export function Highlight({ children, className }: HighlightProps) {
         display: "inline",
       }}
       className={cn(
-        "relative inline-block rounded-lg bg-gradient-to-r from-primary/30 via-secondary/30 to-accent/30 px-1 pb-1",
+        "relative inline-block rounded-lg bg-linear-to-r from-primary/30 via-secondary/30 to-accent/30 px-1 pb-1",
         className
       )}
     >

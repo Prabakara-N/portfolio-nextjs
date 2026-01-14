@@ -42,7 +42,7 @@ function ExperienceCard({
         )}
       >
         {/* Gradient Accent */}
-        <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary via-secondary to-primary/50" />
+        <div className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-primary via-secondary to-primary/50" />
 
         <div className="p-6 pl-8 md:p-8 md:pl-10">
           {/* Header */}
@@ -87,19 +87,21 @@ function ExperienceCard({
 
           {/* Description */}
           <div className="mb-6 leading-relaxed text-muted-foreground">
-            {experience.description.split(experience.company).map((part, idx, arr) => (
-              <span key={idx}>
-                {part}
-                {idx < arr.length - 1 && (
-                  <LinkPreview
-                    url={experience.companyUrl}
-                    className="font-bold text-primary hover:underline"
-                  >
-                    {experience.company}
-                  </LinkPreview>
-                )}
-              </span>
-            ))}
+            {experience.description
+              .split(experience.company)
+              .map((part, idx, arr) => (
+                <span key={idx}>
+                  {part}
+                  {idx < arr.length - 1 && (
+                    <LinkPreview
+                      url={experience.companyUrl}
+                      className="font-bold text-primary hover:underline"
+                    >
+                      {experience.company}
+                    </LinkPreview>
+                  )}
+                </span>
+              ))}
           </div>
 
           {/* Products */}
@@ -153,7 +155,7 @@ function ExperienceCard({
                     "bg-muted/30 transition-colors hover:bg-muted/50"
                   )}
                 >
-                  <ArrowUpRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                  <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span className="text-sm leading-relaxed text-muted-foreground">
                     {highlight}
                   </span>

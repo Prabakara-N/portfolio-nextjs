@@ -19,6 +19,16 @@ export interface ThemeInfo {
 
 export const themes: ThemeInfo[] = [
   {
+    id: "ocean-depths",
+    name: "Ocean Depths",
+    description: "Deep blue & teal waves",
+    colors: {
+      primary: "#0ea5e9",
+      secondary: "#14b8a6",
+      background: "#0a1520",
+    },
+  },
+  {
     id: "cyber-neon",
     name: "Cyber Neon",
     description: "Cyan & magenta neon vibes",
@@ -26,16 +36,6 @@ export const themes: ThemeInfo[] = [
       primary: "#00d4ff",
       secondary: "#ff00ff",
       background: "#0f0f1a",
-    },
-  },
-  {
-    id: "midnight-aurora",
-    name: "Midnight Aurora",
-    description: "Green & purple aurora lights",
-    colors: {
-      primary: "#00ff88",
-      secondary: "#8b5cf6",
-      background: "#0a0f0d",
     },
   },
   {
@@ -49,13 +49,13 @@ export const themes: ThemeInfo[] = [
     },
   },
   {
-    id: "ocean-depths",
-    name: "Ocean Depths",
-    description: "Deep blue & teal waves",
+    id: "midnight-aurora",
+    name: "Midnight Aurora",
+    description: "Green & purple aurora lights",
     colors: {
-      primary: "#0ea5e9",
-      secondary: "#14b8a6",
-      background: "#0a1520",
+      primary: "#00ff88",
+      secondary: "#8b5cf6",
+      background: "#0a0f0d",
     },
   },
   {

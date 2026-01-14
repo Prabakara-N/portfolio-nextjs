@@ -176,7 +176,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href="/assets/favicons/favicon-32x32.png"
+          sizes="any"
+        />
         <link
           rel="icon"
           href="/assets/favicons/favicon-32x32.png"
@@ -204,14 +208,14 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="cyber-neon"
+          defaultTheme="ocean-depths"
           enableSystem={false}
           storageKey="portfolio-theme"
           themes={[
-            "cyber-neon",
-            "midnight-aurora",
-            "navy-mirage",
             "ocean-depths",
+            "cyber-neon",
+            "navy-mirage",
+            "midnight-aurora",
             "cosmic-purple",
             "arctic-frost",
           ]}
