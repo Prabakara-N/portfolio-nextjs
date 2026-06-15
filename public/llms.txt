@@ -1,0 +1,45 @@
+# Prabakaran — Full Stack Software Engineer
+
+> Full Stack Software Engineer with 2+ years of experience building and shipping
+> production web applications end-to-end with Next.js, React, TypeScript, Node.js
+> and tRPC / oRPC. Founder and sole engineer of CrayonSparks, a live AI SaaS.
+> Based in India · Available for new opportunities.
+
+## About
+
+Prabakaran M is a Full Stack Software Engineer specializing in type-safe,
+AI-powered web applications. At Darthwares (July 2023–present) he builds
+type-safe APIs, role-based access control (RBAC) and AI features serving
+2,500+ users across enterprise and ed-tech products. He independently designed,
+built and deployed CrayonSparks — an AI book SaaS with a multi-provider AI
+pipeline (OpenAI + Google Gemini), subscription billing and cloud storage.
+
+- Name: Prabakaran M
+- Role: Full Stack Software Engineer
+- Experience: 2+ years
+- Location: India (Tiruppur / Coimbatore)
+- Email: prabakaran.m0208@gmail.com
+- Status: Open to full-time roles
+
+## Skills
+
+- Languages: TypeScript, JavaScript (ES6+), HTML5, CSS3, SQL (basics)
+- Frontend: Next.js, React.js, Redux, Recoil, Jotai, Tailwind CSS, SEO
+- Backend & APIs: Node.js, Express.js, tRPC, oRPC, REST APIs, Server Actions, Firebase Admin, Webhooks, Sanity CMS
+- AI & Integrations: OpenAI, Google Gemini, Vercel AI SDK, LemonSqueezy (billing)
+- Cloud & Storage: Vercel, Netlify, Cloudflare R2, AWS S3, Cloudinary
+- Databases: MongoDB, Firebase / Firestore
+- Testing & Tooling: Jest, Playwright, Postman, Sentry, Git, GitHub
+
+## Projects
+
+- [CrayonSparks](https://www.crayonsparks.com/): AI book SaaS (Founder & sole engineer). Turns prompts into print-ready story, coloring and activity books. Next.js 16, React 19, oRPC, Firebase, OpenAI + Gemini, LemonSqueezy, Cloudflare R2.
+- [LeetCampus](https://www.leetcampus.com/): AI-powered college academic & placement platform serving 2,500+ students. Next.js, TypeScript, Firebase, tRPC, Jotai.
+- [LeetCV](https://www.leetcv.com/): AI-powered resume builder with shareable Leet Link. Next.js, TypeScript, Firebase, tRPC, Recoil.
+- [Ennuviz](https://www.ennuviz.com/): Enterprise digital-transformation website. Next.js, TypeScript, Sanity CMS, Tailwind CSS.
+
+## Links
+
+- Portfolio: https://www.prabakarandev.in/
+- GitHub: https://github.com/Prabakara-N
+- LinkedIn: https://www.linkedin.com/in/prabakaran0208/

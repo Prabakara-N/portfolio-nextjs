@@ -122,24 +122,37 @@ const personSchema = {
     "https://www.linkedin.com/in/prabakaran0208/",
     "https://www.instagram.com/vibe_coder_28/",
   ],
-  jobTitle: "Full Stack Developer",
+  jobTitle: "Full Stack Software Engineer",
   worksFor: {
     "@type": "Organization",
-    name: "Freelance",
+    name: "Darthwares",
+    url: "https://www.darthwares.com",
   },
   description:
-    "Full Stack Developer specializing in React, Next.js, Node.js, and Firebase. Building modern web applications.",
+    "Full Stack Software Engineer with 2+ years of experience building production web apps with Next.js, React, TypeScript and tRPC/oRPC. Founder & sole engineer of CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI, Gemini), subscription billing and cloud storage.",
   knowsAbout: [
-    "React.js",
     "Next.js",
-    "Node.js",
+    "React.js",
     "TypeScript",
     "JavaScript",
-    "MongoDB",
-    "Firebase",
-    "Tailwind CSS",
-    "REST API",
+    "Node.js",
     "tRPC",
+    "oRPC",
+    "REST API",
+    "Server Actions",
+    "Firebase",
+    "Firestore",
+    "MongoDB",
+    "Tailwind CSS",
+    "OpenAI",
+    "Google Gemini",
+    "Vercel AI SDK",
+    "AI Integration",
+    "AI SaaS Development",
+    "LemonSqueezy",
+    "Cloudflare R2",
+    "AWS S3",
+    "Playwright",
     "Web Development",
     "Frontend Development",
     "Full Stack Development",
@@ -153,7 +166,7 @@ const websiteSchema = {
   url: siteUrl,
   name: "Prabakaran - Full Stack Developer Portfolio",
   description:
-    "Prabakaran's Full Stack Developer portfolio. Expert in Next.js, React, Node.js & Firebase.",
+    "Prabakaran's Full Stack Developer portfolio. Building production web apps with Next.js, React, TypeScript, tRPC/oRPC and AI integration (OpenAI, Gemini). Founder of CrayonSparks AI SaaS.",
   author: { "@id": `${siteUrl}/#person` },
 };
 
@@ -164,12 +177,52 @@ const profilePageSchema = {
   url: siteUrl,
   name: "Prabakaran | Full Stack Developer Portfolio",
   description:
-    "Prabakaran's portfolio showcasing Next.js, React, Node.js and Firebase projects. Hire a skilled Full Stack Developer.",
+    "Prabakaran's portfolio showcasing Next.js, React, TypeScript, tRPC/oRPC and AI-powered projects including CrayonSparks, LeetCampus and LeetCV. Hire a skilled Full Stack Engineer.",
   mainEntity: { "@id": `${siteUrl}/#person` },
   isPartOf: { "@id": `${siteUrl}/#website` },
 };
 
-const jsonLd = [personSchema, websiteSchema, profilePageSchema];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${siteUrl}/#faq`,
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Who is Prabakaran?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Prabakaran M is a Full Stack Software Engineer with 2+ years of experience building production web applications with Next.js, React, TypeScript, Node.js and tRPC/oRPC. He is the founder and sole engineer of CrayonSparks, a live AI SaaS.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does Prabakaran specialize in?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "He specializes in building type-safe, AI-powered full-stack web applications — type-safe APIs (tRPC/oRPC), role-based access control, and AI integration using OpenAI and Google Gemini via the Vercel AI SDK, with billing (LemonSqueezy) and cloud storage (Cloudflare R2, AWS S3).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is CrayonSparks?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CrayonSparks is a live AI book SaaS that Prabakaran designed, built and deployed end-to-end as sole engineer. It turns prompts into print-ready story, coloring and activity books using a multi-provider AI pipeline (OpenAI + Gemini), with subscription billing and cloud storage. Built with Next.js 16, React 19, oRPC, Firebase, LemonSqueezy and Cloudflare R2.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Prabakaran available for hire?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Prabakaran is open to new full-time Full Stack / Software Engineer opportunities. He can be reached at prabakaran.m0208@gmail.com or via his portfolio at prabakarandev.in.",
+      },
+    },
+  ],
+};
+
+const jsonLd = [personSchema, websiteSchema, profilePageSchema, faqSchema];
 
 export default function RootLayout({
   children,
