@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Prabakaran",
   },
   description:
-    "Prabakaran's Full Stack Developer portfolio. Expert in Next.js, React, Node.js & Firebase. View projects and hire a skilled developer for your team.",
+    "Prabakaran's Full Stack Developer portfolio. 2+ years building production web apps with Next.js, React, TypeScript, tRPC/oRPC & AI integration (OpenAI, Gemini). Founder of CrayonSparks AI SaaS. View projects & hire a skilled engineer.",
   keywords: [
     "developer portfolio",
     "software developer portfolio",
@@ -54,6 +54,12 @@ export const metadata: Metadata = {
     "Web Developer",
     "JavaScript Developer",
     "TypeScript Developer",
+    "AI Developer",
+    "AI SaaS Developer",
+    "OpenAI Developer",
+    "tRPC Developer",
+    "oRPC Developer",
+    "CrayonSparks",
     "hire web developer",
     "freelance developer India",
   ],
@@ -72,13 +78,13 @@ export const metadata: Metadata = {
     siteName: "Prabakaran - Full Stack Developer Portfolio",
     title: "Prabakaran | Full Stack Developer Portfolio",
     description:
-      "Prabakaran's Full Stack Developer portfolio. Expert in Next.js, React, Node.js & Firebase. View projects and hire a skilled developer.",
+      "Full Stack Engineer building production web apps with Next.js, React, TypeScript, tRPC/oRPC & AI (OpenAI, Gemini). Founder of CrayonSparks AI SaaS.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Prabakaran | Full Stack Developer Portfolio",
     description:
-      "Prabakaran's portfolio. Expert in Next.js, React, Node.js & Firebase. Hire a skilled Full Stack Developer.",
+      "Full Stack Engineer — Next.js, React, TypeScript, tRPC/oRPC & AI integration. Founder of CrayonSparks AI SaaS. Hire a skilled engineer.",
   },
   robots: {
     index: true,
@@ -114,7 +120,7 @@ const personSchema = {
   sameAs: [
     "https://github.com/Prabakara-N",
     "https://www.linkedin.com/in/prabakaran0208/",
-    "https://www.instagram.com/swag__55__/",
+    "https://www.instagram.com/vibe_coder_28/",
   ],
   jobTitle: "Full Stack Developer",
   worksFor: {

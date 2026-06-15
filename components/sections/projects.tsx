@@ -55,13 +55,23 @@ const projectsWithContent: ProjectWithContent[] = projects.map((project) => ({
   ),
 }));
 
+// Alternating bento pattern: small-big / big-small / small-big.
+// "big" = spans 2 of the 3 columns, "small" = spans 1.
+function isBigCard(index: number) {
+  const row = Math.floor(index / 2);
+  const positionInRow = index % 2;
+  return row % 2 === 0 ? positionInRow === 1 : positionInRow === 0;
+}
+
 function ProjectCard({
   project,
   id,
+  big,
   onClick,
 }: {
   project: ProjectWithContent;
   id: string;
+  big: boolean;
   onClick: () => void;
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -74,7 +84,7 @@ function ProjectCard({
       onHoverEnd={() => setIsHovered(false)}
       className={cn(
         "group relative row-span-1 cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-card shadow-lg transition-all duration-300 hover:border-primary hover:shadow-xl hover:shadow-primary/20",
-        project.featured && "md:col-span-2"
+        big && "md:col-span-2"
       )}
     >
       {/* Image */}
@@ -161,11 +171,12 @@ export function ProjectsSection() {
 
       {/* Bento Grid */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 auto-rows-[16rem] gap-4 md:auto-rows-[20rem] md:grid-cols-3">
-        {projectsWithContent.map((project) => (
+        {projectsWithContent.map((project, index) => (
           <ProjectCard
             key={project.id}
             project={project}
             id={id}
+            big={isBigCard(index)}
             onClick={() => setActive(project)}
           />
         ))}

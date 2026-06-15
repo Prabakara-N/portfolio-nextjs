@@ -12,7 +12,15 @@ import {
 } from "@/components/aceternity/text-reveal-card";
 import { skills, Skill } from "@/constants/portfolio-data";
 import { cn } from "@/lib/utils";
-import { Code2, Server, Wrench, Database, GitBranch } from "lucide-react";
+import {
+  Code2,
+  Server,
+  Wrench,
+  Database,
+  GitBranch,
+  Sparkles,
+  Cloud,
+} from "lucide-react";
 
 const categoryInfo = {
   frontend: {
@@ -21,9 +29,19 @@ const categoryInfo = {
     description: "Building beautiful user interfaces",
   },
   backend: {
-    title: "Backend",
+    title: "Backend & APIs",
     icon: Server,
-    description: "Creating robust server solutions",
+    description: "Creating robust, type-safe APIs",
+  },
+  ai: {
+    title: "AI & Integrations",
+    icon: Sparkles,
+    description: "Shipping AI-powered product features",
+  },
+  cloud: {
+    title: "Cloud & Storage",
+    icon: Cloud,
+    description: "Deploying & scaling in the cloud",
   },
   database: {
     title: "Database",
@@ -122,6 +140,8 @@ export function SkillsSection() {
       <div className="grid gap-6 md:grid-cols-2">
         <SkillCategory category="frontend" />
         <SkillCategory category="backend" />
+        <SkillCategory category="ai" />
+        <SkillCategory category="cloud" />
         <SkillCategory category="database" />
         <SkillCategory category="tools" />
         <SkillCategory category="versionControl" />

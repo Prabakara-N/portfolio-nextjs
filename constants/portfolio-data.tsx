@@ -28,6 +28,19 @@ import {
   JestIcon,
   GitIcon,
   GithubIcon,
+  ClaudeIcon,
+  OpenAiIcon,
+  GeminiIcon,
+  VercelAiIcon,
+  LemonSqueezyIcon,
+  CloudflareIcon,
+  AwsIcon,
+  CloudinaryIcon,
+  SentryIcon,
+  OrpcIcon,
+  ServerActionsIcon,
+  WebhookIcon,
+  PlaywrightIcon,
 } from "@/components/icons/skill-icons";
 
 export const personalInfo = {
@@ -35,7 +48,7 @@ export const personalInfo = {
   title: "Full Stack Developer",
   email: "prabakaran.m0208@gmail.com",
   location: "India",
-  bio: "Results-driven Full Stack Developer with a strong focus on building scalable, user-centric web and mobile applications. Proficient in modern technologies including React.js, Next.js, Node.js, and cloud-based services like Firebase. Demonstrated ability to develop efficient, high-performance solutions in fast-paced, remote and collaborative team environments. Committed to continuous learning and delivering impact through clean, maintainable code.",
+  bio: "Full Stack Software Engineer with 2+ years of experience shipping production web apps end-to-end with Next.js, React, TypeScript, Node.js and tRPC / oRPC. I designed and independently launched CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI + Gemini), subscription billing and cloud storage. At work I build type-safe APIs, role-based access control and AI-powered features serving 2,500+ users. Passionate about clean architecture, AI integration and shipping well-tested products.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,
 };
@@ -43,20 +56,27 @@ export const personalInfo = {
 export const socialLinks = {
   github: "https://github.com/Prabakara-N",
   linkedin: "https://www.linkedin.com/in/prabakaran0208/",
-  instagram: "https://www.instagram.com/swag__55__/",
+  instagram: "https://www.instagram.com/vibe_coder_28/",
 };
 
 export const roles = [
-  "Full Stack Developer",
-  "React Specialist",
+  "Full Stack Engineer",
+  "AI SaaS Builder",
   "Next.js Developer",
-  "Frontend Engineer",
+  "Founder of CrayonSparks",
 ];
 
 export interface Skill {
   name: string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  category: "frontend" | "backend" | "database" | "tools" | "versionControl";
+  category:
+    | "frontend"
+    | "backend"
+    | "ai"
+    | "cloud"
+    | "database"
+    | "tools"
+    | "versionControl";
 }
 
 export const skills: Skill[] = [
@@ -75,24 +95,42 @@ export const skills: Skill[] = [
   { name: "SEO Optimization", icon: SeoIcon, category: "frontend" },
   { name: "State Management", icon: StateIcon, category: "frontend" },
 
-  // Backend
+  // Backend & APIs
   { name: "Node.js", icon: NodeIcon, category: "backend" },
   { name: "Express.js", icon: ExpressIcon, category: "backend" },
   { name: "tRPC", icon: TrpcIcon, category: "backend" },
+  { name: "oRPC", icon: OrpcIcon, category: "backend" },
   { name: "REST API", icon: ApiIcon, category: "backend" },
-  { name: "Sanity", icon: SanityIcon, category: "backend" },
+  { name: "Server Actions", icon: ServerActionsIcon, category: "backend" },
+  { name: "Firebase Admin", icon: FirebaseIcon, category: "backend" },
+  { name: "Webhooks", icon: WebhookIcon, category: "backend" },
+  { name: "Sanity CMS", icon: SanityIcon, category: "backend" },
+
+  // AI & Integrations
+  { name: "OpenAI", icon: OpenAiIcon, category: "ai" },
+  { name: "Google Gemini", icon: GeminiIcon, category: "ai" },
+  { name: "Vercel AI SDK", icon: VercelAiIcon, category: "ai" },
+  { name: "LemonSqueezy", icon: LemonSqueezyIcon, category: "ai" },
+
+  // Cloud & Storage
+  { name: "Vercel", icon: VercelIcon, category: "cloud" },
+  { name: "Netlify", icon: NetlifyIcon, category: "cloud" },
+  { name: "Cloudflare R2", icon: CloudflareIcon, category: "cloud" },
+  { name: "AWS S3", icon: AwsIcon, category: "cloud" },
+  { name: "Cloudinary", icon: CloudinaryIcon, category: "cloud" },
 
   // Database
   { name: "MongoDB", icon: MongoDbIcon, category: "database" },
-  { name: "Firebase", icon: FirebaseIcon, category: "database" },
+  { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database" },
 
   // Tools
   { name: "VS Code", icon: VsCodeIcon, category: "tools" },
   { name: "Cursor", icon: CursorIcon, category: "tools" },
+  { name: "Claude Code", icon: ClaudeIcon, category: "tools" },
   { name: "Postman", icon: PostmanIcon, category: "tools" },
-  { name: "Vercel", icon: VercelIcon, category: "tools" },
-  { name: "Netlify", icon: NetlifyIcon, category: "tools" },
   { name: "Jest", icon: JestIcon, category: "tools" },
+  { name: "Playwright", icon: PlaywrightIcon, category: "tools" },
+  { name: "Sentry", icon: SentryIcon, category: "tools" },
 
   // Version Control
   { name: "Git", icon: GitIcon, category: "versionControl" },
@@ -117,6 +155,36 @@ interface Project {
 export const projects: Project[] = [
   {
     id: "1",
+    title: "CrayonSparks",
+    description: "AI Book SaaS — Founder & Sole Engineer",
+    image:
+      "https://images.unsplash.com/photo-1716324339623-384495f47373?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGtpZHMlMjBib29rfGVufDB8MHwwfHx8MA%3D%3D",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "oRPC",
+      "Firebase",
+      "OpenAI & Gemini",
+      "LemonSqueezy",
+      "Cloudflare R2",
+    ],
+    liveUrl: "https://www.crayonsparks.com/",
+    featured: true,
+    content: {
+      description:
+        "A live, full-stack AI SaaS I designed, built and deployed end-to-end as sole engineer — turning prompts into print-ready story, coloring and activity books. Owns architecture, backend, billing and deployment.",
+      keyContributions: [
+        "Engineered a multi-provider AI pipeline (OpenAI + Gemini via Vercel AI SDK) with async orchestration & error handling",
+        "Built a type-safe backend with oRPC and Firebase Admin / Firestore (auth, security rules, composite-indexed queries)",
+        "Integrated subscription billing & credit packs via LemonSqueezy webhooks with a metered credits system",
+        "Implemented Cloudflare R2 storage with presigned URLs and PDF generation (pdf-lib) for print-ready KDP exports",
+        "Added Etsy / Gumroad / Pinterest publishing, Sentry + Vercel Analytics observability and Playwright E2E tests",
+      ],
+    },
+  },
+  {
+    id: "2",
     title: "LeetCV",
     description: "AI-powered Resume Builder - Built at Darthwares",
     image:
@@ -144,7 +212,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "2",
+    id: "3",
     title: "LeetCampus",
     description:
       "AI-powered College Academic & Placement Platform - Built at Darthwares",
@@ -173,13 +241,13 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "3",
+    id: "4",
     title: "Ennuviz",
     description:
       "Enterprise Digital Transformation Website - Client Project at Darthwares",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    tech: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "SE0"],
+    tech: ["Next.js", "TypeScript", "Sanity CMS", "Tailwind CSS", "SEO"],
     liveUrl: "https://www.ennuviz.com/",
     featured: true,
     content: {
@@ -195,7 +263,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "4",
+    id: "5",
     title: "Portfolio Website",
     description: "Modern portfolio with stunning animations",
     image:
@@ -222,7 +290,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "5",
+    id: "6",
     title: "Shoekart",
     description:
       "E-commerce store with Firebase Auth - Personal Learning Project",
@@ -240,29 +308,6 @@ export const projects: Project[] = [
         "Checkout flow and order history",
         "User profile management",
         "Responsive design with cross-browser compatibility",
-      ],
-    },
-  },
-  {
-    id: "6",
-    title: "React Blog",
-    description:
-      "Full-featured blog platform with Firebase - Personal Learning Project",
-    image:
-      "https://images.unsplash.com/photo-1504691342899-4d92b50853e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHJlc3VtZXxlbnwwfDB8MHx8fDA%3D",
-    tech: ["React", "Firebase", "Bootstrap", "SASS"],
-    liveUrl: "https://prabakaran-react-blog.netlify.app/",
-    githubUrl: "https://github.com/Prabakara-N/react-blog-app",
-    featured: true,
-    content: {
-      description:
-        "A complete blog platform built while learning React. Features full CRUD operations for blogs, user authentication, commenting system, and all data persisted in Firebase.",
-      keyContributions: [
-        "Firebase Auth, Database & Storage integration",
-        "Create, edit, and delete blog posts",
-        "User profiles and commenting system",
-        "React Carousel for enhanced UX",
-        "Toast notifications with Toastify",
       ],
     },
   },
@@ -289,28 +334,27 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: "1",
-    title: "Junior Software Engineer",
+    title: "Software Engineer",
     company: "Darthwares",
     companyUrl: "https://www.darthwares.com",
     location: "Coimbatore, India · Remote",
     duration: "Jul 2023 - Present",
     type: "Full-time",
     description:
-      "Driving frontend excellence at Darthwares, specializing in building high-performance web applications with modern tech stack. Passionate about creating seamless user experiences through clean architecture, type-safe APIs, and optimized real-time features.",
+      "Building high-performance, scalable web applications end-to-end with a modern Next.js / TypeScript stack. Focused on clean architecture, type-safe APIs, role-based access control and AI-powered features serving 2,500+ users across enterprise and ed-tech products.",
     products: [
-      { name: "LeetCV", url: "https://www.leetcv.com/" },
       { name: "LeetCampus", url: "https://www.leetcampus.com/" },
+      { name: "LeetCV", url: "https://www.leetcv.com/" },
+      { name: "Ennuviz", url: "https://www.ennuviz.com/" },
     ],
     highlights: [
-      "Engineered responsive UIs with Next.js & Tailwind CSS, achieving 40% faster page loads",
-      "Implemented end-to-end type safety using tRPC, eliminating runtime API errors",
-      "Architected real-time features with Firebase including auth, Firestore & cloud functions",
-      "Optimized complex state management using Recoil and Jotai for scalable React apps",
-      "Developed AI-powered modules for resume generation & interactive tutoring, boosting engagement by 35%",
-      "Reduced production downtime by 20% through proactive debugging & performance monitoring",
-      "Built a reusable component library that accelerated feature development by 25%",
-      "Established testing standards with Jest, significantly reducing regression bugs",
-      "Led code reviews and mentored peers in Agile workflows and best practices",
+      "Developed & optimized responsive, scalable apps with Next.js, TypeScript, Tailwind, Firebase & tRPC, improving page load speeds by 40%",
+      "Implemented role-based access control, dynamic onboarding forms & real-time features, boosting workflow efficiency for 2,500+ users",
+      "Built AI-powered modules — resume generation, interactive tutoring & mock placement drives — increasing engagement by 35%",
+      "Resolved production issues, improving platform stability by 20% and reducing downtime",
+      "Designed reusable UI components & modular frontend architecture, accelerating development by 25%",
+      "Refactored legacy code in Agile teams, cutting technical debt & complexity by 30%",
+      "Established Jest unit testing for core workflows, improving reliability and reducing regressions",
     ],
   },
 ];
