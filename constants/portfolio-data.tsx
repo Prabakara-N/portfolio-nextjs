@@ -33,6 +33,7 @@ import {
   GeminiIcon,
   VercelAiIcon,
   LemonSqueezyIcon,
+  RazorpayIcon,
   CloudflareIcon,
   AwsIcon,
   CloudinaryIcon,
@@ -111,6 +112,7 @@ export const skills: Skill[] = [
   { name: "Google Gemini", icon: GeminiIcon, category: "ai" },
   { name: "Vercel AI SDK", icon: VercelAiIcon, category: "ai" },
   { name: "LemonSqueezy", icon: LemonSqueezyIcon, category: "ai" },
+  { name: "Razorpay", icon: RazorpayIcon, category: "ai" },
 
   // Cloud & Storage
   { name: "Vercel", icon: VercelIcon, category: "cloud" },

@@ -277,10 +277,27 @@ export function OpenAiIcon(props: IconProps) {
 
 // Generic brand/category icons sourced from lucide-react (ISC licensed).
 // Used for AI, cloud, and tooling skills that have no dedicated brand glyph here.
+export function LemonSqueezyIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="m7.4916 10.835 2.3748-6.5114a3.1497 3.1497 0 0 0-.065-2.3418C9.0315.183 6.9427-.398 5.2928.265 3.643.929 2.71 2.4348 3.512 4.3046l2.8197 6.5615c.219.509.97.489 1.16-.03m1.6798 1.0969 6.5334-2.7758c2.1699-.9219 2.7218-3.6907 1.022-5.2905l-.068-.063c-1.6669-1.5469-4.4217-1.002-5.3706 1.0359L8.3566 11.135c-.234.503.295 1.0199.8159.7979m.373.87 6.6454-2.5119c2.2078-.8349 4.6206.745 4.5886 3.0398l-.002.09c-.048 2.2358-2.3938 3.7376-4.5536 2.9467l-6.6724-2.4418a.595.595 0 0 1-.006-1.1229m-.386 1.9269 6.4375 2.9767a3.2997 3.2997 0 0 1 1.6658 1.6989c.769 1.7998-.283 3.6396-1.9328 4.3016-1.6499.662-3.4097.235-4.2097-1.6359l-2.8027-6.5694c-.217-.509.328-1.009.8419-.772" />
+    </svg>
+  );
+}
+
+export function RazorpayIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M22.436 0l-11.91 7.773-1.174 4.276 6.625-4.297L11.65 24h4.391l6.395-24zM14.26 10.098L3.389 17.166 1.564 24h9.008l3.688-13.902Z" />
+    </svg>
+  );
+}
+
+// Generic brand/category icons sourced from lucide-react (ISC licensed).
+// Used for AI, cloud, and tooling skills that have no dedicated brand glyph here.
 export {
   Sparkles as GeminiIcon,
   Bot as VercelAiIcon,
-  CreditCard as LemonSqueezyIcon,
   Cloud as CloudflareIcon,
   HardDrive as AwsIcon,
   Image as CloudinaryIcon,
