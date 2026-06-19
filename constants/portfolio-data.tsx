@@ -49,7 +49,7 @@ export const personalInfo = {
   title: "Full Stack Developer",
   email: "prabakaran.m0208@gmail.com",
   location: "India",
-  bio: "Full Stack Software Engineer with 2+ years of experience shipping production web apps end-to-end with Next.js, React, TypeScript, Node.js and tRPC / oRPC. I designed and independently launched CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI + Gemini), subscription billing and cloud storage. At work I build type-safe APIs, role-based access control and AI-powered features serving 2,500+ users. Passionate about clean architecture, AI integration and shipping well-tested products.",
+  bio: "Full Stack Software Engineer with 2+ years of experience shipping production web apps end-to-end with Next.js, React, TypeScript, Node.js and tRPC / oRPC. I designed and independently launched CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI + Gemini), subscription billing and cloud storage. At work I build type-safe APIs, role-based access control and AI-powered features across products like LeetCV (150,000+ users), and built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive. Passionate about clean architecture, AI integration and shipping well-tested products.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,
 };
@@ -188,7 +188,7 @@ export const projects: Project[] = [
   {
     id: "2",
     title: "LeetCV",
-    description: "AI-powered Resume Builder - Built at Darthwares",
+    description: "AI Resume Builder · 150,000+ users worldwide - Built at Darthwares",
     image:
       "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
     tech: [
@@ -203,8 +203,9 @@ export const projects: Project[] = [
     liveUrl: "https://www.leetcv.com/",
     content: {
       description:
-        " AI-powered resume builder with Leet Link for sharing resumes and portfolios. Built features that improved mobile responsiveness by 30% and reduced re-renders by 40%.",
+        "AI-powered resume builder trusted by 150,000+ users worldwide, with Leet Link for sharing resumes and portfolios. Improved mobile responsiveness by 30% and reduced re-renders by 40%.",
       keyContributions: [
+        "Trusted by 150,000+ users worldwide",
         "Revamped core UI components for 30% better mobile usability",
         "Built Leet Link for resume & portfolio sharing",
         "Implemented telemetry and analytics dashboards",
@@ -232,12 +233,12 @@ export const projects: Project[] = [
     featured: true,
     content: {
       description:
-        "Scalable academic platform serving 2500+ students with role-based access. Built AI modules boosting engagement by 35% and automated workflows reducing manual tasks by 80%.",
+        "Built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive. Added QR-code attendance and drive updates via email/SMS notifications, plus AI modules boosting engagement by 35%.",
       keyContributions: [
+        "Built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive",
+        "Built QR-code attendance and drive updates via email/SMS notifications, cutting manual work 80%",
         "Engineered role-based access for admins, professors & students",
-        "Built Leet Tutor (AI slide generator) & Mock Placement Drive",
-        "Automated placement workflows with email & SMS triggers",
-        "Developed dynamic portfolio & resume builder",
+        "Built Leet Tutor (AI slide generator) & Mock Placement Drive (+35% engagement)",
         "Optimized frontend architecture for 40% faster page loads",
       ],
     },
@@ -343,15 +344,17 @@ export const experiences: Experience[] = [
     duration: "Jul 2023 - Present",
     type: "Full-time",
     description:
-      "Building high-performance, scalable web applications end-to-end with a modern Next.js / TypeScript stack. Focused on clean architecture, type-safe APIs, role-based access control and AI-powered features serving 2,500+ users across enterprise and ed-tech products.",
+      "Building high-performance, scalable web applications end-to-end with a modern Next.js / TypeScript stack. Focused on clean architecture, type-safe APIs, role-based access control and AI-powered features across products like LeetCV (150,000+ users), and built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive.",
     products: [
       { name: "LeetCampus", url: "https://www.leetcampus.com/" },
       { name: "LeetCV", url: "https://www.leetcv.com/" },
       { name: "Ennuviz", url: "https://www.ennuviz.com/" },
     ],
     highlights: [
+      "Contributed to LeetCV, an AI resume builder trusted by 150,000+ users worldwide",
+      "Built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive",
       "Developed & optimized responsive, scalable apps with Next.js, TypeScript, Tailwind, Firebase & tRPC, improving page load speeds by 40%",
-      "Implemented role-based access control, dynamic onboarding forms & real-time features, boosting workflow efficiency for 2,500+ users",
+      "Implemented role-based access control, dynamic onboarding forms & real-time features for placement-drive and academic workflows",
       "Built AI-powered modules — resume generation, interactive tutoring & mock placement drives — increasing engagement by 35%",
       "Resolved production issues, improving platform stability by 20% and reducing downtime",
       "Designed reusable UI components & modular frontend architecture, accelerating development by 25%",
