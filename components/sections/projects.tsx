@@ -46,6 +46,29 @@ const projectsWithContent: ProjectWithContent[] = projects.map((project) => ({
           <li key={index}>{contribution}</li>
         ))}
       </ul>
+      {project.content.publishedBooks &&
+        project.content.publishedBooks.length > 0 && (
+          <>
+            <p className="font-semibold text-foreground">
+              Published on Amazon KDP:
+            </p>
+            <ul className="space-y-1">
+              {project.content.publishedBooks.map((book) => (
+                <li key={book.url}>
+                  <a
+                    href={book.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-primary transition-colors hover:underline"
+                  >
+                    {book.name}
+                    <ExternalLink className="h-3 w-3 shrink-0" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       <div className="flex flex-wrap gap-2 pt-2">
         {project.tech.map((tech) => (
           <TechTag key={tech}>{tech}</TechTag>
