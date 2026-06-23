@@ -49,7 +49,7 @@ export const personalInfo = {
   title: "Full Stack Developer",
   email: "prabakaran.m0208@gmail.com",
   location: "India",
-  bio: "Full Stack Software Engineer with 2+ years of experience shipping production web apps end-to-end with Next.js, React, TypeScript, Node.js and tRPC / oRPC. I designed and independently launched CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI + Gemini), subscription billing and cloud storage. At work I build type-safe APIs, role-based access control and AI-powered features across products like LeetCV (150,000+ users), and built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive. Passionate about clean architecture, AI integration and shipping well-tested products.",
+  bio: "Full-Stack Software Engineer (2+ yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,
 };
