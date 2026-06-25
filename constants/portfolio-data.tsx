@@ -49,7 +49,7 @@ export const personalInfo = {
   title: "Full Stack Developer",
   email: "prabakaran.m0208@gmail.com",
   location: "India",
-  bio: "Full-Stack Software Engineer (2+ yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
+  bio: "Full-Stack Software Engineer (3 yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,
 };
@@ -71,13 +71,13 @@ export interface Skill {
   name: string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   category:
-    | "frontend"
-    | "backend"
-    | "ai"
-    | "cloud"
-    | "database"
-    | "tools"
-    | "versionControl";
+  | "frontend"
+  | "backend"
+  | "ai"
+  | "cloud"
+  | "database"
+  | "tools"
+  | "versionControl";
 }
 
 export const skills: Skill[] = [
