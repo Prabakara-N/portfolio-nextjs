@@ -1,6 +1,6 @@
 # Prabakaran — Full Stack Software Engineer
 
-> Full Stack Software Engineer with 2+ years of experience building and shipping
+> Full Stack Software Engineer with 3 years of experience building and shipping
 > production web applications end-to-end with Next.js, React, TypeScript, Node.js
 > and tRPC / oRPC. Founder and sole engineer of CrayonSparks, a live AI SaaS.
 > Based in India · Available for new opportunities.
@@ -16,7 +16,7 @@ pipeline (OpenAI + Google Gemini), subscription billing and cloud storage.
 
 - Name: Prabakaran M
 - Role: Full Stack Software Engineer
-- Experience: 2+ years
+- Experience: 3 years
 - Location: India (Tiruppur / Coimbatore)
 - Email: prabakaran.m0208@gmail.com
 - Status: Open to full-time roles

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Prabakaran",
   },
   description:
-    "Prabakaran's Full Stack Developer portfolio. 2+ years building production web apps with Next.js, React, TypeScript, tRPC/oRPC & AI integration (OpenAI, Gemini). Founder of CrayonSparks AI SaaS. View projects & hire a skilled engineer.",
+    "Prabakaran's Full Stack Developer portfolio. 3 years building production web apps with Next.js, React, TypeScript, tRPC/oRPC & AI integration (OpenAI, Gemini). Founder of CrayonSparks AI SaaS. View projects & hire a skilled engineer.",
   keywords: [
     "developer portfolio",
     "software developer portfolio",
@@ -129,7 +129,7 @@ const personSchema = {
     url: "https://www.darthwares.com",
   },
   description:
-    "Full Stack Software Engineer with 2+ years of experience building production web apps with Next.js, React, TypeScript and tRPC/oRPC. Founder & sole engineer of CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI, Gemini), subscription billing and cloud storage.",
+    "Full Stack Software Engineer with 3 years of experience building production web apps with Next.js, React, TypeScript and tRPC/oRPC. Founder & sole engineer of CrayonSparks, a live AI SaaS with a multi-provider AI pipeline (OpenAI, Gemini), subscription billing and cloud storage.",
   knowsAbout: [
     "Next.js",
     "React.js",
@@ -192,7 +192,7 @@ const faqSchema = {
       name: "Who is Prabakaran?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Prabakaran M is a Full Stack Software Engineer with 2+ years of experience building production web applications with Next.js, React, TypeScript, Node.js and tRPC/oRPC. He is the founder and sole engineer of CrayonSparks, a live AI SaaS.",
+        text: "Prabakaran M is a Full Stack Software Engineer with 3 years of experience building production web applications with Next.js, React, TypeScript, Node.js and tRPC/oRPC. He is the founder and sole engineer of CrayonSparks, a live AI SaaS.",
       },
     },
     {
