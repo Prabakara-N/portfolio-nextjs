@@ -149,6 +149,14 @@ export function MongoDbIcon(props: IconProps) {
   );
 }
 
+export function SqlIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 2c-4.418 0-8 1.343-8 3v14c0 1.657 3.582 3 8 3s8-1.343 8-3V5c0-1.657-3.582-3-8-3zm6 17c0 .35-2.357 1.5-6 1.5S6 19.35 6 19v-2.32C7.43 17.49 9.6 18 12 18s4.57-.51 6-1.32V19zm0-4.5c0 .35-2.357 1.5-6 1.5s-6-1.15-6-1.5v-2.32C7.43 12.99 9.6 13.5 12 13.5s4.57-.51 6-1.32v2.32zm0-4.5c0 .35-2.357 1.5-6 1.5S6 10.85 6 10.5V8.18C7.43 8.99 9.6 9.5 12 9.5s4.57-.51 6-1.32V10.5zM12 7.5C8.357 7.5 6 6.35 6 6s2.357-1.5 6-1.5S18 5.65 18 6s-2.357 1.5-6 1.5z" />
+    </svg>
+  );
+}
+
 // Tools Icons
 export function VsCodeIcon(props: IconProps) {
   return (

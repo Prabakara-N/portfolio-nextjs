@@ -20,6 +20,7 @@ import {
   ApiIcon,
   SanityIcon,
   MongoDbIcon,
+  SqlIcon,
   VsCodeIcon,
   CursorIcon,
   PostmanIcon,
@@ -122,6 +123,7 @@ export const skills: Skill[] = [
   { name: "Cloudinary", icon: CloudinaryIcon, category: "cloud" },
 
   // Database
+  { name: "SQL", icon: SqlIcon, category: "database" },
   { name: "MongoDB", icon: MongoDbIcon, category: "database" },
   { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database" },
 
@@ -314,23 +316,33 @@ export const projects: Project[] = [
   },
   {
     id: "6",
-    title: "Shoekart",
+    title: "A&K Clothing Store",
     description:
-      "E-commerce store with Firebase Auth - Personal Learning Project",
+      "Full-stack Fashion E-commerce with Razorpay & Admin Dashboard - Personal Project",
     image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
-    tech: ["React", "Tailwind CSS", "Firebase", "React Router"],
-    liveUrl: "https://prabakaran-shoestore-ecommerce.netlify.app/",
-    githubUrl: "https://github.com/Prabakara-N/react-shoe-ecommerce",
+      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=800&q=80",
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Supabase",
+      "Razorpay",
+      "Zustand",
+      "Tailwind CSS",
+      "Resend",
+    ],
+    liveUrl: "https://ak-clothing-store.vercel.app/",
+    featured: true,
     content: {
       description:
-        "A fully functional shoe e-commerce website built while learning React. Features complete user authentication, shopping cart, checkout flow, and order history - showcasing core React fundamentals.",
+        "A production-grade fashion e-commerce platform built end-to-end with Next.js 16 and Supabase — featuring a complete storefront, secure Razorpay checkout, and a full admin dashboard for managing products, collections, inventory, orders and returns.",
       keyContributions: [
-        "Firebase Authentication with protected routes",
-        "Shopping cart with add/remove functionality",
-        "Checkout flow and order history",
-        "User profile management",
-        "Responsive design with cross-browser compatibility",
+        "Built a complete storefront with collections, product variants, cart, wishlist and account management",
+        "Integrated Razorpay payments with secure webhook-verified order processing",
+        "Engineered an admin dashboard for products, collections, inventory, orders and returns",
+        "Implemented Supabase auth, Postgres data layer and row-level security",
+        "Added transactional emails (order/shipping updates) via Resend + React Email and order tracking webhooks",
+        "Type-safe forms and server validation with Zod & React Hook Form, state managed with Zustand",
       ],
     },
   },
