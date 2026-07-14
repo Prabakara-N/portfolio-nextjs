@@ -1,5 +1,14 @@
 import React from "react";
 import {
+  Cloud,
+  Code2,
+  Database,
+  Server,
+  Sparkles,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
+import {
   NextJsIcon,
   ReactIcon,
   JavaScriptIcon,
@@ -21,6 +30,7 @@ import {
   SanityIcon,
   MongoDbIcon,
   SqlIcon,
+  MySqlIcon,
   VsCodeIcon,
   CursorIcon,
   PostmanIcon,
@@ -123,9 +133,10 @@ export const skills: Skill[] = [
   { name: "Cloudinary", icon: CloudinaryIcon, category: "cloud" },
 
   // Database
-  { name: "SQL", icon: SqlIcon, category: "database" },
-  { name: "MongoDB", icon: MongoDbIcon, category: "database" },
   { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database" },
+  { name: "MongoDB", icon: MongoDbIcon, category: "database" },
+  { name: "SQL", icon: SqlIcon, category: "database" },
+  { name: "MySQL", icon: MySqlIcon, category: "database" },
 
   // Tools
   { name: "VS Code", icon: VsCodeIcon, category: "tools" },
@@ -139,6 +150,68 @@ export const skills: Skill[] = [
   // Version Control
   { name: "Git", icon: GitIcon, category: "versionControl" },
   { name: "GitHub", icon: GithubIcon, category: "versionControl" },
+];
+
+export type SkillCategory = Skill["category"];
+
+export interface SkillNode {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+  /** Tailwind text-color class for the node's icon. */
+  accent: string;
+  /** Categories from `skills` that this node represents. */
+  categories: SkillCategory[];
+}
+
+/**
+ * The six nodes of the animated-beam skills graph. Tools and Version Control
+ * share a node so the graph stays balanced, while `skills` keeps all seven
+ * categories for the grid below it.
+ */
+export const skillNodes: SkillNode[] = [
+  {
+    id: "frontend",
+    label: "Frontend",
+    icon: Code2,
+    accent: "text-sky-500",
+    categories: ["frontend"],
+  },
+  {
+    id: "backend",
+    label: "Backend",
+    icon: Server,
+    accent: "text-emerald-500",
+    categories: ["backend"],
+  },
+  {
+    id: "ai",
+    label: "AI",
+    icon: Sparkles,
+    accent: "text-fuchsia-500",
+    categories: ["ai"],
+  },
+  {
+    id: "cloud",
+    label: "Cloud",
+    icon: Cloud,
+    accent: "text-violet-500",
+    categories: ["cloud"],
+  },
+  {
+    id: "database",
+    label: "Database",
+    icon: Database,
+    accent: "text-amber-500",
+    categories: ["database"],
+  },
+  {
+    id: "tools",
+    label: "Tools",
+    icon: Wrench,
+    accent: "text-orange-500",
+    categories: ["tools", "versionControl"],
+  },
 ];
 
 interface Project {
