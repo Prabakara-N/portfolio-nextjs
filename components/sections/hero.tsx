@@ -6,6 +6,7 @@ import { Spotlight } from "@/components/aceternity/spotlight";
 import { roles, personalInfo, socialLinks } from "@/constants/portfolio-data";
 import { Github, Linkedin, Instagram, Download, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { fireConfettiFromElement } from "@/components/magicui/confetti";
 
 const socialIcons = [
   { icon: Github, href: socialLinks.github, label: "Visit my GitHub profile" },
@@ -113,6 +114,7 @@ export function HeroSection() {
             <motion.a
               href={personalInfo.resumeUrl}
               download
+              onClick={(e) => fireConfettiFromElement(e.currentTarget)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={cn(

@@ -11,6 +11,7 @@ import {
   Highlight,
 } from "@/components/aceternity/hero-highlight";
 import { StatefulButton } from "@/components/ui/stateful-button";
+import { fireConfetti } from "@/components/magicui/confetti";
 import { personalInfo, socialLinks } from "@/constants/portfolio-data";
 import { cn } from "@/lib/utils";
 import { Mail, MapPin, Send, Github, Linkedin, Instagram } from "lucide-react";
@@ -95,6 +96,7 @@ export function ContactSection() {
 
     setFormState({ name: "", email: "", message: "" });
     setErrors({});
+    fireConfetti();
     return true;
   };
 
