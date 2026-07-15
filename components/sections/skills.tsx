@@ -5,12 +5,10 @@ import {
   SectionWrapper,
   SectionHeader,
 } from "@/components/layout/section-wrapper";
-import {
-  TextRevealCard,
-  TextRevealCardTitle,
-  TextRevealCardDescription,
-} from "@/components/aceternity/text-reveal-card";
+import { TextRevealCard } from "@/components/aceternity/text-reveal-card";
+import { Highlighter } from "@/components/ui/highlighter";
 import { skills, Skill } from "@/constants/portfolio-data";
+import { SkillsBeam } from "@/components/sections/skills-beam";
 import { cn } from "@/lib/utils";
 import {
   Code2,
@@ -91,10 +89,11 @@ function SkillCategory({ category }: { category: keyof typeof categoryInfo }) {
 
   return (
     <motion.div
+      id={`skill-category-${category}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="rounded-xl border border-border bg-card/50 p-6"
+      className="scroll-mt-24 rounded-xl border border-border bg-card/50 p-6 transition-shadow target:ring-2 target:ring-primary/60"
     >
       <div className="mb-4 flex items-center gap-3">
         <div className="rounded-lg bg-primary/10 p-2.5">
@@ -122,17 +121,15 @@ export function SkillsSection() {
         subtitle="The tools and technologies I use to bring ideas to life"
       />
 
-      {/* Text Reveal Card */}
-      <div className="mb-12 hidden lg:block">
+      {/* Text Reveal Card with the animated beam graph inside it */}
+      <div className="mb-12">
         <TextRevealCard
           text="Technologies I use"
           revealText="Mastering the craft"
           className="mx-auto max-w-3xl"
         >
-          <TextRevealCardTitle>My Tech Stack</TextRevealCardTitle>
-          <TextRevealCardDescription>
-            Hover to reveal my passion for technology
-          </TextRevealCardDescription>
+          {/* Animated Beam — avatar at the center; click a node to jump to its category */}
+          <SkillsBeam />
         </TextRevealCard>
       </div>
 
@@ -155,8 +152,10 @@ export function SkillsSection() {
         className="mt-12 text-center"
       >
         <p className="text-muted-foreground">
-          Always learning and exploring new technologies to stay at the cutting
-          edge
+          <Highlighter action="underline" color="#22d3ee" isView>
+            Always learning and exploring new technologies to stay at the cutting
+            edge
+          </Highlighter>
         </p>
       </motion.div>
     </SectionWrapper>
