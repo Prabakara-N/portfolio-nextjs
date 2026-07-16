@@ -122,7 +122,7 @@ export function SkillsSection() {
       />
 
       {/* Text Reveal Card with the animated beam graph inside it */}
-      <div className="mb-12">
+      <div className="lg:mb-12">
         <TextRevealCard
           text="Technologies I use"
           revealText="Mastering the craft"
