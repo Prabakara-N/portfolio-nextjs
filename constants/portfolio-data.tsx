@@ -32,6 +32,7 @@ import {
   MongoDbIcon,
   SqlIcon,
   MySqlIcon,
+  PostgreSqlIcon,
   VsCodeIcon,
   CursorIcon,
   PostmanIcon,
@@ -105,7 +106,7 @@ export const skills: Skill[] = [
   { name: "Redux", icon: ReduxIcon, category: "frontend", color: "#764ABC" },
   { name: "Recoil", icon: RecoilIcon, category: "frontend", color: "#3578E5" },
   { name: "Jotai", icon: JotaiIcon, category: "frontend" },
-  { name: "Zustand", icon: ZustandIcon, category: "frontend" },
+  { name: "Zustand", icon: ZustandIcon, category: "frontend", color: "#AD9686" },
   { name: "HTML", icon: HtmlIcon, category: "frontend", color: "#E34F26" },
   { name: "CSS", icon: CssIcon, category: "frontend", color: "#1572B6" },
   { name: "Tailwind CSS", icon: TailwindIcon, category: "frontend", color: "#06B6D4" },
@@ -143,8 +144,9 @@ export const skills: Skill[] = [
   // Database
   { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database", color: "#DD2C00" },
   { name: "MongoDB", icon: MongoDbIcon, category: "database", color: "#47A248" },
-  { name: "SQL", icon: SqlIcon, category: "database" },
+  { name: "SQL", icon: SqlIcon, category: "database", color: "#EAB308" },
   { name: "MySQL", icon: MySqlIcon, category: "database", color: "#4479A1" },
+  { name: "PostgreSQL", icon: PostgreSqlIcon, category: "database", color: "#4169E1" },
 
   // Tools
   { name: "VS Code", icon: VsCodeIcon, category: "tools", color: "#007ACC" },
