@@ -39,7 +39,6 @@ export function TerminalMantraSection() {
         username="prabakaran"
         typingSpeed={45}
         delayBetweenCommands={1000}
-        height={400}
         className="max-w-3xl px-0 text-sm"
       />
     </section>

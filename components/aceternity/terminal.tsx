@@ -347,7 +347,11 @@ export interface TerminalProps {
   delayBetweenCommands?: number;
   initialDelay?: number;
   enableSound?: boolean;
-  /** Fixed height of the output area in px; it scrolls instead of growing. */
+  /**
+   * Fixed height of the output area in px; it scrolls instead of growing.
+   * Leave unset to reserve exactly the space the finished transcript needs at
+   * the current width, so the box never grows or scrolls on any screen size.
+   */
   height?: number;
 }
 
@@ -361,7 +365,7 @@ export function Terminal({
   delayBetweenCommands = 800,
   initialDelay = 500,
   enableSound = true,
-  height = 320,
+  height,
 }: TerminalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -385,6 +389,25 @@ export function Terminal({
     [outputs, commandIdx],
   );
   const isLastCommand = commandIdx === commands.length - 1;
+
+  // Everything the terminal shows once finished; rendered invisibly to size it.
+  const finalLines = useMemo<TerminalLine[]>(
+    () =>
+      commands.flatMap((command, i) => {
+        const loader = loaders[i];
+        return [
+          { type: "command" as const, content: command },
+          ...(loader?.progress
+            ? [{ type: "output" as const, content: progressLine(loader.text, 1) }]
+            : []),
+          ...(outputs[i] ?? []).map((content) => ({
+            type: "output" as const,
+            content,
+          })),
+        ];
+      }),
+    [commands, loaders, outputs],
+  );
   const loaderText = loaders[commandIdx]?.text;
   const loaderDuration = loaders[commandIdx]?.duration ?? 1500;
   const loaderIsProgress = loaders[commandIdx]?.progress ?? false;
@@ -533,6 +556,19 @@ export function Terminal({
     }
   }, [lines, phase, loaderFrame]);
 
+  const renderLine = (line: TerminalLine, i: number) => (
+    <div key={i} className="leading-relaxed whitespace-pre-wrap">
+      {line.type === "command" ? (
+        <span>
+          {prompt}
+          <SyntaxHighlightedText text={line.content} />
+        </span>
+      ) : (
+        <span className="text-neutral-400">{line.content}</span>
+      )}
+    </div>
+  );
+
   const prompt = (
     <span className="text-neutral-500">
       <span className="text-sky-500">{username}</span>
@@ -582,23 +618,27 @@ export function Terminal({
 
         {/* Terminal Content */}
         <div
-          ref={contentRef}
           // Inline so the height holds even if the stylesheet is stale or slow.
-          style={{ height }}
-          className="no-visible-scrollbar overflow-y-auto p-4 font-mono"
+          style={height ? { height } : undefined}
+          className={cn(
+            "grid p-4 font-mono",
+            height && "no-visible-scrollbar overflow-y-auto",
+          )}
         >
-          {lines.map((line, i) => (
-            <div key={i} className="leading-relaxed whitespace-pre-wrap">
-              {line.type === "command" ? (
-                <span>
-                  {prompt}
-                  <SyntaxHighlightedText text={line.content} />
-                </span>
-              ) : (
-                <span className="text-neutral-400">{line.content}</span>
-              )}
+          {!height && (
+            // Invisible full transcript sharing the live content's grid cell,
+            // so the box is exactly as tall as the finished output.
+            <div aria-hidden="true" className="invisible col-start-1 row-start-1">
+              {finalLines.map(renderLine)}
+              <div className="leading-relaxed whitespace-pre-wrap">
+                {prompt}
+                <span className="inline-block h-4 w-2 align-middle" />
+              </div>
             </div>
-          ))}
+          )}
+
+          <div ref={contentRef} className="col-start-1 row-start-1">
+          {lines.map(renderLine)}
 
           {phase === "typing" && (
             <div className="leading-relaxed whitespace-pre-wrap">
@@ -642,6 +682,7 @@ export function Terminal({
               />
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>
