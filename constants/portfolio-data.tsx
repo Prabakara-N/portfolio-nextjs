@@ -16,6 +16,7 @@ import {
   ReduxIcon,
   RecoilIcon,
   JotaiIcon,
+  ZustandIcon,
   HtmlIcon,
   CssIcon,
   TailwindIcon,
@@ -47,6 +48,8 @@ import {
   RazorpayIcon,
   CloudflareIcon,
   AwsIcon,
+  AwsEc2Icon,
+  AwsAmplifyIcon,
   CloudinaryIcon,
   SentryIcon,
   OrpcIcon,
@@ -60,7 +63,7 @@ export const personalInfo = {
   title: "Full Stack Developer",
   email: "prabakaran.m0208@gmail.com",
   location: "India",
-  bio: "Full-Stack Software Engineer (3 yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
+  bio: "Full-Stack Software Engineer (3 yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, scaled LeetCampus's recruitment module to handle 2,600+ concurrent students for smooth campus placement drives, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,
 };
@@ -100,6 +103,7 @@ export const skills: Skill[] = [
   { name: "Redux", icon: ReduxIcon, category: "frontend" },
   { name: "Recoil", icon: RecoilIcon, category: "frontend" },
   { name: "Jotai", icon: JotaiIcon, category: "frontend" },
+  { name: "Zustand", icon: ZustandIcon, category: "frontend" },
   { name: "HTML", icon: HtmlIcon, category: "frontend" },
   { name: "CSS", icon: CssIcon, category: "frontend" },
   { name: "Tailwind CSS", icon: TailwindIcon, category: "frontend" },
@@ -130,6 +134,8 @@ export const skills: Skill[] = [
   { name: "Netlify", icon: NetlifyIcon, category: "cloud" },
   { name: "Cloudflare R2", icon: CloudflareIcon, category: "cloud" },
   { name: "AWS S3", icon: AwsIcon, category: "cloud" },
+  { name: "AWS EC2", icon: AwsEc2Icon, category: "cloud" },
+  { name: "AWS Amplify", icon: AwsAmplifyIcon, category: "cloud" },
   { name: "Cloudinary", icon: CloudinaryIcon, category: "cloud" },
 
   // Database

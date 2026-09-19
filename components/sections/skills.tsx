@@ -1,14 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  SectionWrapper,
-  SectionHeader,
-} from "@/components/layout/section-wrapper";
+import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { TextRevealCard } from "@/components/aceternity/text-reveal-card";
 import { Highlighter } from "@/components/ui/highlighter";
 import { skills, Skill } from "@/constants/portfolio-data";
-import { SkillsBeam } from "@/components/sections/skills-beam";
 import { cn } from "@/lib/utils";
 import {
   Code2,
@@ -116,21 +112,15 @@ function SkillCategory({ category }: { category: keyof typeof categoryInfo }) {
 export function SkillsSection() {
   return (
     <SectionWrapper id="skills" className="bg-card/30">
-      <SectionHeader
-        title="Skills & Technologies"
-        subtitle="The tools and technologies I use to bring ideas to life"
-      />
-
-      {/* Text Reveal Card with the animated beam graph inside it */}
-      <div className="lg:mb-12">
+      <div className="mb-12">
         <TextRevealCard
           text="Technologies I use"
           revealText="Mastering the craft"
           className="mx-auto max-w-3xl"
-        >
-          {/* Animated Beam — avatar at the center; click a node to jump to its category */}
-          <SkillsBeam />
-        </TextRevealCard>
+        />
+        <p className="mt-4 text-center text-lg text-muted-foreground">
+          The tools and technologies I use to bring ideas to life
+        </p>
       </div>
 
       {/* Skills Grid */}

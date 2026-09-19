@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero";
+import { TerminalMantraSection } from "@/components/sections/terminal-mantra";
 import { SkillsSection } from "@/components/sections/skills";
 import { ExperienceSection } from "@/components/sections/experience";
 import { ProjectsSection } from "@/components/sections/projects";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden">
       <Navbar />
       <HeroSection />
+      <TerminalMantraSection />
       <SkillsSection />
       <ExperienceSection />
       <ProjectsSection />

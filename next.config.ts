@@ -15,21 +15,16 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      // /assets filenames are not content-hashed (e.g. the resume PDF is replaced
+      // in place), so browsers must revalidate them. Don't set headers for
+      // /_next/static: Next already marks it immutable in production and
+      // no-store in dev, and overriding it makes dev serve stale CSS/JS.
       {
         source: "/assets/:path*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=0, must-revalidate",
           },
         ],
       },

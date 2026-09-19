@@ -69,7 +69,7 @@ export function TextRevealCard({
     >
       {children}
 
-      <div className="relative flex h-40 items-center justify-center overflow-hidden">
+      <div className="relative flex h-12 items-center justify-center overflow-hidden">
         <motion.div
           style={{
             width: "100%",
@@ -77,19 +77,19 @@ export function TextRevealCard({
           animate={
             isMouseOver
               ? {
-                  opacity: widthPercentage > 0 ? 1 : 0,
-                  clipPath: `inset(0 ${100 - widthPercentage}% 0 0)`,
-                }
+                opacity: widthPercentage > 0 ? 1 : 0,
+                clipPath: `inset(0 ${100 - widthPercentage}% 0 0)`,
+              }
               : {
-                  opacity: 1,
-                  clipPath: [
-                    "inset(0 100% 0 0)",
-                    "inset(0 100% 0 0)",
-                    "inset(0 0% 0 0)",
-                    "inset(0 0% 0 0)",
-                    "inset(0 100% 0 0)",
-                  ],
-                }
+                opacity: 1,
+                clipPath: [
+                  "inset(0 100% 0 0)",
+                  "inset(0 100% 0 0)",
+                  "inset(0 0% 0 0)",
+                  "inset(0 0% 0 0)",
+                  "inset(0 100% 0 0)",
+                ],
+              }
           }
           transition={isMouseOver ? { duration: 0 } : autoTransition}
           className="absolute z-20 will-change-transform"
@@ -107,14 +107,14 @@ export function TextRevealCard({
           animate={
             isMouseOver
               ? {
-                  left: `${widthPercentage}%`,
-                  rotate: `${rotateDeg}deg`,
-                  opacity: widthPercentage > 0 ? 1 : 0,
-                }
+                left: `${widthPercentage}%`,
+                rotate: `${rotateDeg}deg`,
+                opacity: widthPercentage > 0 ? 1 : 0,
+              }
               : {
-                  left: ["0%", "0%", "100%", "100%", "0%"],
-                  opacity: [0, 0, 1, 0, 0],
-                }
+                left: ["0%", "0%", "100%", "100%", "0%"],
+                opacity: [0, 0, 1, 0, 0],
+              }
           }
           transition={isMouseOver ? { duration: 0 } : autoTransition}
           className="absolute z-50 h-40 w-[2px] bg-gradient-to-b from-transparent via-primary to-transparent will-change-transform"
@@ -125,14 +125,14 @@ export function TextRevealCard({
             isMouseOver
               ? { clipPath: `inset(0 0 0 ${widthPercentage}%)` }
               : {
-                  clipPath: [
-                    "inset(0 0 0 0%)",
-                    "inset(0 0 0 0%)",
-                    "inset(0 0 0 100%)",
-                    "inset(0 0 0 100%)",
-                    "inset(0 0 0 0%)",
-                  ],
-                }
+                clipPath: [
+                  "inset(0 0 0 0%)",
+                  "inset(0 0 0 0%)",
+                  "inset(0 0 0 100%)",
+                  "inset(0 0 0 100%)",
+                  "inset(0 0 0 0%)",
+                ],
+              }
           }
           transition={isMouseOver ? { duration: 0 } : autoTransition}
           className="w-full overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"
