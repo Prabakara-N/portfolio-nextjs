@@ -434,6 +434,11 @@ export const projects: Project[] = [
 export interface ExperienceProduct {
   name: string;
   url: string;
+  /** One-line summary of what the product is. */
+  tagline?: string;
+  techStack?: string[];
+  /** Contributions specific to this product. */
+  highlights?: string[];
 }
 
 export interface Experience {
@@ -459,22 +464,54 @@ export const experiences: Experience[] = [
     duration: "Jul 2023 - Present",
     type: "Full-time",
     description:
-      "Building high-performance, scalable web applications end-to-end with a modern Next.js / TypeScript stack. Focused on clean architecture, type-safe APIs, role-based access control and AI-powered features across products like LeetCV (150,000+ users), and built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive.",
+      "Darthwares is an AI product studio. I own features end-to-end across its products — from client requirements and design through deployment.",
     products: [
-      { name: "LeetCampus", url: "https://www.leetcampus.com/" },
-      { name: "LeetCV", url: "https://www.leetcv.com/" },
-      { name: "Ennuviz", url: "https://www.ennuviz.com/" },
+      {
+        name: "LeetCampus",
+        url: "https://www.leetcampus.com/",
+        tagline: "AI-powered college academic & placement platform",
+        techStack: ["Next.js", "TypeScript", "Firebase Admin", "tRPC", "Tailwind CSS", "Jotai"],
+        highlights: [
+          "Engineered a scalable role-based access system for admins, professors and 2,500+ students, ensuring secure and efficient workflows",
+          "Built AI-driven modules including Leet Tutor (AI slide generator) and Mock Placement Drive with automated AI-generated feedback, boosting engagement by 35%",
+          "Built backend services and placement-drive workflows — QR-code attendance and drive updates via email/SMS notifications — serving 2,500+ concurrent students per placement drive and cutting manual work by 80%",
+          "Implemented dynamic onboarding forms & real-time features for placement-drive and academic workflows",
+        ],
+      },
+      {
+        name: "LeetCV",
+        url: "https://www.leetcv.com/",
+        tagline: "AI-powered resume builder",
+        techStack: ["Next.js", "TypeScript", "Firebase Admin", "tRPC", "Tailwind CSS", "Recoil"],
+        highlights: [
+          "Contributed to LeetCV, an AI-powered resume builder trusted by 150,000+ users worldwide",
+          "Built Leet Link, a Linktree-style module enabling users to share resumes, portfolios and social profiles",
+          "Refactored legacy code and optimized workflows, reducing component complexity and cutting re-render issues by 40%",
+          "Implemented telemetry and analytics dashboards, improving visibility into user activity and enabling data-driven decisions",
+        ],
+      },
+      {
+        name: "Ennuviz",
+        url: "https://www.ennuviz.com/",
+        tagline: "Enterprise digital transformation website",
+        techStack: ["Next.js", "TypeScript", "Sanity", "Tailwind CSS"],
+        highlights: [
+          "Built a custom event registration system for seamless data capture and user management",
+          "Integrated spreadsheet automation to export registration data, reducing manual reporting work by 90%",
+          "Optimized site structure, metadata and SEO, enhancing organic visibility and performance metrics",
+        ],
+      },
     ],
     highlights: [
-      "Contributed to LeetCV, an AI resume builder trusted by 150,000+ users worldwide",
-      "Built backend services for LeetCampus, a placement platform serving 2,500+ concurrent students per placement drive",
-      "Developed & optimized responsive, scalable apps with Next.js, TypeScript, Tailwind, Firebase & tRPC, improving page load speeds by 40%",
-      "Implemented role-based access control, dynamic onboarding forms & real-time features for placement-drive and academic workflows",
-      "Built AI-powered modules — resume generation, interactive tutoring & mock placement drives — increasing engagement by 35%",
-      "Resolved production issues, improving platform stability by 20% and reducing downtime",
+      "Built and shipped three production web applications end-to-end with Next.js, TypeScript, Tailwind CSS, Firebase & tRPC — owning features from design through deployment",
+      "Improved page load speeds by 40% and cut re-render issues by 40% by refactoring legacy code and optimizing rendering across production apps",
+      "Automated result-report emails to admins with Vercel Cron Jobs, dispatching performance summaries once a mock placement drive or test completes",
       "Designed reusable UI components & modular frontend architecture, accelerating development by 25%",
-      "Refactored legacy code in Agile teams, cutting technical debt & complexity by 30%",
       "Established Jest unit testing for core workflows, improving reliability and reducing regressions",
+      "Resolved production issues, improving platform stability by 20% and reducing downtime",
+      "Refactored legacy code in Agile teams, cutting technical debt & complexity by 30%",
+      "Worked directly with clients and cross-functional stakeholders to turn requirements into technical specifications, delivering client-facing apps to spec and on schedule",
+      "Performed code reviews and ensured smooth deployments across cross-functional releases",
     ],
   },
 ];
