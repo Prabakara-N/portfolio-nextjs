@@ -54,8 +54,32 @@ const categoryInfo = {
   },
 };
 
+// Brands like Next.js, Vercel and GitHub are black; below this relative
+// luminance a logo would vanish on the dark themes, so it uses the text color.
+const MIN_BRAND_LUMINANCE = 0.06;
+
+function relativeLuminance(hex: string): number {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const c = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function iconColorProps(color?: string): {
+  className: string;
+  style?: React.CSSProperties;
+} {
+  if (!color) return { className: "text-primary" };
+  if (relativeLuminance(color) < MIN_BRAND_LUMINANCE) {
+    return { className: "text-foreground" };
+  }
+  return { className: "", style: { color } };
+}
+
 function SkillBadge({ skill, index }: { skill: Skill; index: number }) {
   const IconComponent = skill.icon;
+  const iconColor = iconColorProps(skill.color);
 
   return (
     <motion.div
@@ -71,7 +95,14 @@ function SkillBadge({ skill, index }: { skill: Skill; index: number }) {
         "transition-all hover:bg-muted hover:border-primary/50"
       )}
     >
-      <IconComponent className="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
+      <IconComponent
+        aria-hidden="true"
+        style={iconColor.style}
+        className={cn(
+          "h-5 w-5 transition-transform group-hover:scale-110",
+          iconColor.className
+        )}
+      />
       <span>{skill.name}</span>
     </motion.div>
   );

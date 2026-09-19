@@ -84,6 +84,8 @@ export const roles = [
 export interface Skill {
   name: string;
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  /** Brand color (hex) for the icon; generic skills fall back to the theme color. */
+  color?: string;
   category:
   | "frontend"
   | "backend"
@@ -96,66 +98,66 @@ export interface Skill {
 
 export const skills: Skill[] = [
   // Frontend
-  { name: "Next.js", icon: NextJsIcon, category: "frontend" },
-  { name: "React.js", icon: ReactIcon, category: "frontend" },
-  { name: "JavaScript", icon: JavaScriptIcon, category: "frontend" },
-  { name: "TypeScript", icon: TypeScriptIcon, category: "frontend" },
-  { name: "Redux", icon: ReduxIcon, category: "frontend" },
-  { name: "Recoil", icon: RecoilIcon, category: "frontend" },
+  { name: "Next.js", icon: NextJsIcon, category: "frontend", color: "#000000" },
+  { name: "React.js", icon: ReactIcon, category: "frontend", color: "#61DAFB" },
+  { name: "JavaScript", icon: JavaScriptIcon, category: "frontend", color: "#F7DF1E" },
+  { name: "TypeScript", icon: TypeScriptIcon, category: "frontend", color: "#3178C6" },
+  { name: "Redux", icon: ReduxIcon, category: "frontend", color: "#764ABC" },
+  { name: "Recoil", icon: RecoilIcon, category: "frontend", color: "#3578E5" },
   { name: "Jotai", icon: JotaiIcon, category: "frontend" },
   { name: "Zustand", icon: ZustandIcon, category: "frontend" },
-  { name: "HTML", icon: HtmlIcon, category: "frontend" },
-  { name: "CSS", icon: CssIcon, category: "frontend" },
-  { name: "Tailwind CSS", icon: TailwindIcon, category: "frontend" },
-  { name: "Bootstrap", icon: BootstrapIcon, category: "frontend" },
+  { name: "HTML", icon: HtmlIcon, category: "frontend", color: "#E34F26" },
+  { name: "CSS", icon: CssIcon, category: "frontend", color: "#1572B6" },
+  { name: "Tailwind CSS", icon: TailwindIcon, category: "frontend", color: "#06B6D4" },
+  { name: "Bootstrap", icon: BootstrapIcon, category: "frontend", color: "#7952B3" },
   { name: "SEO Optimization", icon: SeoIcon, category: "frontend" },
   { name: "State Management", icon: StateIcon, category: "frontend" },
 
   // Backend & APIs
-  { name: "Node.js", icon: NodeIcon, category: "backend" },
-  { name: "Express.js", icon: ExpressIcon, category: "backend" },
-  { name: "tRPC", icon: TrpcIcon, category: "backend" },
+  { name: "Node.js", icon: NodeIcon, category: "backend", color: "#5FA04E" },
+  { name: "Express.js", icon: ExpressIcon, category: "backend", color: "#0A0A0A" },
+  { name: "tRPC", icon: TrpcIcon, category: "backend", color: "#2596BE" },
   { name: "oRPC", icon: OrpcIcon, category: "backend" },
   { name: "REST API", icon: ApiIcon, category: "backend" },
   { name: "Server Actions", icon: ServerActionsIcon, category: "backend" },
-  { name: "Firebase Admin", icon: FirebaseIcon, category: "backend" },
+  { name: "Firebase Admin", icon: FirebaseIcon, category: "backend", color: "#DD2C00" },
   { name: "Webhooks", icon: WebhookIcon, category: "backend" },
-  { name: "Sanity CMS", icon: SanityIcon, category: "backend" },
+  { name: "Sanity CMS", icon: SanityIcon, category: "backend", color: "#0D0E12" },
 
   // AI & Integrations
-  { name: "OpenAI", icon: OpenAiIcon, category: "ai" },
-  { name: "Google Gemini", icon: GeminiIcon, category: "ai" },
-  { name: "Vercel AI SDK", icon: VercelAiIcon, category: "ai" },
-  { name: "LemonSqueezy", icon: LemonSqueezyIcon, category: "ai" },
-  { name: "Razorpay", icon: RazorpayIcon, category: "ai" },
+  { name: "OpenAI", icon: OpenAiIcon, category: "ai", color: "#412991" },
+  { name: "Google Gemini", icon: GeminiIcon, category: "ai", color: "#8E75B2" },
+  { name: "Vercel AI SDK", icon: VercelAiIcon, category: "ai", color: "#000000" },
+  { name: "LemonSqueezy", icon: LemonSqueezyIcon, category: "ai", color: "#FFC233" },
+  { name: "Razorpay", icon: RazorpayIcon, category: "ai", color: "#0C2451" },
 
   // Cloud & Storage
-  { name: "Vercel", icon: VercelIcon, category: "cloud" },
-  { name: "Netlify", icon: NetlifyIcon, category: "cloud" },
-  { name: "Cloudflare R2", icon: CloudflareIcon, category: "cloud" },
-  { name: "AWS S3", icon: AwsIcon, category: "cloud" },
-  { name: "AWS EC2", icon: AwsEc2Icon, category: "cloud" },
-  { name: "AWS Amplify", icon: AwsAmplifyIcon, category: "cloud" },
-  { name: "Cloudinary", icon: CloudinaryIcon, category: "cloud" },
+  { name: "Vercel", icon: VercelIcon, category: "cloud", color: "#000000" },
+  { name: "Netlify", icon: NetlifyIcon, category: "cloud", color: "#00C7B7" },
+  { name: "Cloudflare R2", icon: CloudflareIcon, category: "cloud", color: "#F38020" },
+  { name: "AWS S3", icon: AwsIcon, category: "cloud", color: "#569A31" },
+  { name: "AWS EC2", icon: AwsEc2Icon, category: "cloud", color: "#FF9900" },
+  { name: "AWS Amplify", icon: AwsAmplifyIcon, category: "cloud", color: "#FF9900" },
+  { name: "Cloudinary", icon: CloudinaryIcon, category: "cloud", color: "#3448C5" },
 
   // Database
-  { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database" },
-  { name: "MongoDB", icon: MongoDbIcon, category: "database" },
+  { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database", color: "#DD2C00" },
+  { name: "MongoDB", icon: MongoDbIcon, category: "database", color: "#47A248" },
   { name: "SQL", icon: SqlIcon, category: "database" },
-  { name: "MySQL", icon: MySqlIcon, category: "database" },
+  { name: "MySQL", icon: MySqlIcon, category: "database", color: "#4479A1" },
 
   // Tools
-  { name: "VS Code", icon: VsCodeIcon, category: "tools" },
-  { name: "Cursor", icon: CursorIcon, category: "tools" },
-  { name: "Claude Code", icon: ClaudeIcon, category: "tools" },
-  { name: "Postman", icon: PostmanIcon, category: "tools" },
-  { name: "Jest", icon: JestIcon, category: "tools" },
-  { name: "Playwright", icon: PlaywrightIcon, category: "tools" },
-  { name: "Sentry", icon: SentryIcon, category: "tools" },
+  { name: "VS Code", icon: VsCodeIcon, category: "tools", color: "#007ACC" },
+  { name: "Cursor", icon: CursorIcon, category: "tools", color: "#000000" },
+  { name: "Claude Code", icon: ClaudeIcon, category: "tools", color: "#D97757" },
+  { name: "Postman", icon: PostmanIcon, category: "tools", color: "#FF6C37" },
+  { name: "Jest", icon: JestIcon, category: "tools", color: "#C21325" },
+  { name: "Playwright", icon: PlaywrightIcon, category: "tools", color: "#2EAD33" },
+  { name: "Sentry", icon: SentryIcon, category: "tools", color: "#362D59" },
 
   // Version Control
-  { name: "Git", icon: GitIcon, category: "versionControl" },
-  { name: "GitHub", icon: GithubIcon, category: "versionControl" },
+  { name: "Git", icon: GitIcon, category: "versionControl", color: "#F03C2E" },
+  { name: "GitHub", icon: GithubIcon, category: "versionControl", color: "#181717" },
 ];
 
 export type SkillCategory = Skill["category"];
