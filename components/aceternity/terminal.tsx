@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Volume2 } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const KEY_SOUNDS_DOWN: Record<string, [number, number]> = {
@@ -95,72 +95,63 @@ const KEY_SOUNDS_UP: Record<string, [number, number]> = {
   Enter: [19180, 100],
 };
 
-function useAudio(enabled: boolean) {
+/**
+ * Keystroke sounds, off until `enable()` runs from a click (browsers only
+ * allow audio after a user gesture). `enable()` resolves once the sound file
+ * is decoded, so callers can start typing with every key audible.
+ */
+function useAudio() {
   const ctxRef = useRef<AudioContext | null>(null);
   const bufferRef = useRef<AudioBuffer | null>(null);
-  const readyRef = useRef(false);
+  const loadingRef = useRef<Promise<void> | null>(null);
+  const enabledRef = useRef(false);
 
-  useEffect(() => {
-    readyRef.current = false;
-    if (!enabled) return;
-
-    const controller = new AbortController();
-    let context: AudioContext | null = null;
-    let started = false;
-
-    const removeListeners = () => {
-      window.removeEventListener("click", initAudio);
-      window.removeEventListener("keydown", initAudio);
-    };
-
-    // Keep automatic demos silent until the user clicks, taps, or presses a key.
-    async function initAudio() {
-      if (started) return;
-      started = true;
-      removeListeners();
-
-      try {
-        context = new AudioContext();
-        ctxRef.current = context;
-        // Resume during the user gesture, before the download completes.
-        void context.resume().catch(() => {});
-        const response = await fetch("/sounds/sound.ogg", {
-          signal: controller.signal,
-        });
-        if (!response.ok || controller.signal.aborted) return;
-        const bytes = await response.arrayBuffer();
-        if (controller.signal.aborted) return;
-        const buffer = await context.decodeAudioData(bytes);
-        if (controller.signal.aborted) return;
-        bufferRef.current = buffer;
-        readyRef.current = true;
-      } catch {
-        // A failed download or an unmounted demo must not stop the animation.
-      }
-    }
-
-    window.addEventListener("click", initAudio, { once: true });
-    window.addEventListener("keydown", initAudio, { once: true });
-
-    return () => {
-      removeListeners();
-      controller.abort();
-      readyRef.current = false;
+  useEffect(
+    () => () => {
+      enabledRef.current = false;
       bufferRef.current = null;
+      void ctxRef.current?.close().catch(() => {});
       ctxRef.current = null;
-      if (context) void context.close().catch(() => {});
-    };
-  }, [enabled]);
+    },
+    [],
+  );
+
+  const enable = useCallback(async () => {
+    enabledRef.current = true;
+    if (!ctxRef.current) ctxRef.current = new AudioContext();
+    // Resume during the click, before the download completes.
+    void ctxRef.current.resume().catch(() => {});
+
+    if (!loadingRef.current) {
+      const context = ctxRef.current;
+      loadingRef.current = (async () => {
+        try {
+          const response = await fetch("/sounds/sound.ogg");
+          if (!response.ok) return;
+          bufferRef.current = await context.decodeAudioData(
+            await response.arrayBuffer(),
+          );
+        } catch {
+          // A failed download must not stop the animation; it just stays silent.
+        }
+      })();
+    }
+    await loadingRef.current;
+  }, []);
+
+  const disable = useCallback(() => {
+    enabledRef.current = false;
+  }, []);
 
   // Stable callbacks (they only read refs) so the typing effect doesn't
   // re-run, and replay a keystroke sound, on every unrelated re-render.
   const playSound = useCallback((sound: [number, number] | undefined) => {
-    if (!readyRef.current || !ctxRef.current || !bufferRef.current || !sound)
-      return;
-    if (ctxRef.current.state === "suspended") ctxRef.current.resume();
-    const src = ctxRef.current.createBufferSource();
+    const context = ctxRef.current;
+    if (!enabledRef.current || !context || !bufferRef.current || !sound) return;
+    if (context.state === "suspended") void context.resume();
+    const src = context.createBufferSource();
     src.buffer = bufferRef.current;
-    src.connect(ctxRef.current.destination);
+    src.connect(context.destination);
     src.start(0, sound[0] / 1000, sound[1] / 1000);
   }, []);
 
@@ -175,7 +166,7 @@ function useAudio(enabled: boolean) {
     [playSound],
   );
 
-  return { down, up };
+  return { down, up, enable, disable };
 }
 
 function useInView(ref: React.RefObject<HTMLElement | null>, once = true) {
@@ -370,7 +361,8 @@ export function Terminal({
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef);
-  const { down, up } = useAudio(enableSound);
+  const { down, up, enable, disable } = useAudio();
+  const [soundOn, setSoundOn] = useState(false);
 
   const [lines, setLines] = useState<TerminalLine[]>([]);
   const [currentText, setCurrentText] = useState("");
@@ -423,6 +415,19 @@ export function Terminal({
       setPhase("pausing");
     }
   }, [currentOutputs.length, isLastCommand]);
+
+  // Sound starts off. Turning it on restarts the animation so it types with
+  // sound from the first key; muting just silences the rest of the run.
+  const toggleSound = async () => {
+    if (soundOn) {
+      disable();
+      setSoundOn(false);
+      return;
+    }
+    setSoundOn(true);
+    await enable();
+    replay();
+  };
 
   const replay = () => {
     setLines([]);
@@ -600,16 +605,22 @@ export function Terminal({
             </span>
           </div>
           {enableSound ? (
-            // Browsers only allow audio after a click, so this click both
-            // unlocks sound and replays the animation to hear it.
             <button
               type="button"
-              onClick={replay}
-              aria-label="Replay with sound"
-              title="Replay with sound"
-              className="flex w-[52px] justify-end text-neutral-400 transition-colors hover:text-neutral-100"
+              onClick={toggleSound}
+              aria-pressed={soundOn}
+              aria-label={soundOn ? "Mute typing sound" : "Play with sound"}
+              title={soundOn ? "Mute" : "Play with sound"}
+              className={cn(
+                "flex w-[52px] justify-end transition-colors hover:text-neutral-100",
+                soundOn ? "text-emerald-400" : "text-neutral-500",
+              )}
             >
-              <Volume2 className="h-4 w-4" />
+              {soundOn ? (
+                <Volume2 className="h-4 w-4" />
+              ) : (
+                <VolumeX className="h-4 w-4" />
+              )}
             </button>
           ) : (
             <div className="w-[52px]" />
