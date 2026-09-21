@@ -116,7 +116,7 @@ const personSchema = {
   "@id": `${siteUrl}/#person`,
   name: "Prabakaran",
   url: siteUrl,
-  image: `${siteUrl}/opengraph-image`,
+  image: `${siteUrl}/opengraph-image.png`,
   sameAs: [
     "https://github.com/Prabakara-N",
     "https://www.linkedin.com/in/prabakaran0208/",
