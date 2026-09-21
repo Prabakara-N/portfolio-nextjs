@@ -1,45 +1,67 @@
-# Prabakaran — Full Stack Software Engineer
+# Prabakaran M — Full Stack Software Engineer
 
-> Full Stack Software Engineer with 3 years of experience building and shipping
-> production web applications end-to-end with Next.js, React, TypeScript, Node.js
-> and tRPC / oRPC. Founder and sole engineer of CrayonSparks, a live AI SaaS.
-> Based in India · Available for new opportunities.
+> Full Stack Software Engineer based in Coimbatore, India, with 3 years of
+> experience building and shipping production web applications end-to-end with
+> Next.js, React, TypeScript, Node.js and tRPC / oRPC. Founder and sole engineer
+> of CrayonSparks, a live AI SaaS. Contributed to LeetCV (150,000+ users) and
+> built backend services for LeetCampus (2,500+ concurrent students per
+> placement drive). Open to new full-time roles in Bangalore, Chennai,
+> Hyderabad and Kochi.
 
 ## About
 
-Prabakaran M is a Full Stack Software Engineer specializing in type-safe,
-AI-powered web applications. At Darthwares (July 2023–present) he builds
-type-safe APIs, role-based access control (RBAC) and AI features serving
-2,500+ users across enterprise and ed-tech products. He independently designed,
-built and deployed CrayonSparks — an AI book SaaS with a multi-provider AI
-pipeline (OpenAI + Google Gemini), subscription billing and cloud storage.
-
 - Name: Prabakaran M
-- Role: Full Stack Software Engineer
+- Role: Full Stack Software Engineer at Darthwares (July 2023 – present)
 - Experience: 3 years
-- Location: India (Tiruppur / Coimbatore)
+- Location: Coimbatore, Tamil Nadu, India
+- Open to: full-time Full Stack / Software Engineer roles in Bangalore, Chennai, Hyderabad and Kochi
 - Email: prabakaran.m0208@gmail.com
-- Status: Open to full-time roles
+- Strengths: application architecture, API design, performance optimization, AI integration
 
 ## Skills
 
-- Languages: TypeScript, JavaScript (ES6+), HTML5, CSS3, SQL (basics)
-- Frontend: Next.js, React.js, Redux, Recoil, Jotai, Tailwind CSS, SEO
-- Backend & APIs: Node.js, Express.js, tRPC, oRPC, REST APIs, Server Actions, Firebase Admin, Webhooks, Sanity CMS
-- AI & Integrations: OpenAI, Google Gemini, Vercel AI SDK, LemonSqueezy (billing)
-- Cloud & Storage: Vercel, Netlify, Cloudflare R2, AWS S3, Cloudinary
-- Databases: MongoDB, Firebase / Firestore
-- Testing & Tooling: Jest, Playwright, Postman, Sentry, Git, GitHub
+- Languages: TypeScript, JavaScript (ES6+), HTML5, CSS3, SQL
+- Frontend: Next.js, React.js, Redux, Recoil, Zustand, Jotai, Tailwind CSS, SEO optimization
+- Backend & APIs: Node.js, Express.js, tRPC, oRPC, REST APIs, Firebase Admin, Authentication & RBAC, Webhooks, Sanity CMS, Server Actions, Vercel Cron Jobs
+- Databases: PostgreSQL, MySQL, MongoDB, Firebase / Firestore
+- Cloud, Deployment & Storage: Vercel, Netlify, AWS EC2, AWS Amplify, AWS S3, Cloudflare R2, Cloudinary
+- AI & Integrations: OpenAI, Google Gemini, Vercel AI SDK, AI image & content generation, LemonSqueezy & Razorpay (payments & billing), email & webhook integrations
+- Testing & Tooling: Jest, Playwright, Postman, Git / GitHub, CI/CD, Sentry
+
+## Experience
+
+### Software Engineer — Darthwares, Coimbatore (July 2023 – present)
+
+- Built and shipped three production web applications end-to-end with Next.js, TypeScript, Tailwind CSS, Firebase and tRPC, owning features from design through deployment.
+- Improved page load speeds by 40% and cut re-render issues by 40% by refactoring legacy code and optimizing rendering.
+- Automated result-report emails to admins with Vercel Cron Jobs once a mock placement drive or test completes.
+- Designed reusable UI components and added Jest unit tests for core workflows.
+- Worked directly with clients and cross-functional stakeholders to turn requirements into technical specifications.
+- Collaborated in Agile teams, performed code reviews and ensured smooth deployments.
 
 ## Projects
 
-- [CrayonSparks](https://www.crayonsparks.com/): AI book SaaS (Founder & sole engineer). Turns prompts into print-ready story, coloring and activity books. Next.js 16, React 19, oRPC, Firebase, OpenAI + Gemini, LemonSqueezy, Cloudflare R2.
-- [LeetCampus](https://www.leetcampus.com/): AI-powered college academic & placement platform serving 2,500+ students. Next.js, TypeScript, Firebase, tRPC, Jotai.
-- [LeetCV](https://www.leetcv.com/): AI-powered resume builder with shareable Leet Link. Next.js, TypeScript, Firebase, tRPC, Recoil.
-- [Ennuviz](https://www.ennuviz.com/): Enterprise digital-transformation website. Next.js, TypeScript, Sanity CMS, Tailwind CSS.
+- [CrayonSparks](https://www.crayonsparks.com/): AI book SaaS — personal product, founder & sole engineer. Turns prompts into print-ready story, coloring and activity books with a multi-provider AI pipeline (OpenAI + Google Gemini via Vercel AI SDK), oRPC + Firebase backend, Cloudflare R2 storage, PDF generation for Amazon KDP (titles published live) and LemonSqueezy subscription billing with metered credits. Stack: Next.js 16, React 19, TypeScript, oRPC, Firebase / Firestore, OpenAI & Gemini, LemonSqueezy, Cloudflare R2.
+- [LeetCampus](https://www.leetcampus.com/) (built at Darthwares): AI-powered college academic & placement platform. Role-based access for admins, professors and 2,500+ students; AI modules Leet Tutor (AI slide generator) and Mock Placement Drive with AI feedback; QR-code attendance and email/SMS drive updates serving 2,500+ concurrent students per placement drive, cutting manual work by 80%. Stack: Next.js, TypeScript, Firebase Admin, tRPC, Tailwind CSS, Jotai.
+- [LeetCV](https://www.leetcv.com/) (built at Darthwares): AI-powered resume builder trusted by 150,000+ users worldwide. Built Leet Link (Linktree-style profile sharing), telemetry and analytics dashboards, and cut re-render issues by 40%. Stack: Next.js, TypeScript, Firebase Admin, tRPC, Tailwind CSS, Recoil.
+- [Ennuviz](https://www.ennuviz.com/) (built at Darthwares): enterprise digital transformation website. Custom event registration system, spreadsheet automation cutting manual reporting by 90%, and SEO / metadata optimization. Stack: Next.js, TypeScript, Sanity, Tailwind CSS.
+
+## Education
+
+- BE Metallurgical Engineering — PSG College of Technology (Aug 2018 – Jun 2022), CGPA 7.66/10
+
+## Certifications
+
+- [SQL (Intermediate)](https://www.hackerrank.com/certificates/2cc52258bee5) — HackerRank
+- [React (Basic)](https://www.hackerrank.com/certificates/4706b3d3b597) — HackerRank
+- [Problem Solving (Basic)](https://www.hackerrank.com/certificates/cee5197d9c73) — HackerRank
+- [Front End Development Libraries](https://www.freecodecamp.org/certification/prabakaran_55_/front-end-development-libraries) — freeCodeCamp
+- [JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/certification/prabakaran_55_/javascript-algorithms-and-data-structures) — freeCodeCamp
+- [AWS Free Course](https://shorturl.at/iBmYX) — Scaler Topics
 
 ## Links
 
 - Portfolio: https://www.prabakarandev.in/
 - GitHub: https://github.com/Prabakara-N
 - LinkedIn: https://www.linkedin.com/in/prabakaran0208/
+- Resume (PDF): https://www.prabakarandev.in/assets/Prabakaran_Resume.pdf
