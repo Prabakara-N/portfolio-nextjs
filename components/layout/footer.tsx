@@ -4,6 +4,7 @@ import { Github, Linkedin, Instagram, Mail, Heart, MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import { socialLinks as links, personalInfo } from "@/constants/portfolio-data";
 import Image from "next/image";
+import Link from "next/link";
 
 const socialLinks = [
   {
@@ -62,17 +63,24 @@ export function Footer() {
               Quick Links
             </p>
             <nav className="flex flex-col gap-2">
+              {/* "/#section" so these also work from other pages such as /faq. */}
               {["Home", "Skills", "Experience", "Projects", "Contact"].map(
                 (link) => (
                   <a
                     key={link}
-                    href={`#${link.toLowerCase()}`}
+                    href={`/#${link.toLowerCase()}`}
                     className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link}
                   </a>
                 )
               )}
+              <Link
+                href="/faq"
+                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                FAQ
+              </Link>
             </nav>
           </div>
 

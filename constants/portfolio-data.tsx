@@ -63,7 +63,7 @@ export const personalInfo = {
   name: "Prabakaran",
   title: "Full Stack Developer",
   email: "prabakaran.m0208@gmail.com",
-  location: "India",
+  location: "Coimbatore, India",
   bio: "Full-Stack Software Engineer (3 yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, scaled LeetCampus's recruitment module to handle 2,500+ concurrent students for smooth campus placement drives, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,

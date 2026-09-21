@@ -1,5 +1,6 @@
 // JSON-LD structured data for search and answer engines. Every fact here
-// should match the resume, the visible page and public/llms.txt.
+// should match the resume, the visible page and public/llms.txt. The FAQPage
+// schema lives in lib/faq.ts next to the visible /faq content.
 
 export const PREFERRED_JOB_LOCATIONS = [
   "Bangalore",
@@ -8,7 +9,7 @@ export const PREFERRED_JOB_LOCATIONS = [
   "Kochi",
 ];
 
-const CERTIFICATIONS = [
+export const CERTIFICATIONS = [
   {
     name: "SQL (Intermediate)",
     issuer: "HackerRank",
@@ -100,7 +101,7 @@ const KNOWS_ABOUT = [
   "Full Stack Development",
 ];
 
-const joinList = (items: string[]) =>
+export const joinList = (items: string[]) =>
   `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 
 export function buildJsonLd(siteUrl: string) {
@@ -111,7 +112,6 @@ export function buildJsonLd(siteUrl: string) {
     name: "Darthwares",
     url: "https://www.darthwares.com",
   };
-  const locations = joinList(PREFERRED_JOB_LOCATIONS);
 
   const person = {
     "@context": "https://schema.org",
@@ -226,43 +226,5 @@ export function buildJsonLd(siteUrl: string) {
     isPartOf: { "@id": `${siteUrl}/#website` },
   };
 
-  const faq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${siteUrl}/#faq`,
-    mainEntity: [
-      {
-        q: "Who is Prabakaran M?",
-        a: "Prabakaran M is a Full Stack Software Engineer based in Coimbatore, India, with 3 years of experience building production web applications with Next.js, React, TypeScript, Node.js and tRPC/oRPC. He is the founder and sole engineer of CrayonSparks, a live AI SaaS, and works as a Software Engineer at Darthwares.",
-      },
-      {
-        q: "What is Prabakaran M's tech stack?",
-        a: "TypeScript, JavaScript, Next.js, React, Node.js, Express, tRPC/oRPC and REST APIs; PostgreSQL, MySQL, MongoDB and Firebase/Firestore; Vercel, AWS (EC2, Amplify, S3), Cloudflare R2 and Netlify; OpenAI, Google Gemini and the Vercel AI SDK; tested with Jest and Playwright.",
-      },
-      {
-        q: "What has Prabakaran M built at Darthwares?",
-        a: "Since July 2023 he has built and shipped three production web apps end-to-end: backend services, role-based access and placement-drive workflows for LeetCampus (2,500+ concurrent students per placement drive, 80% less manual work), features for LeetCV (an AI resume builder with 150,000+ users) and an event registration system for Ennuviz. He also improved page load speeds by 40%.",
-      },
-      {
-        q: "What is CrayonSparks?",
-        a: "CrayonSparks is a live AI book SaaS that Prabakaran M designed, built and deployed end-to-end as sole engineer. It turns prompts into print-ready story, coloring and activity books using a multi-provider AI pipeline (OpenAI + Gemini), with subscription billing and cloud storage. Built with Next.js 16, React 19, oRPC, Firebase, LemonSqueezy and Cloudflare R2.",
-      },
-      {
-        q: "What are Prabakaran M's education and certifications?",
-        a: `He holds a BE in Metallurgical Engineering from PSG College of Technology (2018–2022). His certifications include ${joinList(
-          CERTIFICATIONS.map((c) => `${c.issuer} ${c.name}`)
-        )}.`,
-      },
-      {
-        q: "Is Prabakaran M available for hire?",
-        a: `Yes. Prabakaran M is open to new full-time Full Stack / Software Engineer opportunities in ${locations}. He is based in Coimbatore and can be reached at prabakaran.m0208@gmail.com.`,
-      },
-    ].map(({ q, a }) => ({
-      "@type": "Question",
-      name: q,
-      acceptedAnswer: { "@type": "Answer", text: a },
-    })),
-  };
-
-  return [person, website, profilePage, faq, ...projects];
+  return [person, website, profilePage, ...projects];
 }

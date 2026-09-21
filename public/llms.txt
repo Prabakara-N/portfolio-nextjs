@@ -62,6 +62,7 @@
 ## Links
 
 - Portfolio: https://www.prabakarandev.in/
+- FAQ: https://www.prabakarandev.in/faq
 - GitHub: https://github.com/Prabakara-N
 - LinkedIn: https://www.linkedin.com/in/prabakaran0208/
 - Resume (PDF): https://www.prabakarandev.in/assets/Prabakaran_Resume.pdf
