@@ -4,8 +4,8 @@
   "description": "Full Stack Developer Portfolio - React, Next.js, Node.js",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a1625",
-  "theme_color": "#00d4ff",
+  "background_color": "#08090a",
+  "theme_color": "#08090a",
   "orientation": "portrait-primary",
   "icons": [
     {

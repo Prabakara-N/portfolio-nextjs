@@ -105,7 +105,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#fafaff" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1625" },
+    { media: "(prefers-color-scheme: dark)", color: "#08090a" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -154,12 +154,12 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="ocean-depths"
+          defaultTheme="graphite"
           enableSystem={false}
           storageKey="portfolio-theme"
           themes={[
+            "graphite",
             "ocean-depths",
-            "cyber-neon",
             "navy-mirage",
             "midnight-aurora",
             "cosmic-purple",

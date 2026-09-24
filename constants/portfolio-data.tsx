@@ -22,7 +22,6 @@ import {
   TailwindIcon,
   BootstrapIcon,
   SeoIcon,
-  StateIcon,
   NodeIcon,
   ExpressIcon,
   FirebaseIcon,
@@ -112,7 +111,6 @@ export const skills: Skill[] = [
   { name: "Tailwind CSS", icon: TailwindIcon, category: "frontend", color: "#06B6D4" },
   { name: "Bootstrap", icon: BootstrapIcon, category: "frontend", color: "#7952B3" },
   { name: "SEO Optimization", icon: SeoIcon, category: "frontend" },
-  { name: "State Management", icon: StateIcon, category: "frontend" },
 
   // Backend & APIs
   { name: "Node.js", icon: NodeIcon, category: "backend", color: "#5FA04E" },

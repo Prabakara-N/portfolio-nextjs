@@ -83,43 +83,45 @@
   }
 }
 
-/* ===== THEME 1: CYBER NEON ===== */
-/* Cyan & Magenta neon vibes */
+/* ===== THEME 1: GRAPHITE (default) ===== */
+/* Near-black neutral base with a cyan accent, in the vein of Linear,
+   Raycast and Vercel: one surface step above the page, low-contrast
+   borders and near-white text. */
 :root,
-html[data-theme="cyber-neon"] {
+html[data-theme="graphite"] {
   color-scheme: dark;
   --radius: 0.625rem;
-  --background: oklch(0.1 0.02 280);
-  --foreground: oklch(0.95 0.01 280);
-  --card: oklch(0.14 0.025 280);
-  --card-foreground: oklch(0.95 0.01 280);
-  --popover: oklch(0.12 0.02 280);
-  --popover-foreground: oklch(0.95 0.01 280);
-  --primary: oklch(0.78 0.18 195);
-  --primary-foreground: oklch(0.1 0.02 280);
-  --secondary: oklch(0.72 0.22 320);
-  --secondary-foreground: oklch(0.98 0.01 320);
-  --muted: oklch(0.22 0.02 280);
-  --muted-foreground: oklch(0.65 0.02 280);
-  --accent: oklch(0.68 0.2 320);
-  --accent-foreground: oklch(0.98 0.01 320);
-  --destructive: oklch(0.6 0.22 25);
-  --border: oklch(0.28 0.04 280);
-  --input: oklch(0.22 0.03 280);
-  --ring: oklch(0.78 0.18 195);
-  --chart-1: oklch(0.78 0.18 195);
-  --chart-2: oklch(0.72 0.22 320);
-  --chart-3: oklch(0.68 0.15 280);
-  --chart-4: oklch(0.82 0.15 180);
-  --chart-5: oklch(0.75 0.18 340);
-  --sidebar: oklch(0.08 0.02 280);
-  --sidebar-foreground: oklch(0.95 0.01 280);
-  --sidebar-primary: oklch(0.78 0.18 195);
-  --sidebar-primary-foreground: oklch(0.1 0.02 280);
-  --sidebar-accent: oklch(0.18 0.025 280);
-  --sidebar-accent-foreground: oklch(0.95 0.01 280);
-  --sidebar-border: oklch(0.28 0.04 280);
-  --sidebar-ring: oklch(0.78 0.18 195);
+  --background: oklch(0.139 0.003 246.3);
+  --foreground: oklch(0.978 0.001 197.1);
+  --card: oklch(0.172 0.003 248);
+  --card-foreground: oklch(0.978 0.001 197.1);
+  --popover: oklch(0.158 0.003 248);
+  --popover-foreground: oklch(0.978 0.001 197.1);
+  --primary: oklch(0.797 0.134 211.5);
+  --primary-foreground: oklch(0.139 0.003 246.3);
+  --secondary: oklch(0.585 0.204 277.1);
+  --secondary-foreground: oklch(0.978 0.001 197.1);
+  --muted: oklch(0.226 0.007 258.4);
+  --muted-foreground: oklch(0.649 0.015 262.4);
+  --accent: oklch(0.68 0.158 276.9);
+  --accent-foreground: oklch(0.139 0.003 246.3);
+  --destructive: oklch(0.711 0.166 22.2);
+  --border: oklch(0.264 0.01 268.3);
+  --input: oklch(0.243 0.006 258.4);
+  --ring: oklch(0.797 0.134 211.5);
+  --chart-1: oklch(0.797 0.134 211.5);
+  --chart-2: oklch(0.585 0.204 277.1);
+  --chart-3: oklch(0.773 0.153 163.2);
+  --chart-4: oklch(0.837 0.164 84.4);
+  --chart-5: oklch(0.725 0.175 349.8);
+  --sidebar: oklch(0.128 0.003 245.8);
+  --sidebar-foreground: oklch(0.978 0.001 197.1);
+  --sidebar-primary: oklch(0.797 0.134 211.5);
+  --sidebar-primary-foreground: oklch(0.139 0.003 246.3);
+  --sidebar-accent: oklch(0.226 0.007 258.4);
+  --sidebar-accent-foreground: oklch(0.978 0.001 197.1);
+  --sidebar-border: oklch(0.264 0.01 268.3);
+  --sidebar-ring: oklch(0.797 0.134 211.5);
 }
 
 /* ===== THEME 2: MIDNIGHT AURORA ===== */
@@ -388,6 +390,83 @@ html[data-theme="arctic-frost"] {
   background: oklch(from var(--card) l c h / 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* ===== GRAPHITE: GLASS SURFACES =====
+   Scoped to the graphite theme so the other themes stay flat.
+   Ambient color glows sit behind the page so translucent surfaces have
+   something to refract; surfaces get a blur, a translucent fill and a
+   hairline light border. */
+html[data-theme="graphite"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      60rem 40rem at 12% -10%,
+      color-mix(in oklch, var(--primary) 16%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      52rem 34rem at 88% 8%,
+      color-mix(in oklch, var(--secondary) 15%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      48rem 32rem at 50% 108%,
+      color-mix(in oklch, var(--accent) 12%, transparent),
+      transparent 70%
+    );
+}
+
+/* Fine grain keeps the large dark areas from banding. */
+html[data-theme="graphite"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[data-theme="graphite"]
+  :is([class*="bg-card"], [class*="bg-popover"], [class*="bg-sidebar"]) {
+  background-color: color-mix(in oklch, var(--card) 55%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+/* Small chips and inline surfaces: translucent, but no blur (cheaper). */
+html[data-theme="graphite"] :is([class*="bg-muted"]) {
+  background-color: color-mix(in oklch, var(--muted) 55%, transparent);
+}
+
+/* Hairline top-lit border, the detail that reads as "glass". */
+html[data-theme="graphite"] :is([class*="border-border"], [class~="border"]) {
+  border-color: color-mix(in oklch, white 9%, transparent);
+}
+
+/* The hero paints its own opaque page background; drop it so the ambient
+   glows show through there too. Inputs and buttons keep theirs. */
+html[data-theme="graphite"] :is(#home, #home [class~="bg-background"]) {
+  background-color: transparent;
+}
+
+html[data-theme="graphite"] ::selection {
+  background: color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+/* Fall back to solid surfaces for viewers who ask for reduced transparency. */
+@media (prefers-reduced-transparency: reduce) {
+  html[data-theme="graphite"]
+    :is([class*="bg-card"], [class*="bg-popover"], [class*="bg-sidebar"]) {
+    background-color: var(--card);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 /* ===== GRID PATTERN BACKGROUND ===== */

@@ -1,5 +1,5 @@
 export type ThemeType =
-  | "cyber-neon"
+  | "graphite"
   | "midnight-aurora"
   | "navy-mirage"
   | "ocean-depths"
@@ -19,6 +19,16 @@ export interface ThemeInfo {
 
 export const themes: ThemeInfo[] = [
   {
+    id: "graphite",
+    name: "Graphite",
+    description: "Near-black glass with cyan accent",
+    colors: {
+      primary: "#22d3ee",
+      secondary: "#6366f1",
+      background: "#08090a",
+    },
+  },
+  {
     id: "ocean-depths",
     name: "Ocean Depths",
     description: "Deep blue & teal waves",
@@ -26,16 +36,6 @@ export const themes: ThemeInfo[] = [
       primary: "#0ea5e9",
       secondary: "#14b8a6",
       background: "#0a1520",
-    },
-  },
-  {
-    id: "cyber-neon",
-    name: "Cyber Neon",
-    description: "Cyan & magenta neon vibes",
-    colors: {
-      primary: "#00d4ff",
-      secondary: "#ff00ff",
-      background: "#0f0f1a",
     },
   },
   {
