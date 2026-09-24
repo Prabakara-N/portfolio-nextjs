@@ -60,7 +60,7 @@ import {
 
 export const personalInfo = {
   name: "Prabakaran",
-  title: "Full Stack Developer",
+  title: "Full Stack Software Engineer",
   email: "prabakaran.m0208@gmail.com",
   location: "Coimbatore, India",
   bio: "Full-Stack Software Engineer (3 yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, scaled LeetCampus's recruitment module to handle 2,500+ concurrent students for smooth campus placement drives, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
@@ -75,9 +75,11 @@ export const socialLinks = {
 };
 
 export const roles = [
-  "Full Stack Engineer",
+  "Full Stack Software Engineer",
   "AI SaaS Builder",
   "Next.js Developer",
+  "React.js Developer",
+  "Node.js Developer",
   "Founder of CrayonSparks",
 ];
 

@@ -8,6 +8,12 @@ import { Github, Linkedin, Instagram, Download, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { fireConfettiFromElement } from "@/components/magicui/confetti";
 
+// "a" or "an" has to flip with the role ("an AI SaaS Builder", "a Next.js
+// Developer"), so the article is part of the animated phrase.
+const rolePhrases = roles.map(
+  (role) => `${/^[aeiou]/i.test(role) ? "an" : "a"} ${role}`
+);
+
 const socialIcons = [
   { icon: Github, href: socialLinks.github, label: "Visit my GitHub profile" },
   { icon: Linkedin, href: socialLinks.linkedin, label: "Connect on LinkedIn" },
@@ -70,7 +76,7 @@ export function HeroSection() {
             className="mb-6 text-xl text-muted-foreground sm:text-2xl md:text-3xl"
             aria-hidden="true"
           >
-            I&apos;m a <FlipWords words={roles} className="text-primary" />
+            I&apos;m <FlipWords words={rolePhrases} className="text-primary" />
           </motion.div>
 
           {/* Bio */}

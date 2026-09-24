@@ -455,6 +455,14 @@ html[data-theme="graphite"] :is(#home, #home [class~="bg-background"]) {
   background-color: transparent;
 }
 
+/* The bottom bar sits over scrolling content, so it needs to stay readable:
+   near-opaque with a stronger blur instead of the 55% used elsewhere. */
+html[data-theme="graphite"] .mobile-bottom-nav {
+  background-color: color-mix(in oklch, var(--card) 92%, transparent);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
 html[data-theme="graphite"] ::selection {
   background: color-mix(in oklch, var(--primary) 30%, transparent);
 }
