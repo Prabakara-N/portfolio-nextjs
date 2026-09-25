@@ -143,8 +143,8 @@ export function buildJsonLd(siteUrl: string) {
     })),
     sameAs: [
       "https://github.com/Prabakara-N",
-      "https://www.linkedin.com/in/prabakaran0208/",
-      "https://www.instagram.com/vibe_coder_28/",
+      "https://www.linkedin.com/in/prabakaran0208",
+      "https://www.instagram.com/the_practical_dev",
     ],
     description:
       "Full Stack Software Engineer with 3 years of experience building production web apps with Next.js, React, TypeScript, Node.js and tRPC/oRPC. Founder & sole engineer of CrayonSparks, a live AI SaaS. Contributed to LeetCV (150,000+ users) and built backend services for LeetCampus (2,500+ concurrent students per placement drive).",

@@ -70,8 +70,8 @@ export const personalInfo = {
 
 export const socialLinks = {
   github: "https://github.com/Prabakara-N",
-  linkedin: "https://www.linkedin.com/in/prabakaran0208/",
-  instagram: "https://www.instagram.com/vibe_coder_28/",
+  linkedin: "https://www.linkedin.com/in/prabakaran0208",
+  instagram: "https://www.instagram.com/the_practical_dev",
 };
 
 export const roles = [
