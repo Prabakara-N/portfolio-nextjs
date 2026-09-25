@@ -66,6 +66,9 @@ export const metadata: Metadata = {
     "hire web developer",
     "freelance developer India",
   ],
+  // Declares the preferred URL, so the same page served from another host
+  // (e.g. the *.vercel.app deployment domain) is not treated as a duplicate.
+  alternates: { canonical: "/" },
   authors: [{ name: "Prabakaran M", url: siteUrl }],
   creator: "Prabakaran M",
   publisher: "Prabakaran M",
