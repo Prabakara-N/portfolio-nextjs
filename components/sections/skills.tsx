@@ -28,12 +28,12 @@ const categoryInfo = {
     description: "Creating robust, type-safe APIs",
   },
   ai: {
-    title: "AI & Integrations",
+    title: "AI & Payment Integrations",
     icon: Sparkles,
     description: "Shipping AI-powered product features",
   },
   cloud: {
-    title: "Cloud & Storage",
+    title: "Cloud, Deployment & Storage",
     icon: Cloud,
     description: "Deploying & scaling in the cloud",
   },

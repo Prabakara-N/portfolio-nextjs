@@ -56,6 +56,9 @@ import {
   ServerActionsIcon,
   WebhookIcon,
   PlaywrightIcon,
+  N8nIcon,
+  WatiIcon,
+  SupabaseIcon,
 } from "@/components/icons/skill-icons";
 
 export const personalInfo = {
@@ -143,6 +146,7 @@ export const skills: Skill[] = [
 
   // Database
   { name: "Firebase / Firestore", icon: FirebaseIcon, category: "database", color: "#DD2C00" },
+  { name: "Supabase", icon: SupabaseIcon, category: "database", color: "#3FCF8E" },
   { name: "MongoDB", icon: MongoDbIcon, category: "database", color: "#47A248" },
   { name: "SQL", icon: SqlIcon, category: "database", color: "#EAB308" },
   { name: "MySQL", icon: MySqlIcon, category: "database", color: "#4479A1" },
@@ -153,6 +157,8 @@ export const skills: Skill[] = [
   { name: "Cursor", icon: CursorIcon, category: "tools", color: "#000000" },
   { name: "Claude Code", icon: ClaudeIcon, category: "tools", color: "#D97757" },
   { name: "Postman", icon: PostmanIcon, category: "tools", color: "#FF6C37" },
+  { name: "n8n", icon: N8nIcon, category: "tools", color: "#EA4B71" },
+  { name: "WATI", icon: WatiIcon, category: "tools", color: "#25D366" },
   { name: "Jest", icon: JestIcon, category: "tools", color: "#C21325" },
   { name: "Playwright", icon: PlaywrightIcon, category: "tools", color: "#2EAD33" },
   { name: "Sentry", icon: SentryIcon, category: "tools", color: "#362D59" },
