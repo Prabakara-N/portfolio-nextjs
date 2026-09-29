@@ -145,7 +145,7 @@ export function Navbar() {
         className={cn(
           "fixed left-0 right-0 top-0 z-50 hidden transition-all duration-300 md:block",
           isScrolled
-            ? "bg-card border-b border-border py-3"
+            ? "bg-background border-b border-border py-3"
             : "bg-transparent py-5"
         )}
       >

@@ -83,7 +83,7 @@ export function ExpandedProjectModal({
             <motion.div
               layoutId={`card-${active.id}-${layoutId}`}
               ref={ref}
-              className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-card md:h-fit md:max-h-[90%] md:rounded-3xl"
+              className="flex h-full w-full max-w-[550px] flex-col overflow-hidden bg-background md:h-fit md:max-h-[90%] md:rounded-3xl"
             >
               <motion.div layoutId={`image-${active.id}-${layoutId}`}>
                 <Image
