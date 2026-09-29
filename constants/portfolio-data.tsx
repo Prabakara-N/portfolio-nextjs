@@ -66,7 +66,7 @@ export const personalInfo = {
   title: "Full Stack Software Engineer",
   email: "prabakaran.m0208@gmail.com",
   location: "Coimbatore, India",
-  bio: "Full-Stack Software Engineer (3 yrs) building AI-powered products end-to-end with Next.js, React, TypeScript and Node.js. I shipped CrayonSparks — a live AI SaaS — solo, scaled LeetCampus's recruitment module to handle 2,500+ concurrent students for smooth campus placement drives, and contributed to products like LeetCV (150,000+ users). I care about clean architecture, type-safe APIs, and shipping fast.",
+  bio: "Full-Stack Software Engineer with 3 years of experience building AI-powered products. I work end-to-end with Next.js, React, TypeScript, and Node.js. Solo-shipped CrayonSparks, a live AI SaaS. Scaled LeetCampus to handle 2,500+ concurrent students. Contributed to LeetCV, used by 150,000+ people. I care about clean architecture, type-safe APIs, and shipping fast.",
   resumeUrl: "/assets/Prabakaran_Resume.pdf",
   available: true,
 };
