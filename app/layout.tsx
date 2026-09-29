@@ -29,10 +29,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Prabakaran M — Full Stack Software Engineer (Next.js, React, AI)",
+    default: "Prabakaran M — Full Stack Software Engineer",
     template: "%s | Prabakaran M",
   },
-  description: `Prabakaran M, Full Stack Software Engineer in Coimbatore with 3 years of experience in Next.js, React, TypeScript, Node.js & AI (OpenAI, Gemini). Founder of CrayonSparks AI SaaS; built for LeetCV (150,000+ users) & LeetCampus (2,500+ concurrent students). Open to roles in ${PREFERRED_JOB_LOCATIONS.join(", ")}.`,
+  description:
+    "Full Stack Engineer with 3 years experience in Next.js, React, TypeScript & AI. Built CrayonSparks AI SaaS, LeetCV (150K+ users) & LeetCampus.",
   keywords: [
     "developer portfolio",
     "software developer portfolio",

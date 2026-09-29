@@ -10,9 +10,9 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.prabakarandev.in";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Frequently Asked Questions",
   description:
-    "Quick answers about Prabakaran M, Full Stack Software Engineer in Coimbatore: tech stack, work at Darthwares, CrayonSparks, certifications and availability for roles in Bangalore, Chennai, Hyderabad and Kochi.",
+    "Answers about Prabakaran M: tech stack (Next.js, React, AI), work at Darthwares, CrayonSparks, and availability for roles in Bangalore & Chennai.",
   alternates: { canonical: "/faq" },
   openGraph: { url: "/faq" },
 };
