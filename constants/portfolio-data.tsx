@@ -59,6 +59,7 @@ import {
   N8nIcon,
   WatiIcon,
   SupabaseIcon,
+  RailwayIcon,
 } from "@/components/icons/skill-icons";
 
 export const personalInfo = {
@@ -137,6 +138,7 @@ export const skills: Skill[] = [
 
   // Cloud & Storage
   { name: "Vercel", icon: VercelIcon, category: "cloud", color: "#000000" },
+  { name: "Railway", icon: RailwayIcon, category: "cloud", color: "#0B0D0E" },
   { name: "Netlify", icon: NetlifyIcon, category: "cloud", color: "#00C7B7" },
   { name: "Cloudflare R2", icon: CloudflareIcon, category: "cloud", color: "#F38020" },
   { name: "AWS S3", icon: AwsIcon, category: "cloud", color: "#569A31" },
